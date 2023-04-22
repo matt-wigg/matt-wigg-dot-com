@@ -52,13 +52,34 @@ const HomeTabs = () => {
   useEffect(() => {
     const currentHour = currentTime.getHours();
     if (currentHour < 12) {
-      setGreeting('Good morning,');
+      setGreeting('Good morning ☀️');
     } else if (currentHour < 18) {
-      setGreeting('Good afternoon,');
+      setGreeting('Good afternoon 🌤️');
     } else {
-      setGreeting('Good evening,');
+      setGreeting('Good evening 🌙');
     }
   }, [currentTime]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === '1') {
+      setActiveTab('introduction');
+    } else if (event.key === '2') {
+      setActiveTab('skills');
+    } else if (event.key === '3') {
+      setActiveTab('experience');
+    } else if (event.key === '4') {
+      setActiveTab('education');
+    } else if (event.key === '5') {
+      setActiveTab('testimonials');
+    }
+  };
 
   const TabContent = () => {
     switch (activeTab) {
@@ -66,15 +87,16 @@ const HomeTabs = () => {
         return (
           <div className='space-y-4 text-lg font-light pl-4 '>
             <p className='text-2xl font-bold pt-2'>{greeting}</p>
-            <p>and welcome to my website!</p>
+            <p>Welcome to my website.</p>
+            <p>About me: </p>
             <ul className='list-disc list-inside pl-4'>
-              <li>My name is Matthew</li>
-              <li>I&apos;m a full-stack software engineer</li>
-              <li>I&apos;m from England, living in San Diego</li>
-              <li>I like hiking, camping, surfing, and Leeds United</li>
-              <li>I really want a dog</li>
+              <li>My name is Matthew Wigglesworth.</li>
+              <li>I&apos;m a full-stack software engineer.</li>
+              <li>I&apos;m from England.</li>
+              <li>I live in San Diego with my wife.</li>
+              <li>I like hiking, camping, surfing, and Leeds United.</li>
+              <li>I want a dog.</li>
             </ul>
-            <p>( ・ᴗ・)ノ </p>
           </div>
         );
       case 'skills':
@@ -82,7 +104,7 @@ const HomeTabs = () => {
           <div className='space-y-4 text-lg font-light pl-4'>
             <p className='text-2xl font-bold pt-2'>Skills.</p>
             <div className='flex align-middle'>
-              <CodeBracketIcon className='h-6 w-6 mr-2 text-yellow-400' />
+              <CodeBracketIcon className='h-6 w-6 mr-2 text-white' />
               <p className='font-medium'>Languages</p>
             </div>
             <ul className='list-disc list-inside pl-4'>
@@ -95,7 +117,7 @@ const HomeTabs = () => {
               </li>
             </ul>
             <div className='flex align-middle'>
-              <CircleStackIcon className='h-6 w-6 mr-2 text-yellow-400' />
+              <CircleStackIcon className='h-6 w-6 mr-2 text-white' />
               <p className='font-medium'>Databases</p>
             </div>
             <ul className='list-disc list-inside pl-4'>
@@ -103,7 +125,7 @@ const HomeTabs = () => {
               <li>NoSQL (MongoDB)</li>
             </ul>
             <div className='flex align-middle'>
-              <ClipboardDocumentIcon className='h-6 w-6 mr-2 text-yellow-400' />
+              <ClipboardDocumentIcon className='h-6 w-6 mr-2 text-white' />
               <p className='font-medium'>Project Management</p>
             </div>
             <ul className='list-disc list-inside pl-4'>
@@ -136,7 +158,7 @@ const HomeTabs = () => {
     <div className='bg-white dark:bg-zinc-950 p-6 rounded-lg shadow-md w-fit border border-gray-800'>
       <div className='flex space-x-4 mb-4 relative'>
         <div
-          className='absolute left-0 bottom-0 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
+          className='absolute left-0 -bottom-2 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
           style={indicatorStyle}
         />
         {[
@@ -160,7 +182,16 @@ const HomeTabs = () => {
             }`}
             onClick={() => setActiveTab(tab as TabName)}
           >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            <span
+              className={`inline-block text-white dark:text-gray-300 rounded px-2 py-0.5 text-xs mr-2 transition duration-150 ease-in-out  ${
+                activeTab === tab
+                  ? 'bg-gray-200 bg-gray-500 dark:bg-gray-700'
+                  : 'bg-gray-400 bg-gray-300 dark:bg-gray-800'
+              }`}
+            >
+              {index + 1}
+            </span>
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}{' '}
           </button>
         ))}
       </div>
