@@ -4,7 +4,7 @@ import React from 'react';
 import { DocumentArrowDownIcon } from '@heroicons/react/24/outline';
 
 const ResumeDownload = () => {
-  const downloadFile = (format) => {
+  const downloadFile = (format: string) => {
     const link = document.createElement('a');
     link.href = `link-to-${format}-resume`;
     link.download = `resume.${format}`;

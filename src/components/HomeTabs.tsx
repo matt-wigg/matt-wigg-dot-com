@@ -85,7 +85,12 @@ const HomeTabs = () => {
   };
 
   const TabContent = () => {
-    const SkillsSection = ({ title, icon, items }) => (
+    type SkillsSectionProps = {
+      title: string;
+      icon: React.ComponentType<any>;
+    };
+
+    const SkillsSection: React.FC<SkillsSectionProps> = ({ title, icon }) => (
       <div className='flex align-middle text-yellow-400'>
         {React.createElement(icon, { className: 'h-6 w-6 mr-2 mt-1' })}
         <Link href={`#${title.toLowerCase()}`}>
@@ -96,7 +101,7 @@ const HomeTabs = () => {
       </div>
     );
 
-    const SubSkills = ({ skills }) => (
+    const SubSkills = ({ skills }: { skills: string[] }) => (
       <ul className='list-disc list-inside pl-4'>
         {skills.map((skill, index) => (
           <li key={index}>{skill}</li>
