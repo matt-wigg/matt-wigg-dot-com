@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <div className='flex flex-col md:flex-row md:space-x-4 md:space-y-0'>
-      <div className='md:flex bg-white dark:bg-zinc-950 dark:text-gray-100 w-64 h-screen flex-col justify-between hidden absolute top-0 left-0 border-r border-gray-800'>
+      <div className='md:flex bg-white dark:bg-zinc-950 dark:text-gray-100 w-1/6 h-full flex-col justify-between hidden top-0 left-0 border-r border-gray-800 fixed'>
         <nav className='px-6 py-4 space-y-2'>
           <h1 className='dark:text-yellow-400 font-mono px-6 py-4'>
             matt-wigg-dot-com
@@ -55,10 +55,10 @@ const Navbar = () => {
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <HomeIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-0.5 text-xs mr-1 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
               `}
               >
-                A
+                a.
               </span>
               bout
             </button>
@@ -67,10 +67,10 @@ const Navbar = () => {
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <CommandLineIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-0.5 text-xs mr-1 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
               `}
               >
-                P
+                p.
               </span>
               rojects
             </button>
@@ -79,10 +79,10 @@ const Navbar = () => {
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <BookOpenIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-0.5 text-xs mr-1 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
               `}
               >
-                B
+                b.
               </span>
               log
             </button>
@@ -91,10 +91,10 @@ const Navbar = () => {
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <PencilSquareIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-0.5 text-xs mr-1 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
               `}
               >
-                C
+                c.
               </span>
               ontact
             </button>

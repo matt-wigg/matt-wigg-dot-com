@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <div className='min-h-screen relative md:flex'>
           <Navbar />
-          <main className='w-full md:ml-72 mt-12 md:w-auto md:flex-1 overflow-auto'>
+          <main className=' md:pl-64 pt-4 md:w-auto md:flex-1 overflow-auto flex '>
             {children}
           </main>
         </div>
