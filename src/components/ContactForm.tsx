@@ -9,11 +9,11 @@ import {
 } from '@heroicons/react/24/outline';
 import Button from './Button';
 
-const ContactForm = () => {
+const ContactForm = ({ show }: { show: boolean }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const [contentVisible, setContentVisible] = useState(false);
+  const [contentVisible, setContentVisible] = useState(show);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -157,29 +157,31 @@ const ContactForm = () => {
                     id='name'
                     placeholder='Name *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
                   />
+
                   <input
                     type='email'
                     name='email'
                     id='email'
                     placeholder='Email *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
                   />
+
                   <textarea
                     name='message'
                     id='message'
                     rows={5}
                     placeholder='Message *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}

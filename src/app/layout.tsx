@@ -19,12 +19,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='md:pl-64'>
-          <HeaderNotification />
-        </div>
         <div className='min-h-screen relative'>
           <Navbar />
-          <main className='md:pl-64 md:w-auto md:flex-1 overflow-auto flex flex-col md:flex-row'>
+          <main className='md:pl-64 '>
+            <HeaderNotification />
             <div className='container mx-auto px-4'>{children}</div>
           </main>
         </div>

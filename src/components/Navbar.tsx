@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <div className='flex flex-col md:flex-row md:space-x-4 md:space-y-0'>
-      <div className='md:flex bg-white dark:bg-zinc-950 dark:text-gray-100 w-1/6 h-full flex-col justify-between hidden top-0 left-0 border-r border-gray-800 fixed'>
+      <div className='md:flex bg-white dark:bg-zinc-950 dark:text-gray-100 w-64 min-w-64 h-full flex-col justify-between hidden top-0 left-0 border-r border-gray-800 fixed'>
         <nav className='px-6 py-4 space-y-4'>
           <h1 className='font-mono text-2xl py-2 font-medium text-gray-900 dark:text-gray-100'>
             matt-wigg-dot-com
@@ -158,7 +158,7 @@ const Navbar = () => {
           </Button>
         </div>
         {isOpen && (
-          <nav className='border-b border-gray-200 dark:border-gray-700 md:hidden bg-zinc-950 p-4 space-y-2 text-gray-100 absolute top-12 w-full z-10'>
+          <nav className='border-b border-gray-200 dark:border-gray-700 md:hidden bg-zinc-950 p-4 space-y-2 text-gray-100 absolute top-16 w-full z-10'>
             <div className='flex flex-col w-full space-y-2'>
               <Link href='/' legacyBehavior>
                 <Button

@@ -23,7 +23,7 @@ export default function Home() {
             <ResumeDownload />
           </div>
           <div className='pb-4'>
-            <HomeContactForm />
+            <HomeContactForm show={false} />
           </div>
         </div>
       </main>

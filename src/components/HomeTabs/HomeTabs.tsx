@@ -58,9 +58,9 @@ const HomeTabs = () => {
   }, []);
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === '1' || event.key === '!') {
+    if (event.key === '1') {
       setActiveTab('introduction');
-    } else if (event.key === '2' || event.key === '@') {
+    } else if (event.key === '2') {
       setActiveTab('skills');
     }
   };
