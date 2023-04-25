@@ -36,14 +36,14 @@ const ResumeDownload = () => {
             <ChevronDownIcon
               className={`h-4 w-4 transform transition duration-300 ${
                 contentVisible
-                  ? 'text-gray-600 dark:text-yellow-400'
-                  : 'rotate-180 dark:text-gray-400'
+                  ? 'text-gray-600 text-yellow-400'
+                  : 'rotate-180 text-gray-400'
               }`}
             />
           </Button>
         </header>
         {contentVisible && (
-          <div className='border-t border-gray-200 dark:border-gray-700 px-4 py-3 sm:px-6'>
+          <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-3 sm:px-6'>
             <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
               Download my resume in .PDF, .DOC, or .MD format.
             </p>
@@ -55,7 +55,7 @@ const ResumeDownload = () => {
                 >
                   <Button
                     onClick={() => downloadFile(format)}
-                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center'
+                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
                   >
                     <DocumentArrowDownIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
                     <span className='text-sm text-gray-600 dark:text-gray-400 font-medium group-hover:text-yellow-400 dark:group-hover:text-yellow-400'>

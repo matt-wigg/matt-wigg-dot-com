@@ -38,7 +38,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
   const renderIcon = () => {
     if (loading)
       return (
-        <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2 animate-spin' />
+        <ArrowPathIcon className='h-6 w-6 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2 animate-spin' />
       );
     if (success)
       return (
@@ -46,10 +46,10 @@ const ContactForm = ({ show }: { show: boolean }) => {
       );
     if (error)
       return (
-        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
+        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
       );
     return (
-      <EnvelopeIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
+      <EnvelopeIcon className='h-6 w-6 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
     );
   };
 
@@ -69,15 +69,15 @@ const ContactForm = ({ show }: { show: boolean }) => {
             <ChevronDownIcon
               className={`h-4 w-4 transform transition duration-300 ${
                 contentVisible
-                  ? 'text-gray-600 dark:text-yellow-400'
-                  : 'rotate-180 dark:text-gray-400'
+                  ? 'text-gray-600 text-yellow-400'
+                  : 'rotate-180 text-gray-400'
               }`}
             />
           </Button>
         </header>
 
         {contentVisible && (
-          <div className='border-t border-gray-200 dark:border-gray-700 px-4 py-5 sm:p-6'>
+          <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
             {!success && !error && (
               <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
                 Send me a message and I will get back to you as soon as
@@ -98,12 +98,12 @@ const ContactForm = ({ show }: { show: boolean }) => {
                 <div className='flex items-center justify-center pt-4'>
                   <Button
                     type='submit'
-                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
+                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center cursor-pointer'
                     disabled={loading}
                     onClick={reloadForm}
                   >
                     {renderIcon()}
-                    <span className='text-sm text-gray-600 dark:group-hover:text-yellow-400 font-medium'>
+                    <span className='text-sm text-gray-600 group-hover:text-yellow-400 font-medium'>
                       {loading
                         ? 'Sending...'
                         : success
@@ -128,12 +128,12 @@ const ContactForm = ({ show }: { show: boolean }) => {
                 <div className='flex items-center justify-center pt-4'>
                   <Button
                     type='submit'
-                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
+                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center cursor-pointer'
                     disabled={loading || success}
                     onClick={reloadForm}
                   >
                     {renderIcon()}
-                    <span className='text-sm text-gray-600 dark:group-hover:text-yellow-400 font-medium'>
+                    <span className='text-sm text-gray-600 group-hover:text-yellow-400 font-medium'>
                       {loading
                         ? 'Sending...'
                         : success
@@ -157,7 +157,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     id='name'
                     placeholder='Name *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
@@ -169,7 +169,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     id='email'
                     placeholder='Email *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
@@ -181,7 +181,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     rows={5}
                     placeholder='Message *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-200 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
@@ -190,7 +190,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   <div className='flex items-center justify-end'>
                     <Button
                       type='submit'
-                      className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center'
+                      className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
                       disabled={loading || success || error}
                     >
                       {renderIcon()}

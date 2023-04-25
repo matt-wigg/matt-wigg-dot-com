@@ -57,8 +57,8 @@ const Navbar = () => {
           </h1>
           <Link href='/' legacyBehavior>
             <Button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
-                pathname === '/' ? 'dark:text-yellow-400' : 'dark:text-gray-100'
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+                pathname === '/' ? 'text-yellow-400' : 'dark:text-gray-100'
               }`}
             >
               <UserCircleIcon className='h-6 w-6 text-yellow-400' />
@@ -75,9 +75,9 @@ const Navbar = () => {
           </Link>
           <Link href='/projects' legacyBehavior>
             <Button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/projects'
-                  ? 'dark:text-yellow-400'
+                  ? 'text-yellow-400'
                   : 'dark:text-gray-100'
               }`}
             >
@@ -95,10 +95,8 @@ const Navbar = () => {
           </Link>
           <Link href='/blog' legacyBehavior>
             <Button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
-                pathname === '/blog'
-                  ? 'dark:text-yellow-400'
-                  : 'dark:text-gray-100'
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+                pathname === '/blog' ? 'text-yellow-400' : 'dark:text-gray-100'
               }`}
             >
               <BookOpenIcon className='h-6 w-6 text-yellow-400' />
@@ -115,9 +113,9 @@ const Navbar = () => {
           </Link>
           <Link href='/contact' legacyBehavior>
             <Button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/contact'
-                  ? 'dark:text-yellow-400'
+                  ? 'text-yellow-400'
                   : 'dark:text-gray-100'
               }`}
             >
@@ -138,7 +136,7 @@ const Navbar = () => {
 
       <div className='w-full'>
         {/* Mobile Navbar */}
-        <div className='md:hidden flex items-center justify-between bg-zinc-950 p-4 border-b border-gray-200 dark:border-gray-700'>
+        <div className='md:hidden flex items-center justify-between bg-zinc-950 p-4 border-b border-gray-700 dark:border-gray-700'>
           <p className='text-white font-mono'>matt-wigg-dot-com</p>
           <Button className='text-yellow-400' onClick={toggleMenu}>
             <svg
@@ -158,11 +156,11 @@ const Navbar = () => {
           </Button>
         </div>
         {isOpen && (
-          <nav className='border-b border-gray-200 dark:border-gray-700 md:hidden bg-zinc-950 p-4 space-y-2 text-gray-100 absolute top-16 w-full z-10'>
+          <nav className='border-b border-gray-700 dark:border-gray-700 md:hidden bg-zinc-950 p-4 space-y-2 text-gray-100 absolute top-16 w-full z-10'>
             <div className='flex flex-col w-full space-y-2'>
               <Link href='/' legacyBehavior>
                 <Button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <UserCircleIcon className='h-6 w-6 text-yellow-400' />
@@ -171,7 +169,7 @@ const Navbar = () => {
               </Link>
               <Link href='/projects' legacyBehavior>
                 <Button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <CommandLineIcon className='h-6 w-6 text-yellow-400' />
@@ -180,7 +178,7 @@ const Navbar = () => {
               </Link>
               <Link href='/blog' legacyBehavior>
                 <Button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <BookOpenIcon className='h-6 w-6 text-yellow-400' />
@@ -189,7 +187,7 @@ const Navbar = () => {
               </Link>
               <Link href='/contact' legacyBehavior>
                 <Button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
