@@ -57,11 +57,12 @@ const HomeTabs = () => {
   }, []);
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === '1') {
+    if (!event.shiftKey) return;
+    if (event.key === '1' || event.key === '!') {
       setActiveTab('introduction');
-    } else if (event.key === '2') {
+    } else if (event.key === '2' || event.key === '@') {
       setActiveTab('skills');
-    } else if (event.key === '3') {
+    } else if (event.key === '3' || event.key === '#') {
       setActiveTab('experience');
     }
   };
@@ -91,11 +92,11 @@ const HomeTabs = () => {
               onClick={() => setActiveTab(tab as TabName)}
             >
               <span
-                className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-500 dark:bg-gray-700`}
+                className={` text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-500 dark:bg-gray-700 hidden sm:inline`}
               >
-                {index + 1}.
+                Shift + {index + 1}
               </span>
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}{' '}
+              <span>{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
             </button>
           ))}
         </div>
