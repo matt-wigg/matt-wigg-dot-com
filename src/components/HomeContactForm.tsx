@@ -49,13 +49,13 @@ const HomeContactForm = () => {
   };
 
   return (
-    <section className='container px-4 flex flex-col'>
+    <section className='container px-4 flex flex-col text-sm'>
       <article className='bg-white dark:bg-zinc-950 shadow rounded-lg overflow-hidden border border-gray-800'>
         <header className='p-4 sm:px-6'>
           <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
             Contact
           </h3>
-          <p className='py-1 mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-400'>
+          <p className='py-1 mt-2 max-w-2xl font-light text-gray-500 dark:text-gray-400'>
             Send me a message and I will get back to you as soon as possible. I
             do not store or share your information.
           </p>

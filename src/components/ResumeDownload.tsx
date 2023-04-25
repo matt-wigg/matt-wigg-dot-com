@@ -11,18 +11,18 @@ const ResumeDownload = () => {
   };
 
   return (
-    <section className='container px-4 flex flex-col'>
+    <section className='container px-4 flex flex-col text-sm'>
       <article className='bg-white dark:bg-zinc-950 shadow rounded-lg overflow-hidden border border-gray-800 '>
         <header className='p-4 sm:px-6'>
           <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
             Resume
           </h3>
-          <p className='py-1 mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-400 pt-1'>
+          <p className='py-1 mt-2 max-w-2xl font-light text-gray-500 dark:text-gray-400 pt-1'>
             Download my resume in .PDF, .DOC, or .MD format.
           </p>
         </header>
         <div className='border-t border-gray-200 dark:border-gray-700 px-4 py-3 sm:px-6'>
-          <ul className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
+          <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
             {['pdf', 'doc', 'md'].map((format) => (
               <li
                 key={format}

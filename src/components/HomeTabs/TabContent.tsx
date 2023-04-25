@@ -30,12 +30,11 @@ const TabContent: React.FC<TabContentProps> = ({ activeTab, greeting }) => {
   switch (activeTab) {
     case 'introduction':
       return (
-        <div className='space-y-4 font-light p-8 dark:text-gray-300'>
-          <p className='text-3xl py-4 font-medium leading-6 text-gray-900 dark:text-gray-100'>
+        <div className='space-y-4 font-light p-8 dark:text-gray-400'>
+          <p className='text-3xl py-2 font-medium text-gray-900 dark:text-gray-100'>
             {greeting}
           </p>
           <p>{content.introduction.welcome}</p>
-          <p>This is a place for you to: </p>
           <ol className=' list-decimal list-inside pl-4'>
             {content.introduction.listItems.map((item, index) => (
               <li key={index}>{item}</li>
@@ -46,11 +45,11 @@ const TabContent: React.FC<TabContentProps> = ({ activeTab, greeting }) => {
       );
     case 'skills':
       return (
-        <div className='space-y-4 font-light p-8'>
-          <p className='text-3xl py-4 font-medium leading-6 text-gray-900 dark:text-gray-100'>
+        <div className='space-y-4 font-light p-8 dark:text-gray-400'>
+          <p className='text-3xl py-2 font-medium text-gray-900 dark:text-gray-100'>
             My skills
           </p>
-          <p>Here are some of the technologies I&apos;ve used:</p>
+          <p>{content.skillsintroduction}</p>
           {content.skills.map((skillSection) => (
             <React.Fragment key={skillSection.title}>
               <SkillsSection

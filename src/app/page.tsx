@@ -8,19 +8,23 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className='flex md:flex-row flex-col justify-end'>
-      <HomeTabs />
-      <span>
-        <div>
+    <main className='flex md:flex-row flex-col pt-4'>
+      <div className='md:w-3/5 md:flex md:flex-col'>
+        <div className='pb-4'>
+          <HomeTabs />
+        </div>
+      </div>
+      <div className='md:w-2/5 md:flex md:flex-col'>
+        <div className='pb-4'>
           <Profile />
         </div>
-        <div className='pt-4'>
-          <ResumeDownload />
-        </div>
-        <div className='pt-4'>
+        <div className='pb-4'>
           <HomeContactForm />
         </div>
-      </span>
+        <div className='pb-4'>
+          <ResumeDownload />
+        </div>
+      </div>
     </main>
   );
 }

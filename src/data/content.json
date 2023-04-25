@@ -1,16 +1,16 @@
 {
   "greeting": "Hello, I'm Matthew Wigglesworth!",
   "introduction": {
-    "welcome": "Welcome to my website!",
+    "welcome": "  Welcome to my site! Explore my:",
     "listItems": [
-      "Discover my portfolio of software engineering projects.",
-      "Overview the technologies and tools I know.",
-      "Delve into my professional experience, education, and accomplishments.",
-      "Learn about my background, personal interests, and motivations.",
-      "Reach out to me for collaborations, opportunities, or just a friendly chat."
+      "Software engineering portfolio.",
+      "Tech & tools expertise.",
+      "Professional background & education.",
+      "Personal interests & motivations."
     ],
-    "closing": "I hope you enjoy your stay! Please feel free to contact me if you have any questions."
+    "closing": "Connect for collaborations or a friendly chat. Enjoy your visit!"
   },
+  "skillsintroduction": "Here are some of the technologies I've used:",
   "skills": [{
       "title": "Languages",
       "icon": "CodeBracketIcon",

@@ -3,5 +3,5 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Projects() {
-  return <main>Coming soon...</main>;
+  return <main>Projects: coming soon...</main>;
 }
