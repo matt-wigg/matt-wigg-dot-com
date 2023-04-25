@@ -1,7 +1,7 @@
 import HomeTabs from '@/components/HomeTabs/HomeTabs';
 import ResumeDownload from '@/components/ResumeDownload';
 import Profile from '@/components/Profile';
-import HomeContactForm from '@/components/HomeContactForm';
+import HomeContactForm from '@/components/ContactForm';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,11 +19,9 @@ export default function Home() {
           <Profile />
         </div>
         <div className='pb-4'>
-          <HomeContactForm />
-        </div>
-        <div className='pb-4'>
           <ResumeDownload />
         </div>
+        <div className='pb-4'>{/* <HomeContactForm /> */}</div>
       </div>
     </main>
   );

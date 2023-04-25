@@ -8,7 +8,7 @@ import {
   ArrowPathIcon,
 } from '@heroicons/react/24/outline';
 
-const HomeContactForm = () => {
+const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -181,4 +181,4 @@ const HomeContactForm = () => {
   );
 };
 
-export default HomeContactForm;
+export default ContactForm;

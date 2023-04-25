@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import {
-  HomeIcon,
+  UserCircleIcon,
   CommandLineIcon,
   PencilSquareIcon,
   BookOpenIcon,
@@ -62,7 +62,7 @@ const Navbar = () => {
                   : ''
               }`}
             >
-              <HomeIcon className='h-6 w-6 text-yellow-400' />
+              <UserCircleIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
@@ -166,7 +166,7 @@ const Navbar = () => {
                   className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
-                  <HomeIcon className='h-6 w-6 text-yellow-400' />
+                  <UserCircleIcon className='h-6 w-6 text-yellow-400' />
                   <span className='ml-4'>About</span>
                 </button>
               </Link>
