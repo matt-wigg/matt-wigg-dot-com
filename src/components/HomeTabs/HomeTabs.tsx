@@ -70,7 +70,7 @@ const HomeTabs = () => {
       <div className='h-fit bg-white dark:bg-zinc-950 rounded-lg shadow-md border border-gray-800 w-full'>
         <div className='flex relative p-4 sm:px-6 justify-start'>
           <div
-            className='absolute left-0 bottom-3 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
+            className='absolute left-0 bottom-0 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
             style={indicatorStyle}
           />
           {['introduction', 'skills'].map((tab, index) => (
