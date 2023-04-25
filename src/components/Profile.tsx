@@ -11,7 +11,7 @@ const Profile = () => {
         </header>
         <div className='py-1 sm:px-6'>
           <div className='flex flex-col sm:flex-row items-center'>
-            <div className='relative h-16 w-16 mr-0 sm:mr-6 mb-4 sm:mb-0 rounded-full overflow-hidden'>
+            <div className='relative h-20 w-20 border dark:border-gray-800 sm:mr-8 mb-4 sm:mb-0 rounded-full overflow-hidden'>
               <Image
                 src='/my-nft-bb.png' // Replace with the correct path to your profile picture
                 alt='Profile Picture'
@@ -24,7 +24,6 @@ const Profile = () => {
               <p className='text-gray-900 dark:text-gray-300 font-semibold'>
                 Matthew Wigglesworth
               </p>
-              {/* <p className='text-gray-500 dark:text-gray-400 font-light'>34</p> */}
               <p className='text-gray-500 dark:text-gray-400 font-extralight'>
                 He / Him / His
               </p>

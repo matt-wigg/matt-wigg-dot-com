@@ -62,7 +62,7 @@ const Navbar = () => {
                   : ''
               }`}
             >
-              {/* <HomeIcon className='h-6 w-6 text-yellow-400' /> */}
+              <HomeIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
@@ -70,7 +70,7 @@ const Navbar = () => {
                 >
                   Shift + A
                 </span>
-                About
+                {/* About */}
               </span>
             </button>
           </Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
                   : ''
               }`}
             >
-              {/* <CommandLineIcon className='h-6 w-6 text-yellow-400' /> */}
+              <CommandLineIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
@@ -90,7 +90,7 @@ const Navbar = () => {
                 >
                   Shift + P
                 </span>
-                Projects
+                {/* Projects */}
               </span>
             </button>
           </Link>
@@ -102,7 +102,7 @@ const Navbar = () => {
                   : ''
               }`}
             >
-              {/* <BookOpenIcon className='h-6 w-6 text-yellow-400' /> */}
+              <BookOpenIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
@@ -110,7 +110,7 @@ const Navbar = () => {
                 >
                   Shift + B
                 </span>
-                Blog
+                {/* Blog */}
               </span>
             </button>
           </Link>
@@ -122,7 +122,7 @@ const Navbar = () => {
                   : ''
               }`}
             >
-              {/* <PencilSquareIcon className='h-6 w-6 text-yellow-400' /> */}
+              <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
@@ -130,7 +130,7 @@ const Navbar = () => {
                 >
                   Shift + C
                 </span>
-                Contact
+                {/* Contact */}
               </span>
             </button>
           </Link>
