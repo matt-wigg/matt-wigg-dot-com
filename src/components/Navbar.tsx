@@ -59,7 +59,7 @@ const Navbar = () => {
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : 'dark:text-gray-400'
+                  : 'dark:text-gray-100'
               }`}
             >
               <UserCircleIcon className='h-6 w-6 text-yellow-400' />
@@ -79,7 +79,7 @@ const Navbar = () => {
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/projects'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : 'dark:text-gray-400'
+                  : 'dark:text-gray-100'
               }`}
             >
               <CommandLineIcon className='h-6 w-6 text-yellow-400' />
@@ -99,7 +99,7 @@ const Navbar = () => {
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/blog'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : 'dark:text-gray-400'
+                  : 'dark:text-gray-100'
               }`}
             >
               <BookOpenIcon className='h-6 w-6 text-yellow-400' />
@@ -119,7 +119,7 @@ const Navbar = () => {
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/contact'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : 'dark:text-gray-400'
+                  : 'dark:text-gray-100'
               }`}
             >
               <PencilSquareIcon className='h-6 w-6 text-yellow-400' />

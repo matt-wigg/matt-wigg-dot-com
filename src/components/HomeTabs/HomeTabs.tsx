@@ -83,7 +83,7 @@ const HomeTabs = () => {
               className={`bg-white dark:bg-zinc-950  hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 mr-4 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-sm font-medium ${
                 activeTab === tab
                   ? 'text-gray-900 dark:text-yellow-400'
-                  : 'text-gray-500 dark:text-gray-400 dark:hover:text-yellow-400'
+                  : 'text-gray-500 dark:text-gray-100 dark:hover:text-yellow-400'
               }`}
               id={tab}
               onClick={() => setActiveTab(tab as TabName)}

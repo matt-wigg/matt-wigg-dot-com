@@ -5,10 +5,13 @@ const Profile = () => {
     <section className='container px-4 flex flex-col max-w-3xl text-sm'>
       <article className='bg-white dark:bg-zinc-950 shadow rounded-lg overflow-hidden border border-gray-800'>
         <header className='p-4 sm:px-6'>
-          <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
-            Profile
-          </h3>
+          <div>
+            <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
+              Profile
+            </h3>
+          </div>
         </header>
+
         <div className='py-1 sm:px-6'>
           <div className='flex flex-col sm:flex-row items-center'>
             <div className='relative h-20 w-20 border dark:border-gray-800 sm:mr-8 mb-4 sm:mb-0 rounded-full overflow-hidden'>

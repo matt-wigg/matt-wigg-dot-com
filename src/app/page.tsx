@@ -20,10 +20,10 @@ export default function Home() {
             <Profile />
           </div>
           <div className='pb-4'>
-            <ResumeDownload />
+            <HomeContactForm />
           </div>
           <div className='pb-4'>
-            <HomeContactForm />
+            <ResumeDownload />
           </div>
         </div>
       </main>
