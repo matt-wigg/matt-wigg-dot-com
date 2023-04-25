@@ -19,34 +19,34 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (!event.shiftKey) return; // Add this line to check if Shift is being pressed
+  // useEffect(() => {
+  //   const handleKeyDown = (event: KeyboardEvent) => {
+  //     if (!event.shiftKey) return; // Add this line to check if Shift is being pressed
 
-      switch (event.key.toLowerCase()) {
-        case 'a':
-          router.push('/');
-          break;
-        case 'p':
-          router.push('/projects');
-          break;
-        case 'b':
-          router.push('/blog');
-          break;
-        case 'c':
-          router.push('/contact');
-          break;
-        default:
-          // Do nothing if any other key is pressed
-          break;
-      }
-    };
+  //     switch (event.key.toLowerCase()) {
+  //       case 'a':
+  //         router.push('/');
+  //         break;
+  //       case 'p':
+  //         router.push('/projects');
+  //         break;
+  //       case 'b':
+  //         router.push('/blog');
+  //         break;
+  //       case 'c':
+  //         router.push('/contact');
+  //         break;
+  //       default:
+  //         // Do nothing if any other key is pressed
+  //         break;
+  //     }
+  //   };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  });
+  //   document.addEventListener('keydown', handleKeyDown);
+  //   return () => {
+  //     document.removeEventListener('keydown', handleKeyDown);
+  //   };
+  // });
 
   return (
     <div className='flex flex-col md:flex-row md:space-x-4 md:space-y-0'>
