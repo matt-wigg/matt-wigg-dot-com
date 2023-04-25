@@ -56,81 +56,81 @@ const Navbar = () => {
           </h1>
           <Link href='/' legacyBehavior>
             <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : ''
+                  : 'dark:text-gray-400'
               }`}
             >
               <UserCircleIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
-                <span
+                {/* <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
     `}
                 >
-                  Shift + A
-                </span>
-                {/* About */}
+                  a.
+                </span> */}
+                About
               </span>
             </button>
           </Link>
           <Link href='/projects' legacyBehavior>
             <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/projects'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : ''
+                  : 'dark:text-gray-400'
               }`}
             >
               <CommandLineIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
-                <span
+                {/* <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
     `}
                 >
-                  Shift + P
-                </span>
-                {/* Projects */}
+                  p.
+                </span> */}
+                Projects
               </span>
             </button>
           </Link>
           <Link href='/blog' legacyBehavior>
             <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/blog'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : ''
+                  : 'dark:text-gray-400'
               }`}
             >
               <BookOpenIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
-                <span
+                {/* <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
     `}
                 >
-                  Shift + B
-                </span>
-                {/* Blog */}
+                  b.
+                </span> */}
+                Blog
               </span>
             </button>
           </Link>
           <Link href='/contact' legacyBehavior>
             <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/contact'
                   ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : ''
+                  : 'dark:text-gray-400'
               }`}
             >
               <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
-                <span
+                {/* <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
     `}
                 >
-                  Shift + C
-                </span>
-                {/* Contact */}
+                  c.
+                </span> */}
+                Contact
               </span>
             </button>
           </Link>

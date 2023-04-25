@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '../components/Navbar';
+import HeaderNotification from '@/components/HeaderNotification';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,6 +19,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
+        <div className='md:pl-64'>
+          <HeaderNotification />
+        </div>
         <div className='min-h-screen relative'>
           <Navbar />
           <main className='md:pl-64 md:w-auto md:flex-1 overflow-auto flex flex-col md:flex-row'>

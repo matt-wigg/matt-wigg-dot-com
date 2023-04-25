@@ -19,7 +19,7 @@ const ContactForm = () => {
 
     setTimeout(() => {
       setLoading(false);
-      setSuccess(true);
+      setError(true);
       alert('This is a demo. No message was sent.');
     }, 5000);
   };
@@ -32,19 +32,19 @@ const ContactForm = () => {
   const renderIcon = () => {
     if (loading)
       return (
-        <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-yellow-400 mr-2 animate-spin' />
+        <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2 animate-spin' />
       );
     if (success)
       return (
         // <CheckCircleIcon className='h-6 w-6 text-gray-600 dark:text-yellow-400 mr-2' />
-        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 dark:text-yellow-400 mr-2' />
+        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
       );
     if (error)
       return (
-        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 dark:text-yellow-400 mr-2' />
+        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
       );
     return (
-      <EnvelopeIcon className='h-6 w-6 text-gray-600 dark:text-yellow-400 mr-2' />
+      <EnvelopeIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
     );
   };
 
@@ -73,12 +73,12 @@ const ContactForm = () => {
               <div className='flex items-center justify-center pt-4'>
                 <button
                   type='submit'
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
+                  className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
                   disabled={loading}
                   onClick={reloadForm}
                 >
                   {renderIcon()}
-                  <span className='text-sm text-gray-600 dark:text-yellow-400 font-medium'>
+                  <span className='text-sm text-gray-600 dark:group-hover:text-yellow-400 font-medium'>
                     {loading
                       ? 'Sending...'
                       : success
@@ -101,12 +101,12 @@ const ContactForm = () => {
               <div className='flex items-center justify-center pt-4'>
                 <button
                   type='submit'
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
+                  className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
                   disabled={loading || success}
                   onClick={reloadForm}
                 >
                   {renderIcon()}
-                  <span className='text-sm text-gray-600 dark:text-yellow-400 font-medium'>
+                  <span className='text-sm text-gray-600 dark:group-hover:text-yellow-400 font-medium'>
                     {loading
                       ? 'Sending...'
                       : success
@@ -157,11 +157,11 @@ const ContactForm = () => {
                 <div className='flex items-center justify-end'>
                   <button
                     type='submit'
-                    className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center'
+                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center'
                     disabled={loading || success || error}
                   >
                     {renderIcon()}
-                    <span className='text-sm text-gray-600 dark:text-yellow-400 font-medium'>
+                    <span className='text-sm text-gray-600 dark:text-gray-400 font-medium group-hover:text-yellow-400'>
                       {loading
                         ? 'Sending...'
                         : success
