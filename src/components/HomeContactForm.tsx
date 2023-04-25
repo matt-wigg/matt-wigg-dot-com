@@ -19,9 +19,9 @@ const HomeContactForm = () => {
 
     setTimeout(() => {
       setLoading(false);
-      setError(true);
+      setSuccess(true);
       alert('This is a demo. No message was sent.');
-    }, 2000);
+    }, 5000);
   };
 
   const reloadForm = () => {
