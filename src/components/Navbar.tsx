@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
+import Button from './Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,11 +56,9 @@ const Navbar = () => {
             matt-wigg-dot-com
           </h1>
           <Link href='/' legacyBehavior>
-            <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
-                pathname === '/'
-                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
-                  : 'dark:text-gray-100'
+            <Button
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+                pathname === '/' ? 'dark:text-yellow-400' : 'dark:text-gray-100'
               }`}
             >
               <UserCircleIcon className='h-6 w-6 text-yellow-400' />
@@ -72,33 +71,33 @@ const Navbar = () => {
                 </span> */}
                 About
               </span>
-            </button>
+            </Button>
           </Link>
           <Link href='/projects' legacyBehavior>
-            <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+            <Button
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/projects'
-                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  ? 'dark:text-yellow-400'
                   : 'dark:text-gray-100'
               }`}
             >
               <CommandLineIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 {/* <span
-                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
     `}
                 >
                   p.
                 </span> */}
                 Projects
               </span>
-            </button>
+            </Button>
           </Link>
           <Link href='/blog' legacyBehavior>
-            <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+            <Button
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/blog'
-                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  ? 'dark:text-yellow-400'
                   : 'dark:text-gray-100'
               }`}
             >
@@ -112,27 +111,27 @@ const Navbar = () => {
                 </span> */}
                 Blog
               </span>
-            </button>
+            </Button>
           </Link>
           <Link href='/contact' legacyBehavior>
-            <button
-              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+            <Button
+              className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
                 pathname === '/contact'
-                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  ? 'dark:text-yellow-400'
                   : 'dark:text-gray-100'
               }`}
             >
               <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 {/* <span
-                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
     `}
                 >
                   c.
                 </span> */}
                 Contact
               </span>
-            </button>
+            </Button>
           </Link>
         </nav>
       </div>
@@ -141,7 +140,7 @@ const Navbar = () => {
         {/* Mobile Navbar */}
         <div className='md:hidden flex items-center justify-between bg-zinc-950 p-4 border-b border-gray-200 dark:border-gray-700'>
           <p className='text-white font-mono'>matt-wigg-dot-com</p>
-          <button className='text-yellow-400' onClick={toggleMenu}>
+          <Button className='text-yellow-400' onClick={toggleMenu}>
             <svg
               className='w-6 h-6'
               fill='none'
@@ -156,46 +155,46 @@ const Navbar = () => {
                 d='M4 6h16M4 12h16M4 18h16'
               ></path>
             </svg>
-          </button>
+          </Button>
         </div>
         {isOpen && (
           <nav className='border-b border-gray-200 dark:border-gray-700 md:hidden bg-zinc-950 p-4 space-y-2 text-gray-100 absolute top-12 w-full z-10'>
             <div className='flex flex-col w-full space-y-2'>
               <Link href='/' legacyBehavior>
-                <button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                <Button
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <UserCircleIcon className='h-6 w-6 text-yellow-400' />
                   <span className='ml-4'>About</span>
-                </button>
+                </Button>
               </Link>
               <Link href='/projects' legacyBehavior>
-                <button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                <Button
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <CommandLineIcon className='h-6 w-6 text-yellow-400' />
                   <span className='ml-4'>Projects</span>
-                </button>
+                </Button>
               </Link>
               <Link href='/blog' legacyBehavior>
-                <button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                <Button
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <BookOpenIcon className='h-6 w-6 text-yellow-400' />
                   <span className='ml-4'>Blog</span>
-                </button>
+                </Button>
               </Link>
               <Link href='/contact' legacyBehavior>
-                <button
-                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
+                <Button
+                  className='bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full'
                   onClick={() => toggleMenu()}
                 >
                   <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
                   <span className='ml-4'>Contact</span>
-                </button>
+                </Button>
               </Link>
             </div>
           </nav>

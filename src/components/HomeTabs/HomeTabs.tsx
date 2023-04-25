@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import TabContent from './TabContent';
+import Button from '../Button';
 
 type TabName = 'introduction' | 'skills' | 'experience';
 
@@ -80,7 +81,7 @@ const HomeTabs = () => {
                   tabRefs.current[index] = el;
                 }
               }}
-              className={`bg-white dark:bg-zinc-950  hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 mr-4 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-sm font-medium ${
+              className={`group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start focus:outline-none focus:ring-2 focus:ring-yellow-400 dark:focus:ring-yellow-400 mr-4 ${
                 activeTab === tab
                   ? 'text-gray-900 dark:text-yellow-400'
                   : 'text-gray-500 dark:text-gray-100 dark:hover:text-yellow-400'

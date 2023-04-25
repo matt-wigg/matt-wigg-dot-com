@@ -7,6 +7,7 @@ import {
   ArrowPathIcon,
   ChevronDownIcon,
 } from '@heroicons/react/24/outline';
+import Button from './Button';
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
@@ -56,28 +57,33 @@ const ContactForm = () => {
     <section className='container px-4 flex flex-col text-sm'>
       <article className='bg-white dark:bg-zinc-950 shadow rounded-lg overflow-hidden border border-gray-800'>
         <header
-          className='group p-4 sm:px-6 flex justify-between items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800'
           onClick={toggleContentVisibility}
+          className='group p-4 sm:px-6 flex justify-between items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-900'
         >
           <div>
             <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100 group-hover:text-yellow-400 dark:group-hover:text-yellow-400'>
               Contact
             </h3>
           </div>
-          <ChevronDownIcon
-            className={`h-6 w-6 transform transition duration-300 ${
-              contentVisible
-                ? 'text-gray-600 dark:text-yellow-400'
-                : 'rotate-180 dark:text-gray-400'
-            }`}
-          />
+          <Button onClick={toggleContentVisibility}>
+            <ChevronDownIcon
+              className={`h-4 w-4 transform transition duration-300 ${
+                contentVisible
+                  ? 'text-gray-600 dark:text-yellow-400'
+                  : 'rotate-180 dark:text-gray-400'
+              }`}
+            />
+          </Button>
         </header>
+
         {contentVisible && (
           <div className='border-t border-gray-200 dark:border-gray-700 px-4 py-5 sm:p-6'>
-            <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
-              Send me a message and I will get back to you as soon as possible.
-              I do not store or share your information.
-            </p>
+            {!success && !error && (
+              <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
+                Send me a message and I will get back to you as soon as
+                possible. I do not store or share your information.
+              </p>
+            )}
             {success ? (
               // ...
               // success content
@@ -90,9 +96,9 @@ const ContactForm = () => {
                   possible.
                 </p>
                 <div className='flex items-center justify-center pt-4'>
-                  <button
+                  <Button
                     type='submit'
-                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
+                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
                     disabled={loading}
                     onClick={reloadForm}
                   >
@@ -106,7 +112,7 @@ const ContactForm = () => {
                         ? 'Retry'
                         : 'Send'}
                     </span>
-                  </button>
+                  </Button>
                 </div>
               </div>
             ) : error ? (
@@ -120,9 +126,9 @@ const ContactForm = () => {
                   Something went wrong. Please try again later.
                 </p>
                 <div className='flex items-center justify-center pt-4'>
-                  <button
+                  <Button
                     type='submit'
-                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
+                    className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center cursor-pointer'
                     disabled={loading || success}
                     onClick={reloadForm}
                   >
@@ -136,7 +142,7 @@ const ContactForm = () => {
                         ? 'Retry'
                         : 'Send'}
                     </span>
-                  </button>
+                  </Button>
                 </div>
               </div>
             ) : (
@@ -180,9 +186,9 @@ const ContactForm = () => {
                   />
 
                   <div className='flex items-center justify-end'>
-                    <button
+                    <Button
                       type='submit'
-                      className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center'
+                      className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-center'
                       disabled={loading || success || error}
                     >
                       {renderIcon()}
@@ -195,7 +201,7 @@ const ContactForm = () => {
                           ? 'Error!'
                           : 'Send'}
                       </span>
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </form>
