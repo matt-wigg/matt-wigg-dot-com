@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import SocialLinks from './SocialLinks';
 
 const Profile = () => {
   return (
@@ -11,7 +12,6 @@ const Profile = () => {
             </h3>
           </div>
         </header>
-
         <div className='py-1 sm:px-6'>
           <div className='flex flex-col sm:flex-row items-center'>
             <div className='relative h-20 w-20 border dark:border-gray-800 sm:mr-8 mb-4 sm:mb-0 rounded-full overflow-hidden'>
@@ -23,7 +23,7 @@ const Profile = () => {
                 priority
               />
             </div>
-            <div className='text-center sm:text-left'>
+            <div className='text-center sm:text-left '>
               <p className='text-gray-900 dark:text-gray-300 font-semibold'>
                 Matthew Wigglesworth
               </p>
@@ -32,6 +32,9 @@ const Profile = () => {
               </p>
               <p className='text-gray-500 dark:text-gray-400 font-extralight'>
                 San Diego, CA
+              </p>
+              <p className='text-gray-500 dark:text-gray-400 font-extralight pt-3'>
+                <SocialLinks />
               </p>
             </div>
           </div>

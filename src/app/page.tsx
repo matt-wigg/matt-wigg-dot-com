@@ -2,6 +2,7 @@ import HomeTabs from '@/components/HomeTabs/HomeTabs';
 import ResumeDownload from '@/components/ResumeDownload';
 import Profile from '@/components/Profile';
 import HomeContactForm from '@/components/ContactForm';
+
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
