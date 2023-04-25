@@ -1,0 +1,76 @@
+{
+  "greeting": "Hello, I'm Matthew Wigglesworth!",
+  "introduction": {
+    "welcome": "Welcome to my website!",
+    "listItems": [
+      "Discover my portfolio of software engineering projects.",
+      "Overview the technologies and tools I know.",
+      "Delve into my professional experience, education, and accomplishments.",
+      "Learn about my background, personal interests, and motivations.",
+      "Reach out to me for collaborations, opportunities, or just a friendly chat."
+    ],
+    "closing": "I hope you enjoy your stay! Please feel free to contact me if you have any questions."
+  },
+  "skills": [{
+      "title": "Languages",
+      "icon": "CodeBracketIcon",
+      "skills": [
+        "JavaScript / TypeScript",
+        "Python",
+        "Java / Apex",
+        "HTML & CSS",
+        "Solidity / Michelson",
+        "SQL",
+        "Bash / Shell",
+        "Markdown / LaTeX"
+      ]
+    },
+    {
+      "title": "Frameworks/Libraries",
+      "icon": "ServerStackIcon",
+      "skills": [
+        "React.js, Next.js, Node.js, Express.js, p5.js",
+        "Tailwind, SASS, Bootstrap, Materialize, Less",
+        "Flask, Django, Jupyter",
+        "Lightning Web Components, Aura, Visualforce, SFDX",
+        "Cyprus, Jest, Mocha, Chai, Selenium, Storybook",
+        "Salesforce, Shopify, Okta"
+      ]
+    },
+    {
+      "title": "Databases/Ledgers",
+      "icon": "CircleStackIcon",
+      "skills": [
+        "PostgreSQL, MySQL, Microsoft SQL Server, SQLite",
+        "MongoDB, Cassandra, Redis, Amazon DynamoDB",
+        "Bitcoin, Ethereum, Solana, Tezos"
+      ]
+    },
+    {
+      "title": "Tools/Apps",
+      "icon": "WrenchScrewdriverIcon",
+      "skills": [
+        "Git, GitHub, GitLab, BitBucket",
+        "Azure, AWS, Google Cloud Platform, Vercel",
+        "Docker, Kubernetes, Nginx",
+        "Jenkins, GitHub Actions, Circle CI",
+        "Postman, New Relic, Sentry, Artillery",
+        "Adobe Creative Suite, Figma, Sketch, Zeplin",
+        "Workbench, Data Loader, Sonar, Flosum, AutoRABIT, Provar",
+        "Jira, Confluence, Atlassian Access, ServiceNow"
+      ]
+    },
+    {
+      "title": "Methodologies/Concepts",
+      "icon": "PuzzlePieceIcon",
+      "skills": [
+        "Agile (Scrum / Kanban)",
+        "DevOps (CI/CD)",
+        "Test-driven development (TDD)",
+        "Pair programming (PP)",
+        "Object-oriented programming (OOP)",
+        "Service-oriented architecture (SOA)"
+      ]
+    }
+  ]
+}

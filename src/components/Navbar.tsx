@@ -19,6 +19,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (!event.shiftKey) return; // Add this line to check if Shift is being pressed
+
       switch (event.key.toLowerCase()) {
         case 'a':
           router.push('/');
@@ -48,55 +50,55 @@ const Navbar = () => {
     <div className='flex flex-col md:flex-row md:space-x-4 md:space-y-0'>
       <div className='md:flex bg-white dark:bg-zinc-950 dark:text-gray-100 w-1/6 h-full flex-col justify-between hidden top-0 left-0 border-r border-gray-800 fixed'>
         <nav className='px-6 py-4 space-y-2'>
-          <h1 className='dark:text-yellow-400 font-mono px-6 py-4'>
+          <h1 className='dark:text-yellow-400 px-6 py-4 text-lg font-medium leading-6 '>
             matt-wigg-dot-com
           </h1>
           <Link href='/' legacyBehavior>
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <HomeIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
+                className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
               `}
               >
-                a.
+                Shift + A
               </span>
-              bout
+              {/* About */}
             </button>
           </Link>
           <Link href='/projects' legacyBehavior>
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <CommandLineIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
               `}
               >
-                p.
+                Shift + P
               </span>
-              rojects
+              {/* Projects */}
             </button>
           </Link>
           <Link href='/blog' legacyBehavior>
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <BookOpenIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
+                className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
               `}
               >
-                b.
+                Shift + B
               </span>
-              log
+              {/* Blog */}
             </button>
           </Link>
           <Link href='/contact' legacyBehavior>
             <button className='flex items-center px-4 py-2 font-medium rounded transition duration-200 dark:hover:bg-gray-800 w-full text-left'>
               <PencilSquareIcon className='h-6 w-6 mr-4 text-yellow-400' />
               <span
-                className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
+                className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
               `}
               >
-                c.
+                Shift + C
               </span>
-              ontact
+              {/* Contact */}
             </button>
           </Link>
         </nav>
