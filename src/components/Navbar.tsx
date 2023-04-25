@@ -57,10 +57,12 @@ const Navbar = () => {
           <Link href='/' legacyBehavior>
             <button
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
-                pathname === '/' ? 'dark:border-yellow-400' : ''
+                pathname === '/'
+                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  : ''
               }`}
             >
-              <HomeIcon className='h-6 w-6 text-yellow-400' />
+              {/* <HomeIcon className='h-6 w-6 text-yellow-400' /> */}
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
@@ -68,16 +70,19 @@ const Navbar = () => {
                 >
                   Shift + A
                 </span>
+                About
               </span>
             </button>
           </Link>
           <Link href='/projects' legacyBehavior>
             <button
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
-                pathname === '/projects' ? 'dark:border-yellow-400' : ''
+                pathname === '/projects'
+                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  : ''
               }`}
             >
-              <CommandLineIcon className='h-6 w-6 text-yellow-400' />
+              {/* <CommandLineIcon className='h-6 w-6 text-yellow-400' /> */}
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
@@ -85,16 +90,19 @@ const Navbar = () => {
                 >
                   Shift + P
                 </span>
+                Projects
               </span>
             </button>
           </Link>
           <Link href='/blog' legacyBehavior>
             <button
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
-                pathname === '/blog' ? 'dark:border-yellow-400' : ''
+                pathname === '/blog'
+                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  : ''
               }`}
             >
-              <BookOpenIcon className='h-6 w-6 text-yellow-400' />
+              {/* <BookOpenIcon className='h-6 w-6 text-yellow-400' /> */}
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
@@ -102,16 +110,19 @@ const Navbar = () => {
                 >
                   Shift + B
                 </span>
+                Blog
               </span>
             </button>
           </Link>
           <Link href='/contact' legacyBehavior>
             <button
               className={`bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start w-full ${
-                pathname === '/contact' ? 'dark:border-yellow-400' : ''
+                pathname === '/contact'
+                  ? 'dark:border-b-yellow-400 border-b-4 dark:text-yellow-400'
+                  : ''
               }`}
             >
-              <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
+              {/* <PencilSquareIcon className='h-6 w-6 text-yellow-400' /> */}
               <span className='ml-4'>
                 <span
                   className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-gray-800''
@@ -119,6 +130,7 @@ const Navbar = () => {
                 >
                   Shift + C
                 </span>
+                Contact
               </span>
             </button>
           </Link>

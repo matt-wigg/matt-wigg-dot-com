@@ -62,17 +62,15 @@ const HomeTabs = () => {
       setActiveTab('introduction');
     } else if (event.key === 's' || event.key === 'S') {
       setActiveTab('skills');
-    } else if (event.key === 'e' || event.key === 'E') {
-      setActiveTab('experience');
     }
   };
 
   return (
     <section className='container px-4 flex'>
       <div className='h-fit bg-white dark:bg-zinc-950 rounded-lg shadow-md border border-gray-800 w-full'>
-        <div className='flex mb-4 relative py-4 px-4 sm:px-6 justify-start'>
+        <div className='flex relative p-4 sm:px-6 justify-start'>
           <div
-            className='absolute left-0 bottom-0 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
+            className='absolute left-0 bottom-3 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
             style={indicatorStyle}
           />
           {['introduction', 'skills'].map((tab, index) => (
@@ -92,7 +90,7 @@ const HomeTabs = () => {
               onClick={() => setActiveTab(tab as TabName)}
             >
               <span
-                className={` text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-500 dark:bg-gray-700 hidden sm:inline`}
+                className={` text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-500 dark:bg-gray-700 hidden md:inline`}
               >
                 Shift + {tab[0].toUpperCase()}
               </span>
