@@ -19,7 +19,7 @@ const HomeContactForm = () => {
 
     setTimeout(() => {
       setLoading(false);
-      setSuccess(true);
+      setError(true);
       alert('This is a demo. No message was sent.');
     }, 2000);
   };
@@ -84,7 +84,7 @@ const HomeContactForm = () => {
                       : success
                       ? 'Return'
                       : error
-                      ? 'Return'
+                      ? 'Retry'
                       : 'Send'}
                   </span>
                 </button>
@@ -110,9 +110,9 @@ const HomeContactForm = () => {
                     {loading
                       ? 'Sending...'
                       : success
-                      ? 'Sent!'
+                      ? 'Retrun'
                       : error
-                      ? 'Try Again'
+                      ? 'Retry'
                       : 'Send'}
                   </span>
                 </button>
