@@ -1,5 +1,3 @@
-'use client';
-
 // components/SocialLinks.tsx
 
 import React from 'react';
@@ -30,10 +28,14 @@ const SocialLinks = () => {
   return (
     <div className='flex items-center justify-start space-x-4'>
       {socialLinks.map(({ href, icon: Icon }) => (
-        <Link key={href} href={href} target='_blank' passHref>
-          <Button className='text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-yellow-400 transition-colors duration-200'>
+        <Link key={href} href={href} legacyBehavior>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-200 dark:border-gray-700 flex items-center justify-start focus:outline-none focus:ring-2 focus:ring-yellow-400 dark:focus:ring-yellow-400'
+          >
             <Icon className='h-4 w-4' />
-          </Button>
+          </a>
         </Link>
       ))}
     </div>
