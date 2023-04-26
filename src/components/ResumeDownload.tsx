@@ -7,7 +7,7 @@ import {
 import Button from './Button';
 
 const ResumeDownload = () => {
-  const [contentVisible, setContentVisible] = useState(true);
+  const [contentVisible, setContentVisible] = useState(false);
 
   const downloadFile = (format: string) => {
     const link = document.createElement('a');

@@ -7,9 +7,9 @@ import { ThemeProvider } from '@/hooks/ThemeContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Matt Wigg: Software Developer',
+  title: 'Matt Wigg: Software Engineer',
   description:
-    'I am a software developer based in San Diego, CA. I specialize in building web applications using React, Node.js, and TypeScript. I am passionate about creating accessible and inclusive experiences for all users.',
+    'I am a Software Engineer based in San Diego, CA. I specialize in building web applications using React, Node.js, and TypeScript. I am passionate about creating accessible and inclusive experiences for all users.',
 };
 
 export default function RootLayout({

@@ -9,3 +9,11 @@
 body {
   @apply bg-gray-200 dark:bg-zinc-950 dark:text-white;
 }
+
+.custom-carousel .carousel-container {
+  @apply pb-12; /* Add bottom padding to the carousel container */
+}
+
+.custom-carousel .control-dots {
+  @apply absolute bottom-0 right-0 mb-4; /* Adjust the position of the control dots */
+}

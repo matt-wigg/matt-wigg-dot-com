@@ -2,6 +2,8 @@ import HomeTabs from '@/components/HomeTabs/HomeTabs';
 import ResumeDownload from '@/components/ResumeDownload';
 import Profile from '@/components/Profile';
 import HomeContactForm from '@/components/ContactForm';
+import Testimonials from '@/components/Testimonials';
+import InteractiveTimelineCard from '@/components/InteractiveTimelineCard';
 
 import { Inter } from 'next/font/google';
 
@@ -22,6 +24,13 @@ export default function Home() {
           </div>
           <div className='pb-4'>
             <ResumeDownload />
+          </div>
+          <div className='pb-4'>
+            <InteractiveTimelineCard />
+          </div>
+
+          <div className='pb-4'>
+            <Testimonials />
           </div>
           <div className='pb-4'>
             <HomeContactForm show={false} />
