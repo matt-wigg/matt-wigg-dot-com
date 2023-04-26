@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { useTheme } from '../hooks/ThemeContext';
 
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
   const [isChecked, setIsChecked] = useState(isDark);
+  const owlAudioRef = useRef<HTMLAudioElement | null>(null); // Update this line
 
   useEffect(() => {
     setIsChecked(isDark);
@@ -13,6 +14,7 @@ const ThemeToggle = () => {
   const handleToggle = () => {
     toggleTheme();
     setIsChecked(!isChecked);
+    owlAudioRef.current?.play(); // Add this line to play the owl sound
   };
 
   return (
@@ -34,6 +36,8 @@ const ThemeToggle = () => {
         ></div>
       </label>
       <MoonIcon className='h-6 w-6 text-yellow-400 ml-3' />
+      <audio ref={owlAudioRef} src='/owl-sound.mp3' preload='auto'></audio>{' '}
+      {/* Add this line */}
     </div>
   );
 };
