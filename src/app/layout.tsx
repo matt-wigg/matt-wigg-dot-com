@@ -2,6 +2,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '../components/Navbar';
 import HeaderNotification from '@/components/HeaderNotification';
+import { ThemeProvider } from '@/hooks/ThemeContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,13 +20,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='min-h-screen relative'>
-          <Navbar />
-          <main className='md:pl-64 '>
-            <HeaderNotification />
-            <div className='container mx-auto px-4'>{children}</div>
-          </main>
-        </div>
+        <ThemeProvider>
+          <div className='min-h-screen relative'>
+            <Navbar />
+            <main className='md:pl-64 '>
+              <HeaderNotification />
+              <div className='container mx-auto px-4'>{children}</div>
+            </main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

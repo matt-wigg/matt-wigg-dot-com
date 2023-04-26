@@ -9,6 +9,7 @@ import {
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import Button from './Button';
+import ToggleTheme from './ToggleTheme';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -131,6 +132,7 @@ const Navbar = () => {
               </span>
             </Button>
           </Link>
+          <ToggleTheme />
         </nav>
       </div>
 
