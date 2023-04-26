@@ -64,9 +64,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const currentTheme = isDark ? 'dark' : 'light';
-    localStorage.setItem('theme', currentTheme);
-    document.documentElement.classList.toggle('dark', isDark);
+    if (isDark !== null) {
+      const currentTheme = isDark ? 'dark' : 'light';
+      localStorage.setItem('theme', currentTheme);
+      document.documentElement.classList.toggle('dark', isDark);
+    }
   }, [isDark]);
 
   useEffect(() => {
@@ -86,7 +88,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ isDark: isDark ?? false, toggleTheme }}>
-      {isLoading ? null : children}
+      {children}
     </ThemeContext.Provider>
   );
 };
