@@ -5,7 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import Button from './Button';
 
 const InteractiveTimelineCard = () => {
-  const [contentVisible, setContentVisible] = useState(true);
+  const [contentVisible, setContentVisible] = useState(false);
 
   const toggleContentVisibility = () => {
     setContentVisible(!contentVisible);

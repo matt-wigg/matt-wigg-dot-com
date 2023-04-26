@@ -23,14 +23,13 @@ export default function Home() {
             <Profile />
           </div>
           <div className='pb-4'>
-            <ResumeDownload />
-          </div>
-          <div className='pb-4'>
             <InteractiveTimelineCard />
           </div>
-
           <div className='pb-4'>
             <Testimonials />
+          </div>
+          <div className='pb-4'>
+            <ResumeDownload />
           </div>
           <div className='pb-4'>
             <HomeContactForm show={false} />
