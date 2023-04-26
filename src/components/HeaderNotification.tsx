@@ -30,7 +30,7 @@ const HeaderNotification = () => {
 
   return (
     <header
-      className=' bg-yellow-400 dark:text-gray-900 px-4 py-2 flex items-center justify-between cursor-pointer border-b border-gray-800'
+      className=' bg-rose-600  dark:text-gray-900 px-4 py-2 flex items-center justify-between cursor-pointer border-b border-gray-800'
       onClick={handleClose}
     >
       <p className='font-semibold'>

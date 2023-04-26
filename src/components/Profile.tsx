@@ -28,7 +28,7 @@ const Profile = () => {
                 Matthew Wigglesworth
               </p>
               <p className='text-gray-500 dark:text-gray-400 font-extralight'>
-                He / Him / His
+                Software Developer
               </p>
               <p className='text-gray-500 dark:text-gray-400 font-extralight'>
                 San Diego, CA
@@ -41,8 +41,8 @@ const Profile = () => {
         </div>
         <div className='px-4 py-3 sm:px-6'>
           <p className='font-light text-gray-500 dark:text-gray-400 pb-3'>
-            I&apos;m a full-stack software engineer originally from England, now
-            living in San Diego. In my spare time I enjoy surfing, hiking,
+            I&apos;m a full-stack software developer originally from England,
+            now living in San Diego. In my spare time I enjoy surfing, hiking,
             poker, and soccer (football). I hope to one day own a dog.
           </p>
         </div>
