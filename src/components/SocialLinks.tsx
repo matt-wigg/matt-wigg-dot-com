@@ -1,8 +1,4 @@
-// components/SocialLinks.tsx
-
-import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
-import Button from './Button';
 import Link from 'next/link';
 
 const socialLinks = [
