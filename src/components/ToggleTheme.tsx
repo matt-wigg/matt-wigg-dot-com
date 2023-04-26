@@ -1,22 +1,40 @@
+import { useState, useEffect } from 'react';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { useTheme } from '../hooks/ThemeContext';
-import Button from './Button';
 
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
+  const [isChecked, setIsChecked] = useState(isDark);
+
+  useEffect(() => {
+    setIsChecked(isDark);
+  }, [isDark]);
+
+  const handleToggle = () => {
+    toggleTheme();
+    setIsChecked(!isChecked);
+  };
 
   return (
-    <Button
-      onClick={toggleTheme}
-      className='dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 '
-    >
-      {isDark ? (
-        <SunIcon className='h-6 w-6 text-yellow-400' />
-      ) : (
-        <MoonIcon className='h-6 w-6 text-yellow-400' />
-      )}
-      <span className='ml-4'>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
-    </Button>
+    <div className='flex items-center'>
+      <SunIcon className='h-6 w-6 text-yellow-400 mr-3' />
+      <label htmlFor='theme-toggle' className='relative cursor-pointer'>
+        <input
+          id='theme-toggle'
+          type='checkbox'
+          className='sr-only'
+          onChange={handleToggle}
+          checked={isChecked}
+        />
+        <div className='block w-14 h-6 bg-gray-600 rounded-full shadow-inner'></div>
+        <div
+          className={`${
+            isChecked ? 'translate-x-8' : 'translate-x-0'
+          } absolute inset-y-0 left-0 w-6 h-6 bg-white dark:bg-gray-900 rounded-full shadow-md transition-all duration-300 ease-in-out transform-gpu scale-95 hover:scale-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400`}
+        ></div>
+      </label>
+      <MoonIcon className='h-6 w-6 text-yellow-400 ml-3' />
+    </div>
   );
 };
 

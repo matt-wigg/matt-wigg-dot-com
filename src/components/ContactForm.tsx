@@ -68,9 +68,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
           <Button onClick={toggleContentVisibility}>
             <ChevronDownIcon
               className={`h-4 w-4 transform transition duration-300 ${
-                contentVisible
-                  ? 'text-gray-600 text-yellow-400'
-                  : 'rotate-180 text-gray-400'
+                contentVisible ? ' text-yellow-400' : 'rotate-180'
               }`}
             />
           </Button>

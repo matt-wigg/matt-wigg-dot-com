@@ -132,7 +132,9 @@ const Navbar = () => {
               </span>
             </Button>
           </Link>
-          <ToggleTheme />
+          <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2'>
+            <ToggleTheme />
+          </div>
         </nav>
       </div>
 
@@ -218,7 +220,9 @@ const Navbar = () => {
                 </Button>
               </Link>
             </div>
-            <ToggleTheme />
+            <div className='flex justify-end pt-4'>
+              <ToggleTheme />
+            </div>
           </nav>
         )}
         {/* Content */}
