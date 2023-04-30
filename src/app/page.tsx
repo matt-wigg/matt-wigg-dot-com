@@ -35,9 +35,6 @@ export default function Home() {
           <div className='pb-4'>
             <ContactForm show={false} />
           </div>
-          <div className='pb-4'>
-            <ChatForm show={false} />
-          </div>
         </div>
       </main>
     </>
