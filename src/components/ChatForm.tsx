@@ -86,7 +86,11 @@ const ChatForm = ({ show }: { show: boolean }) => {
               This chat does not currently support multi-line messages: it will
               not remember any context from previous messages. It has a
               max_token value of 150 (I&apos;m on a budget) and uses
-              OpenAI&apos;s gpt-3.5-turbo model.
+              OpenAI&apos;s gpt-3.5-turbo model.{' '}
+              <span className='font-bold text-rose-600 dark:text-yellow-400'>
+                The model may time out if it is too busy or the response is too
+                long.
+              </span>
             </p>
             <div className='overflow-y-auto h-96 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
               {messages.map((message, index) => (
