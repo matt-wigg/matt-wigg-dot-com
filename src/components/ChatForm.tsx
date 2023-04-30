@@ -84,9 +84,9 @@ const ChatForm = ({ show }: { show: boolean }) => {
           <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
             <p className='pb-4'>
               This chat does not currently support multi-line messages: it will
-              only consider the last line of your message. It has a max_token
-              value of 150 (I&apos;m poor) and uses OpenAI&apos;s gpt-3.5-turbo
-              model.
+              not remember any context from previous messages. It has a
+              max_token value of 150 (I&apos;m poor) and uses OpenAI&apos;s
+              gpt-3.5-turbo model.
             </p>
             <div className='overflow-y-auto h-96 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
               {messages.map((message, index) => (
@@ -105,11 +105,29 @@ const ChatForm = ({ show }: { show: boolean }) => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className='flex'>
-                <input
+                {/* <input
                   type='text'
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder='Type your message...'
+                  className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                    loading && 'opacity-50'
+                  }`}
+                  disabled={loading}
+                /> */}
+                <textarea
+                  name='message'
+                  id='message'
+                  rows={3}
+                  placeholder='Message *'
+                  required
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      handleSubmit(e);
+                    }
+                  }}
                   className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     loading && 'opacity-50'
                   }`}
