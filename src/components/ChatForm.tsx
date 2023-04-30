@@ -83,10 +83,10 @@ const ChatForm = ({ show }: { show: boolean }) => {
         {contentVisible && (
           <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
             <p className='pb-4'>
-              This chat model does not currently support multi-line messages: it
-              will only consider the last line of your message. It has a
-              &quot;max_token&quot; value of 150 and uses the OpenAI model:
-              gpt-3.5-turbo.
+              This chat does not currently support multi-line messages: it will
+              only consider the last line of your message. It has a max_token
+              value of 150 (I&apos;m poor) and uses OpenAI&apos;s gpt-3.5-turbo
+              model.
             </p>
             <div className='overflow-y-auto h-96 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
               {messages.map((message, index) => (
@@ -95,7 +95,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                     className={`${
                       message.startsWith('User:')
                         ? 'dark:text-gray-400'
-                        : 'font-bold text-purple-800 dark:text-yellow-400'
+                        : 'font-bold dark:text-yellow-400'
                     }`}
                   >
                     {message}
