@@ -17,18 +17,21 @@ const ChatForm = ({ show }: { show: boolean }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (input.trim() !== '') {
+    const trimmedInput = input.trim();
+
+    if (trimmedInput !== '') {
+      // Clear the input field immediately after hitting submit
+      setInput('');
+
       setLoading(true);
-
-      setMessages((prevMessages) => [...prevMessages, `User: ${input.trim()}`]);
-
+      setMessages((prevMessages) => [...prevMessages, `User: ${trimmedInput}`]);
       try {
         const response = await fetch('/api/hello', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message: input.trim(), messages: messages }),
+          body: JSON.stringify({ message: trimmedInput, messages: messages }),
         });
 
         if (!response.ok) {
@@ -37,8 +40,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
 
         const data = await response.json();
         setMessages((prevMessages) => [...prevMessages, `AI: ${data.message}`]);
-
-        setInput('');
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -109,21 +110,13 @@ const ChatForm = ({ show }: { show: boolean }) => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className='flex'>
-                {/* <input
-                  type='text'
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder='Type your message...'
-                  className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
-                    loading && 'opacity-50'
-                  }`}
-                  disabled={loading}
-                /> */}
                 <textarea
                   name='message'
                   id='message'
                   rows={3}
-                  placeholder='Message *'
+                  placeholder={
+                    loading ? 'Processing... Hang tight!' : 'Send a message...'
+                  }
                   required
                   value={input}
                   onChange={(e) => setInput(e.target.value)}

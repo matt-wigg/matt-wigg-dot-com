@@ -9,36 +9,37 @@ export async function POST(req: NextRequest) {
 
   const openai = new OpenAIApi(configuration);
 
-  const json = await req.json();
-  const message = json.message;
-  console.log(message);
+  const { message } = await req.json();
 
-  // Sleep function to add delay
-  const sleep = (ms: number): Promise<void> => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  };
+  await sleep(1000); // 1 second delay; rate limits
 
-  // Add a delay before making an API request
-  await sleep(1000); // 1000 ms or 1 second; adjust this value based on your rate limits
+  try {
+    const completion = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        {
+          role: 'user',
+          content: message,
+        },
+      ],
+      max_tokens: 150,
+    });
 
-  const completion = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
-    messages: [
-      {
-        role: 'user',
-        content: message,
-      },
-    ],
-    max_tokens: 150,
-  });
+    const responseText = completion.data.choices[0]?.message?.content;
 
-  const responseText = completion.data.choices[0].message?.content;
-
-  if (responseText) {
-    return NextResponse.json({ message: responseText });
-  } else {
-    const error = new Error();
-    error.message = 'No response from the model.';
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    if (responseText) {
+      return NextResponse.json({ message: responseText });
+    } else {
+      throw new Error('No response from the model.');
+    }
+  } catch (error) {
+    return NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
