@@ -139,7 +139,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                   disabled={!input || loading}
                 >
                   {loading ? (
-                    <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2 animate-spin' />
+                    <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />
                   ) : (
                     <PaperAirplaneIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
                   )}
