@@ -32,7 +32,7 @@ const ThemeToggle = () => {
         <div
           className={`${
             isChecked ? 'translate-x-8' : 'translate-x-0'
-          } absolute inset-y-0 left-0 w-6 h-6 bg-white dark:bg-gray-900 rounded-full shadow-md transition-all duration-300 ease-in-out transform-gpu scale-95 hover:scale-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400`}
+          } absolute inset-y-0 left-0 w-6 h-6 bg-white dark:bg-gray-900 rounded-full shadow-md transition-all duration-300 ease-in-out transform-gpu scale-95 hover:scale-100 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-yellow-400`}
         ></div>
       </label>
       <MoonIcon className='h-6 w-6 text-yellow-400 ml-3' />

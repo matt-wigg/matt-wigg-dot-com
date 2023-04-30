@@ -1,9 +1,10 @@
 import HomeTabs from '@/components/HomeTabs/HomeTabs';
 import ResumeDownload from '@/components/ResumeDownload';
 import Profile from '@/components/Profile';
-import HomeContactForm from '@/components/ContactForm';
+import ContactForm from '@/components/ContactForm';
 import Testimonials from '@/components/Testimonials';
-import InteractiveTimelineCard from '@/components/InteractiveTimelineCard';
+import ProfesionalTimeline from '@/components/ProfesionalTimeline';
+import ChatForm from '@/components/ChatForm';
 
 import { Inter } from 'next/font/google';
 
@@ -23,7 +24,7 @@ export default function Home() {
             <Profile />
           </div>
           <div className='pb-4'>
-            <InteractiveTimelineCard />
+            <ProfesionalTimeline />
           </div>
           <div className='pb-4'>
             <Testimonials />
@@ -32,7 +33,10 @@ export default function Home() {
             <ResumeDownload />
           </div>
           <div className='pb-4'>
-            <HomeContactForm show={false} />
+            <ContactForm show={false} />
+          </div>
+          <div className='pb-4'>
+            <ChatForm show={false} />
           </div>
         </div>
       </main>

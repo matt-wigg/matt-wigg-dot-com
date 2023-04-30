@@ -155,7 +155,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     id='name'
                     placeholder='Name *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
@@ -167,7 +167,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     id='email'
                     placeholder='Email *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}
@@ -179,7 +179,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     rows={5}
                     placeholder='Message *'
                     required
-                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none ${
+                    className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                       loading && 'opacity-50'
                     }`}
                     disabled={loading || success || error}

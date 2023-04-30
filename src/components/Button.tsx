@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <button
       {...props}
-      className={`group bg-white dark:bg-zinc-950 hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 flex items-center justify-start focus:outline-none focus:ring-2 focus:ring-yellow-400 dark:focus:ring-yellow-400 ${props.className}`}
+      className={`group bg-white dark:bg-zinc-950 hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 flex items-center justify-start focus:outline-none focus:ring-1 focus:ring-yellow-400 dark:focus:ring-yellow-400 ${props.className}`}
     >
       {children}
     </button>

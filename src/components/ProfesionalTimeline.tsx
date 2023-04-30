@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import Button from './Button';
 
-const InteractiveTimelineCard = () => {
+const ProfesionalTimeline = () => {
   const [contentVisible, setContentVisible] = useState(false);
 
   const toggleContentVisibility = () => {
@@ -96,4 +96,4 @@ const InteractiveTimelineCard = () => {
   );
 };
 
-export default InteractiveTimelineCard;
+export default ProfesionalTimeline;

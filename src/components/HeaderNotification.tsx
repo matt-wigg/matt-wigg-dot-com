@@ -37,7 +37,7 @@ const HeaderNotification = () => {
         This website is under development. Some features may not be fully
         functional.
       </p>
-      <span className='p-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 dark:focus:ring-yellow-300'>
+      <span className='p-1 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-yellow-400 dark:focus:ring-yellow-300'>
         <Button
           className={`dark:text-white rounded px-2 py-2 text-xs mr-3 transition duration-150 ease-in-out bg-gray-500 dark:bg-gray-700 hidden md:inline border border-gray-800`}
         >
