@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '../components/Navbar';
 import HeaderNotification from '@/components/HeaderNotification';
 import { ThemeProvider } from '@/hooks/ThemeContext';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,7 +26,10 @@ export default function RootLayout({
             <Navbar />
             <main className='md:pl-64 '>
               <HeaderNotification />
-              <div className='container mx-auto px-4'>{children}</div>
+              <div className='container mx-auto px-4'>
+                {children}
+                <Analytics />
+              </div>
             </main>
           </div>
         </ThemeProvider>
