@@ -5,7 +5,7 @@ import {
   ChevronDownIcon,
 } from '@heroicons/react/24/outline';
 import Button from './Button';
-
+//comment to remove
 const ChatForm = ({ show }: { show: boolean }) => {
   const [contentVisible, setContentVisible] = useState(show);
   const [messages, setMessages] = useState<string[]>([]);
