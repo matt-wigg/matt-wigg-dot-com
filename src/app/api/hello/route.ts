@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
         content: message,
       },
     ],
+    max_tokens: 100,
   });
 
   const responseText = completion.data.choices[0].message?.content;
