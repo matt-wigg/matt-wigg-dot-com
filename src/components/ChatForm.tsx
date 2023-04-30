@@ -58,7 +58,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
         >
           <div>
             <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100 group-hover:text-yellow-400 dark:group-hover:text-yellow-400'>
-              Matt-GPT v0.9-apha
+              Matt-GPT v0.9-alpha
             </h3>
           </div>
           <Button onClick={toggleContentVisibility}>
@@ -72,10 +72,8 @@ const ChatForm = ({ show }: { show: boolean }) => {
 
         {contentVisible && (
           <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
-            <p className='pb-1'>
-              This chat model does not currently support multi-line messages.
-            </p>
             <p className='pb-4'>
+              This chat model does not currently support multi-line messages.
               The model will only consider the last line of your message.
             </p>
             <div className='overflow-y-auto h-64 mb-4 border border-gray-300 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
