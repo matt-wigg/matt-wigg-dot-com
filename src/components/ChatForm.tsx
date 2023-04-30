@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import {
   PaperAirplaneIcon,
   ChevronDownIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline';
+
 import Button from './Button';
 //comment to remove
 const ChatForm = ({ show }: { show: boolean }) => {
@@ -49,6 +51,14 @@ const ChatForm = ({ show }: { show: boolean }) => {
     setContentVisible(!contentVisible);
   };
 
+  const LoadingDots = () => (
+    <div className='flex justify-center items-center space-x-1'>
+      <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce'></div>
+      <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-75'></div>
+      <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-150'></div>
+    </div>
+  );
+
   return (
     <section className='container px-4 flex flex-col text-sm'>
       <article className='bg-white dark:bg-zinc-950 shadow rounded-lg overflow-hidden border border-gray-800'>
@@ -73,12 +83,24 @@ const ChatForm = ({ show }: { show: boolean }) => {
         {contentVisible && (
           <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
             <p className='pb-4'>
-              This chat model does not currently support multi-line messages.
-              The model will only consider the last line of your message.
+              This chat model does not currently support multi-line messages: it
+              will only consider the last line of your message. It has a
+              &quot;max_token&quot; value of 150 and uses the OpenAI model:
+              gpt-3.5-turbo.
             </p>
-            <div className='overflow-y-auto h-64 mb-4 border border-gray-300 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
+            <div className='overflow-y-auto h-96 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
               {messages.map((message, index) => (
-                <p key={index}>{message}</p>
+                <p key={index} className={`animate-fadeInOpacity pb-1`}>
+                  <span
+                    className={`${
+                      message.startsWith('User:')
+                        ? 'dark:text-gray-400'
+                        : 'font-bold text-purple-800 dark:text-yellow-400'
+                    }`}
+                  >
+                    {message}
+                  </span>
+                </p>
               ))}
             </div>
             <form onSubmit={handleSubmit}>
@@ -89,6 +111,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder='Type your message...'
                   className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none`}
+                  disabled={loading}
                 />
                 <Button
                   type='submit'
@@ -96,26 +119,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                   disabled={!input || loading}
                 >
                   {loading ? (
-                    <svg
-                      className='animate-spin h-5 w-5 text-gray-600 dark:text-gray-400'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                    >
-                      <circle
-                        className='opacity-25'
-                        cx='12'
-                        cy='12'
-                        r='10'
-                        stroke='currentColor'
-                        strokeWidth='4'
-                      ></circle>
-                      <path
-                        className='opacity-75'
-                        fill='currentColor'
-                        d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
-                      ></path>
-                    </svg>
+                    <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2 animate-spin' />
                   ) : (
                     <PaperAirplaneIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
                   )}
