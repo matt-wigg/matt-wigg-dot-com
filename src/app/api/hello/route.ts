@@ -7,6 +7,9 @@ export async function POST(req: NextRequest) {
     apiKey: process.env.OPEN_AI_KEY,
   });
 
+  console.log(process.env.OPEN_AI_ORG);
+  console.log(process.env.OPEN_AI_KEY);
+
   const openai = new OpenAIApi(configuration);
 
   const json = await req.json();
