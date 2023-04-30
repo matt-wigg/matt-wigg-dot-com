@@ -110,7 +110,9 @@ const ChatForm = ({ show }: { show: boolean }) => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder='Type your message...'
-                  className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none`}
+                  className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                    loading && 'opacity-50'
+                  }`}
                   disabled={loading}
                 />
                 <Button
