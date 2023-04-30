@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from 'openai';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextResponse) {
+export async function POST(req: NextRequest) {
   const configuration = new Configuration({
     organization: process.env.OPEN_AI_ORG,
     apiKey: process.env.OPEN_AI_KEY,
