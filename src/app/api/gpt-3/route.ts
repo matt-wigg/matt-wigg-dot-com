@@ -9,9 +9,14 @@ export async function POST(req: NextRequest) {
 
   const openai = new OpenAIApi(configuration);
 
-  const { message } = await req.json();
+  const requestBody = await req.json(); // Call req.json() only once
+  const { messages } = requestBody;
 
-  await sleep(1000); // 1 second delay; rate limits
+  console.log(messages);
+  await sleep(1000);
+
+  // Get the last user message
+  const lastUserMessage = messages[messages.length - 1];
 
   try {
     const completion = await openai.createChatCompletion({
@@ -19,7 +24,7 @@ export async function POST(req: NextRequest) {
       messages: [
         {
           role: 'user',
-          content: message,
+          content: lastUserMessage.content,
         },
       ],
       max_tokens: 150,
