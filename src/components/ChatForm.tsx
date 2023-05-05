@@ -7,10 +7,11 @@ import {
 } from '@heroicons/react/24/outline';
 
 import Button from './Button';
-//comment to remove
 const ChatForm = ({ show }: { show: boolean }) => {
   const [contentVisible, setContentVisible] = useState(show);
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>(
+    []
+  );
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -20,18 +21,20 @@ const ChatForm = ({ show }: { show: boolean }) => {
     const trimmedInput = input.trim();
 
     if (trimmedInput !== '') {
-      // Clear the input field immediately after hitting submit
       setInput('');
 
       setLoading(true);
-      setMessages((prevMessages) => [...prevMessages, `User: ${trimmedInput}`]);
+      const userMessage = { role: 'user', content: trimmedInput };
+
+      setMessages((prevMessages) => [...prevMessages, userMessage]);
+
       try {
         const response = await fetch('/api/hello', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message: trimmedInput, messages: messages }),
+          body: JSON.stringify({ messages: [...messages, userMessage] }),
         });
 
         if (!response.ok) {
@@ -39,9 +42,20 @@ const ChatForm = ({ show }: { show: boolean }) => {
         }
 
         const data = await response.json();
-        setMessages((prevMessages) => [...prevMessages, `AI: ${data.message}`]);
-      } catch (error) {
+        const assistantMessage = { role: 'assistant', content: data.message };
+
+        setMessages((prevMessages) => [...prevMessages, assistantMessage]);
+      } catch (error: any) {
         console.error('Error fetching data:', error);
+
+        // Handle specific error messages or status codes here
+        if (error.message === 'Some Specific Error' || error.status === 500) {
+          const errorMessage = {
+            role: 'error',
+            content: 'An error occurred. Please try again.',
+          };
+          setMessages((prevMessages) => [...prevMessages, errorMessage]);
+        }
       } finally {
         setLoading(false);
       }
@@ -52,13 +66,13 @@ const ChatForm = ({ show }: { show: boolean }) => {
     setContentVisible(!contentVisible);
   };
 
-  const LoadingDots = () => (
-    <div className='flex justify-center items-center space-x-1'>
-      <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce'></div>
-      <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-75'></div>
-      <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-150'></div>
-    </div>
-  );
+  // const LoadingDots = () => (
+  //   <div className='flex justify-center items-center space-x-1'>
+  //     <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce'></div>
+  //     <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-75'></div>
+  //     <div className='w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-150'></div>
+  //   </div>
+  // );
 
   return (
     <section className='container px-4 flex flex-col text-sm'>
@@ -84,10 +98,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
         {contentVisible && (
           <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
             <p className='pb-4'>
-              This chat does not currently support multi-line messages: it will
-              not remember any context from previous messages. It has a
-              max_token value of 150 (I&apos;m on a budget) and uses
-              OpenAI&apos;s gpt-3.5-turbo model.{' '}
+              This chat uses the model GPT-4 by OpenAI.
               <span className='font-bold text-rose-600 dark:text-yellow-400'>
                 The model may time out if it is too busy or the response is too
                 long.
@@ -98,16 +109,17 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 <p key={index} className={`animate-fadeInOpacity pb-1`}>
                   <span
                     className={`${
-                      message.startsWith('User:')
+                      message.role === 'user'
                         ? 'dark:text-gray-400'
                         : 'font-bold dark:text-yellow-400'
                     }`}
                   >
-                    {message}
+                    {`${message.role}: ${message.content}`}
                   </span>
                 </p>
               ))}
             </div>
+
             <form onSubmit={handleSubmit}>
               <div className='flex'>
                 <textarea
