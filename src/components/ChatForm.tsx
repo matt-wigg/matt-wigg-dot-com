@@ -14,6 +14,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
   );
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [selectedModel, setSelectedModel] = useState('gpt-3'); // Add a state to store the selected model
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
       setMessages((prevMessages) => [...prevMessages, userMessage]);
 
       try {
-        const response = await fetch('/api/gpt-3', {
+        const response = await fetch(`/api/${selectedModel}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -98,12 +99,30 @@ const ChatForm = ({ show }: { show: boolean }) => {
         {contentVisible && (
           <div className='border-t border-gray-700 dark:border-gray-700 px-4 py-5 sm:p-6'>
             <p className='pb-4'>
-              This chat uses the model GPT-4 by OpenAI.
+              {/* This chat uses the model GPT-4 by OpenAI. */}
               <span className='font-bold text-rose-600 dark:text-yellow-400'>
                 The model may time out if it is too busy or the response is too
                 long.
               </span>
             </p>
+            {/* Add the dropdown for model selection */}
+            <div className='mb-4'>
+              <label
+                htmlFor='model-selection'
+                className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'
+              >
+                Select Model
+              </label>
+              <select
+                id='model-selection'
+                value={selectedModel}
+                onChange={(e) => setSelectedModel(e.target.value)}
+                className='w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none' // Add paddingRight style to the select element
+              >
+                <option value='gpt-3'>GPT-3</option>
+                <option value='gpt-4'>GPT-4</option>
+              </select>
+            </div>
             <div className='overflow-y-auto h-96 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
               {messages.map((message, index) => (
                 <p key={index} className={`animate-fadeInOpacity pb-1`}>
