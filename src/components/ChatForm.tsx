@@ -29,7 +29,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
       setMessages((prevMessages) => [...prevMessages, userMessage]);
 
       try {
-        const response = await fetch('/api/hello', {
+        const response = await fetch('/api/gpt-3', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
