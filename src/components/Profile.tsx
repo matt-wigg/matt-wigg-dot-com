@@ -67,8 +67,8 @@ const Profile = () => {
               <p className='font-light text-gray-500 dark:text-gray-400 pb-3'>
                 I&apos;m a full-stack software engineer originally from England,
                 now living in San Diego. In my spare time I enjoy surfing,
-                hiking, poker, and soccer (football). I hope to one day own a
-                dog.
+                hiking, poker, and soccer (football). I also own a dog: King
+                Charlie.
               </p>
             </div>
           </div>
