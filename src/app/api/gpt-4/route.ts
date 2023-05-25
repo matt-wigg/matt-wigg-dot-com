@@ -1,6 +1,10 @@
 import { Configuration, OpenAIApi } from 'openai';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const config = {
+  runtime: 'edge',
+};
+
 export async function POST(req: NextRequest) {
   const configuration = new Configuration({
     organization: process.env.OPEN_AI_ORG,
