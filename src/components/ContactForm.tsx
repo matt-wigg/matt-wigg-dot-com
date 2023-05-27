@@ -32,7 +32,6 @@ const ContactForm = ({ show }: { show: boolean }) => {
       if (res.status === 200) {
         setSuccess(true);
       } else {
-        console.log(res.status);
         setError(true);
       }
     } catch (error) {
