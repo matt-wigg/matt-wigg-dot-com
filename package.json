@@ -9,26 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.341.0",
     "@heroicons/react": "^2.0.17",
     "@types/node": "18.15.13",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
     "@vercel/analytics": "^1.0.0",
     "autoprefixer": "10.4.14",
+    "aws-sdk": "^2.1386.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "eslint": "8.39.0",
-    "eslint-config-next": "13.3.1",
-    "next": "13.3.1",
+    "next": "^13.4.4",
     "next-themes": "^0.2.1",
     "openai": "^3.2.1",
     "postcss": "8.4.23",
     "prop-types": "^15.8.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-responsive-carousel": "^3.2.23",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "eslint-config-next": "^13.4.4"
   }
 }

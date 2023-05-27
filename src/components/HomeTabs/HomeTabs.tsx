@@ -51,19 +51,18 @@ const HomeTabs = () => {
   }, [currentTime]);
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === '1') {
+        setActiveTab('introduction');
+      } else if (event.key === '2') {
+        setActiveTab('skills');
+      }
+    };
     document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
-
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === '1') {
-      setActiveTab('introduction');
-    } else if (event.key === '2') {
-      setActiveTab('skills');
-    }
-  };
+  }, [setActiveTab]);
 
   return (
     <section className='container px-4 flex'>

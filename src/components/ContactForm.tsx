@@ -14,22 +14,40 @@ const ContactForm = ({ show }: { show: boolean }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const [contentVisible, setContentVisible] = useState(show);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (res.status === 200) {
+        setSuccess(true);
+      } else {
+        console.log(res.status);
+        setError(true);
+      }
+    } catch (error) {
       setError(true);
-      alert('This is a demo. No message was sent.');
-    }, 5000);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const reloadForm = () => {
     setSuccess(false);
     setError(false);
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   const renderIcon = () => {
@@ -67,11 +85,11 @@ const ContactForm = ({ show }: { show: boolean }) => {
             // success content
             <div className='text-center'>
               <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
-                Thank you!
+                Success!
               </h3>
               <p className='mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-400 pt-1'>
-                Your message has been sent. I will get back to you as soon as
-                possible.
+                Thank you, your message was sent successfully. I will get back
+                to you as soon as possible.
               </p>
               <div className='flex items-center justify-center pt-4'>
                 <Button
@@ -135,6 +153,8 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   id='name'
                   placeholder='Name *'
                   required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     loading && 'opacity-50'
                   }`}
@@ -147,6 +167,8 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   id='email'
                   placeholder='Email *'
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     loading && 'opacity-50'
                   }`}
@@ -159,6 +181,8 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   rows={5}
                   placeholder='Message *'
                   required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 block w-full shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     loading && 'opacity-50'
                   }`}
