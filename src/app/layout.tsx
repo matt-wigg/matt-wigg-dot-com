@@ -1,11 +1,8 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
 import Navbar from '../components/Navbar';
 import HeaderNotification from '@/components/HeaderNotification';
 import { ThemeProvider } from '@/hooks/ThemeContext';
 import { Analytics } from '@vercel/analytics/react';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Matt Wigg: Software Engineer',
