@@ -4,11 +4,6 @@ import Profile from '@/components/Profile';
 import ContactForm from '@/components/ContactForm';
 import Testimonials from '@/components/Testimonials';
 import ProfesionalTimeline from '@/components/ProfesionalTimeline';
-import ChatForm from '@/components/ChatForm';
-
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
