@@ -75,8 +75,8 @@ const ContactForm = ({ show }: { show: boolean }) => {
         <div>
           {!success && !error && (
             <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
-              Send me a message and I will get back to you as soon as possible.
-              I do not store or share your information.
+              This form will send me an email with your message. I will get back
+              to you as soon as possible.
             </p>
           )}
           {success ? (
