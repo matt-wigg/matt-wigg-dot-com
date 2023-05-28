@@ -17,9 +17,15 @@ const ContentCardHeader: React.FC<ContentCardProps> = ({
   return (
     <header
       onClick={toggleContentVisibility}
-      className='group p-4 sm:px-6 flex justify-between items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-900'
+      className={`group p-4 sm:px-6 flex justify-between items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-900 ${
+        contentVisible && 'bg-gray-100 dark:bg-zinc-900'
+      }`}
     >
-      <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100 group-hover:text-yellow-400 dark:group-hover:text-yellow-400'>
+      <h3
+        className={`text-lg font-medium leading-6 text-gray-900 dark:text-gray-100 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 ${
+          contentVisible && 'text-yellow-400 dark:text-yellow-400'
+        }`}
+      >
         {title}
       </h3>
       <Button

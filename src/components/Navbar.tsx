@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <div className='flex flex-col md:flex-row md:space-x-4 md:space-y-0'>
       <div className='md:flex  dark:bg-zinc-950 dark:text-gray-100 w-64 min-w-64 h-full flex-col justify-between hidden top-0 left-0 border-r border-gray-800 fixed'>
-        <nav className='px-6 py-4 space-y-4'>
+        <nav className='px-6 py-4 space-y-4 font-light'>
           <h1 className='font-mono text-2xl py-2 font-medium text-gray-900 dark:text-gray-100'>
             matt-wigg-dot-com
           </h1>
