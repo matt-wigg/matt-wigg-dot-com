@@ -68,7 +68,7 @@ const HomeTabs = () => {
   return (
     <ContentCard
       show={true}
-      title='Home'
+      title='Overview'
       content={
         <div>
           <div className='flex relative pb-4 justify-start'>

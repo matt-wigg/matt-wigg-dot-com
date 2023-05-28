@@ -32,7 +32,7 @@ const Testimonials = () => {
       position: 'Software Engineer',
       company: 'John Deere.',
       testimonial:
-        'I have worked with Matthew on several software engineering projects and he was an invaluable teammate on each one. His strong technical and organization skills lead us to rely on him for the proxy that pulled together multiple services in a service-oriented architecture.',
+        'I have worked with Matthew on several software engineering projects and he was an invaluable teammate on each one. His strong technical and organization skills lead us to rely on him for multiple services in a service-oriented architecture.',
     },
   ];
 
@@ -46,24 +46,20 @@ const Testimonials = () => {
           infiniteLoop
           showStatus={false}
           showThumbs={false}
-          interval={7000}
+          interval={4000}
           showArrows={false}
           showIndicators={true}
           className='custom-carousel'
         >
           {testimonials.map((testimonial, index) => (
-            <div key={index} className='p-4'>
-              <p className='font-light italic text-gray-500 dark:text-gray-400 pb-3'>
+            <div key={index}>
+              <p className='font-light italic text-gray-500 dark:text-gray-400 pb-4'>
                 &quot;{testimonial.testimonial}&quot;
               </p>
-              <p className='text-gray-900 dark:text-gray-300 font-semibold'>
-                {' '}
-                {/* Add mb-4 here */}
+              <p className='text-gray-900 dark:text-gray-300 font-semibold mb-1'>
                 {testimonial.name}
               </p>
-              <p className='text-gray-500 dark:text-gray-400 font-extralight mb-8'>
-                {' '}
-                {/* Add mb-4 here */}
+              <p className='text-gray-500 dark:text-gray-400 font-extralight mb-12'>
                 {testimonial.position}, {testimonial.company}
               </p>
             </div>
