@@ -8,13 +8,16 @@ import ProfesionalTimeline from '@/components/ProfesionalTimeline';
 export default function Home() {
   return (
     <>
-      <main className='flex md:flex-row flex-col pt-8'>
-        <div className='md:w-3/5 md:flex md:flex-col'>
+      <main className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 xl:grid-rows-1 pt-8'>
+        <div className='xl:col-span-3 xl:row-start-auto xl:row-end-auto'>
           <div className='pb-4'>
             <HomeTabs />
           </div>
         </div>
-        <div className='md:w-2/5 md:flex md:flex-col'>
+        <div className='xl:col-span-2 xl:row-start-auto xl:row-end-auto'>
+          <div className='pb-4 xl:hidden lg:hidden'>
+            <ContactForm show={false} />
+          </div>
           <div className='pb-4'>
             <Profile />
           </div>
@@ -27,8 +30,11 @@ export default function Home() {
           <div className='pb-4'>
             <ResumeDownload />
           </div>
-          <div className='pb-4'>
-            <ContactForm show={false} />
+          <div className='pb-4 hidden lg:block xl:hidden'>
+            <ContactForm show={true} />
+          </div>
+          <div className='pb-4 hidden xl:block'>
+            <ContactForm show={true} />
           </div>
         </div>
       </main>

@@ -30,8 +30,8 @@ const TabContent: React.FC<TabContentProps> = ({ activeTab, greeting }) => {
   switch (activeTab) {
     case 'introduction':
       return (
-        <div className='space-y-4 font-light p-8 dark:text-gray-400'>
-          <p className='text-3xl py-2 font-medium text-gray-900 dark:text-gray-100'>
+        <div className='space-y-4 font-light py-4 dark:text-gray-400'>
+          <p className='text-3xl font-medium text-gray-900 dark:text-gray-100'>
             {greeting}
           </p>
           <p>{content.introduction.welcome}</p>
@@ -45,8 +45,8 @@ const TabContent: React.FC<TabContentProps> = ({ activeTab, greeting }) => {
       );
     case 'skills':
       return (
-        <div className='space-y-4 font-light p-8 dark:text-gray-400'>
-          <p className='text-3xl py-2 font-medium text-gray-900 dark:text-gray-100'>
+        <div className='space-y-4 font-light py-4 dark:text-gray-400'>
+          <p className='text-3xl font-medium text-gray-900 dark:text-gray-100'>
             My skills
           </p>
           <p>{content.skillsintroduction}</p>

@@ -68,45 +68,44 @@ const HomeTabs = () => {
   return (
     <ContentCard
       show={true}
-      title='About Me'
+      title='Home'
       content={
-        <section className='container px-4 flex'>
-          <div className='h-fit bg-white dark:bg-zinc-950 rounded-lg shadow-md border border-gray-800 w-full'>
-            <div className='flex relative p-4 sm:px-6 justify-start'>
-              <div
-                className='absolute left-0 bottom-0 bg-yellow-400 h-1 rounded-full transition-all duration-300 ease-in-out'
-                style={indicatorStyle}
-              />
-              {['introduction', 'skills'].map((tab, index) => (
-                <button
-                  key={tab}
-                  ref={(el) => {
-                    if (el) {
-                      tabRefs.current[index] = el;
-                    }
-                  }}
-                  className={`group bg-white dark:bg-zinc-950 hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 flex items-center justify-start focus:outline-none focus:ring-1 focus:ring-yellow-400 dark:focus:ring-yellow-400 mr-4 ${
-                    activeTab === tab
-                      ? ' text-yellow-400'
-                      : ' dark:text-gray-100 dark:hover:text-yellow-400'
-                  }`}
-                  id={tab}
-                  onClick={() => setActiveTab(tab as TabName)}
+        <div>
+          <div className='flex relative pb-4 justify-start'>
+            <div
+              className='absolute left-0 bottom-0 bg-yellow-400 h-0.5 rounded-full transition-all duration-300 ease-in-out'
+              style={indicatorStyle}
+            />
+            {['introduction', 'skills'].map((tab, index) => (
+              <button
+                key={tab}
+                ref={(el) => {
+                  if (el) {
+                    tabRefs.current[index] = el;
+                  }
+                }}
+                className={`group bg-white dark:bg-zinc-950 hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 flex items-center justify-start focus:outline-none focus:ring-1 focus:ring-yellow-400 dark:focus:ring-yellow-400 mr-4 ${
+                  activeTab === tab
+                    ? ' text-yellow-400'
+                    : ' dark:text-gray-100 dark:hover:text-yellow-400'
+                }`}
+                id={tab}
+                onClick={() => setActiveTab(tab as TabName)}
+              >
+                <span
+                  className={` text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-400 dark:bg-gray-700 hidden md:inline`}
                 >
-                  <span
-                    className={` text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-400 dark:bg-gray-700 hidden md:inline`}
-                  >
-                    {index + 1}.
-                  </span>
-                  <span>{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
-                </button>
-              ))}
-            </div>
-            <div className='transition-all duration-300 ease-in-out border-t border-gray-700 dark:border-gray-700 min-w-full text-gray-500'>
-              <TabContent activeTab={activeTab} greeting={greeting} />
-            </div>
+                  {index + 1}.
+                </span>
+                <span>{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
+              </button>
+            ))}
           </div>
-        </section>
+
+          <div className='transition-all duration-300 ease-in-out min-w-full text-gray-500'>
+            <TabContent activeTab={activeTab} greeting={greeting} />
+          </div>
+        </div>
       }
     />
   );
