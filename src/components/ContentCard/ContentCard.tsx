@@ -1,12 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ContentCardContainer from './ContentCardContainer';
-
-interface ContentCardProps {
-  show: boolean;
-  title: string;
-  content: React.ReactNode;
-}
+import ContentCardContainer from '@/components/ContentCard/ContentCardContainer';
+import { ContentCardProps } from '@/types/ContentCardTypes';
 
 const ContentCard: React.FC<ContentCardProps> = ({ show, title, content }) => {
   return (
@@ -16,12 +10,6 @@ const ContentCard: React.FC<ContentCardProps> = ({ show, title, content }) => {
       </article>
     </section>
   );
-};
-
-ContentCard.propTypes = {
-  show: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.node.isRequired,
 };
 
 export default ContentCard;

@@ -1,15 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Button from '@/components/Button';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import Button from '../Button';
+import { ContentCardHeaderProps } from '@/types/ContentCardTypes';
 
-interface ContentCardProps {
-  toggleContentVisibility: () => void;
-  contentVisible: boolean;
-  title: string;
-}
-
-const ContentCardHeader: React.FC<ContentCardProps> = ({
+const ContentCardHeader: React.FC<ContentCardHeaderProps> = ({
   toggleContentVisibility,
   contentVisible,
   title,
@@ -42,12 +36,6 @@ const ContentCardHeader: React.FC<ContentCardProps> = ({
       </Button>
     </header>
   );
-};
-
-ContentCardHeader.propTypes = {
-  toggleContentVisibility: PropTypes.func.isRequired,
-  contentVisible: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
 };
 
 export default ContentCardHeader;

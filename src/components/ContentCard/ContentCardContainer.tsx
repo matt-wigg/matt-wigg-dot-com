@@ -1,16 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
-import ContentCardHeader from './ContentCardHeader';
-import ContentCardContent from './ContentCardContent';
-
-interface ContentCardProps {
-  show: boolean;
-  title: string;
-  content: React.ReactNode;
-}
+import ContentCardHeader from '@/components/ContentCard/ContentCardHeader';
+import ContentCardContent from '@/components/ContentCard/ContentCardContent';
+import { ContentCardProps } from '@/types/ContentCardTypes';
 
 const ContentCardContainer: React.FC<ContentCardProps> = ({
   show,
@@ -32,12 +25,6 @@ const ContentCardContainer: React.FC<ContentCardProps> = ({
       {contentVisible && <ContentCardContent content={content} />}
     </div>
   );
-};
-
-ContentCardContainer.propTypes = {
-  show: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.node.isRequired,
 };
 
 export default ContentCardContainer;
