@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   const { messages } = requestBody;
   messages.unshift({
     role: 'system',
-    content: 'Make all responses no greater that 100 characters.',
+    content: 'Limit responses to 100 characters.',
   });
 
   try {

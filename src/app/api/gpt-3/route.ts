@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
       messages: [
         {
           role: 'system',
-          content: 'Make all responses no greater that 100 characters.',
+          content: 'Limit responses to 100 characters.',
         },
         {
           role: 'user',
