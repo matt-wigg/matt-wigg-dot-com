@@ -23,11 +23,15 @@ export async function POST(req: NextRequest) {
       model: 'gpt-3.5-turbo',
       messages: [
         {
+          role: 'system',
+          content: 'Make all responses no greater that 100 characters.',
+        },
+        {
           role: 'user',
           content: lastUserMessage.content,
         },
       ],
-      max_tokens: 150,
+      max_tokens: 2000,
     });
 
     const responseText = completion.data.choices[0]?.message?.content;

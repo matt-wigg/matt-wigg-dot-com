@@ -12,6 +12,11 @@ export async function POST(req: NextRequest) {
   const requestBody = await req.json();
   const { messages } = requestBody;
 
+  messages.unshift({
+    role: 'system',
+    content: 'Make all responses no greater that 100 characters.',
+  });
+
   await sleep(1000); // 1 second delay; rate limits
 
   try {

@@ -1,17 +1,24 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PaperAirplaneIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import ContentCard from '@/components/ContentCard/ContentCard';
 import Button from '@/components/Button';
 
 const ChatForm = ({ show }: { show: boolean }) => {
-  const [contentVisible, setContentVisible] = useState(show);
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
     []
   );
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState('gpt-3');
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messages[0]?.content &&
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(scrollToBottom, [messages]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,10 +27,8 @@ const ChatForm = ({ show }: { show: boolean }) => {
 
     if (trimmedInput !== '') {
       setInput('');
-
       setLoading(true);
       const userMessage = { role: 'user', content: trimmedInput };
-
       setMessages((prevMessages) => [...prevMessages, userMessage]);
 
       try {
@@ -60,10 +65,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
     }
   };
 
-  const toggleContentVisibility = () => {
-    setContentVisible(!contentVisible);
-  };
-
   return (
     <ContentCard
       show={show}
@@ -72,13 +73,24 @@ const ChatForm = ({ show }: { show: boolean }) => {
         <>
           <p className='pb-4'>
             {/* This chat uses the model GPT-4 by OpenAI. */}
-            <span className='font-bold text-rose-600 dark:text-yellow-400'>
-              The model may time out if it is too busy or the response is too
-              long.
+            <span className='pb-4'>
+              This chatbot may time out if it is too busy or the max_token
+              length is exceeded. All requests are prefixed with the following
+              system message in an attempt to prevent timeouts while using
+              Vercel&apos;s hobbyist-tier edge functions:
             </span>
           </p>
+          <pre className='bg-gray-500 dark:bg-zinc-900 text-white rounded-md overflow-auto pb-4'>
+            <code>
+              {`
+  {
+    role: 'system',
+    content: 'Make all responses no greater than 100 characters.'
+  }`}
+            </code>
+          </pre>
           {/* Add the dropdown for model selection */}
-          <div className='mb-4'>
+          <div className='my-4'>
             <label
               htmlFor='model-selection'
               className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'
@@ -95,7 +107,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               <option value='gpt-4'>GPT-4</option>
             </select>
           </div>
-          <div className='overflow-y-auto h-96 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
+          <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
             {messages.map((message, index) => (
               <p key={index} className={`animate-fadeInOpacity pb-1`}>
                 <span
@@ -109,6 +121,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 </span>
               </p>
             ))}
+            <div ref={messagesEndRef} />
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -135,7 +148,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               />
               <Button
                 type='submit'
-                className='ml-4 bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
+                className='ml-4 bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-6 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
                 disabled={!input || loading}
               >
                 {loading ? (
