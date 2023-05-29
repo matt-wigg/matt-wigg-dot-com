@@ -1,6 +1,6 @@
-import ContentCard from './ContentCard/ContentCard';
 import Image from 'next/image';
-import SocialLinks from './SocialLinks';
+import ContentCard from '@/components/ContentCard/ContentCard';
+import SocialLinks from '@/components/SocialLinks';
 
 const Profile = () => {
   return (

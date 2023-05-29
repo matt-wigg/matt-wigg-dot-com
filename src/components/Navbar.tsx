@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   UserCircleIcon,
   CommandLineIcon,
@@ -8,8 +8,8 @@ import {
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import Button from './Button';
-import ToggleTheme from './ToggleTheme';
+import Button from '@/components/Button';
+import ToggleTheme from '@/components/ToggleTheme';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

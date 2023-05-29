@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import { PaperAirplaneIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
-import ContentCard from './ContentCard/ContentCard';
-import Button from './Button';
+import ContentCard from '@/components/ContentCard/ContentCard';
+import Button from '@/components/Button';
 
 const ChatForm = ({ show }: { show: boolean }) => {
   const [contentVisible, setContentVisible] = useState(show);

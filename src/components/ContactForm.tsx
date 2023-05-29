@@ -6,9 +6,8 @@ import {
   ArrowUturnLeftIcon,
   ArrowPathIcon,
 } from '@heroicons/react/24/outline';
-import Button from './Button';
-
-import ContentCard from './ContentCard/ContentCard';
+import Button from '@/components/Button';
+import ContentCard from '@/components/ContentCard/ContentCard';
 
 const ContactForm = ({ show }: { show: boolean }) => {
   const [loading, setLoading] = useState(false);

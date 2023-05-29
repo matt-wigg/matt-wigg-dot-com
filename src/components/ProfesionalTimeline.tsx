@@ -1,4 +1,4 @@
-import ContentCard from './ContentCard/ContentCard';
+import ContentCard from '@/components/ContentCard/ContentCard';
 
 const ProfesionalTimeline = () => {
   const timelineData = [

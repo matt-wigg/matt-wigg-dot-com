@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import TabContent from './TabContent';
-
-import ContentCard from '../ContentCard/ContentCard';
+import TabContent from '@/components/HomeTabs/TabContent';
+import ContentCard from '@/components/ContentCard/ContentCard';
 
 type TabName = 'introduction' | 'skills' | 'experience';
 

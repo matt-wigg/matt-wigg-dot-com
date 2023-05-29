@@ -1,6 +1,6 @@
 import React from 'react';
-import content from '../../data/content.json';
-import { SkillsSection, SubSkills } from './SkillsSection';
+import content from '@/data/content.json';
+import { SkillsSection, SubSkills } from '@/components/HomeTabs/SkillsSection';
 import {
   CodeBracketIcon as CodeBracket,
   CircleStackIcon as CircleStack,

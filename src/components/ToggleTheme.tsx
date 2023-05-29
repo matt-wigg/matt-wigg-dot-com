@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
-import { useTheme } from '../hooks/ThemeContext';
+import { useTheme } from '@/hooks/ThemeContext';
 
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();

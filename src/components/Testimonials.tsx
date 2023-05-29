@@ -2,7 +2,7 @@
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import ContentCard from './ContentCard/ContentCard';
+import ContentCard from '@/components/ContentCard/ContentCard';
 
 const Testimonials = () => {
   const testimonials = [
