@@ -6,16 +6,9 @@ export async function POST(req: NextRequest) {
     organization: process.env.OPEN_AI_ORG,
     apiKey: process.env.OPEN_AI_KEY,
   });
-
   const openai = new OpenAIApi(configuration);
-
-  const requestBody = await req.json(); // Call req.json() only once
+  const requestBody = await req.json();
   const { messages } = requestBody;
-
-  console.log(messages);
-  await sleep(1000);
-
-  // Get the last user message
   const lastUserMessage = messages[messages.length - 1];
 
   try {
@@ -47,8 +40,4 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
