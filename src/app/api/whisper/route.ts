@@ -1,27 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
-  if (!req.body || !req.body.file) {
-    return NextResponse.json(
-      { error: 'No audio file provided.' },
-      { status: 400 }
-    );
-  }
-
-  const audioFile = req.body.file;
-
-  if (!audioFile) {
-    return NextResponse.json(
-      { error: 'No audio file provided.' },
-      { status: 400 }
-    );
-  }
-
-  const formData = new FormData();
-  formData.append('file', audioFile, 'audio.webm');
-  formData.append('model', 'whisper-1');
-
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
+    const form = await req.formData();
+    const file = form.get('file');
+
+    if (!file) {
+      return NextResponse.json({ error: 'Missing file' }, { status: 400 });
+    }
+
+    // Cast the FormDataEntryValue to File type to access the size property
+    const fileObj = file as File;
+
+    if (fileObj.size > 100000) {
+      return NextResponse.json(
+        { error: 'File size exceeds the limit' },
+        { status: 400 }
+      );
+    }
+
+    const formData = new FormData();
+    formData.append('file', fileObj);
+    formData.append('model', 'whisper-1');
+
     const response = await fetch(
       'https://api.openai.com/v1/audio/transcriptions',
       {
@@ -29,8 +30,6 @@ export async function POST(req: NextRequest) {
         body: formData,
         headers: {
           Authorization: `Bearer ${process.env.OPEN_AI_KEY}`,
-          // FormData generates a boundary string and sets it in 'content-type' header.
-          // Do not manually set 'content-type' header to 'multipart/form-data'.
         },
       }
     );
@@ -40,11 +39,9 @@ export async function POST(req: NextRequest) {
     }
 
     const result = await response.json();
-    return NextResponse.json({ message: result.text });
-  } catch (error) {
-    return NextResponse.json(
-      { error: (error as Error).message },
-      { status: 500 }
-    );
+    return NextResponse.json(result);
+  } catch (error: any) {
+    console.log(error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

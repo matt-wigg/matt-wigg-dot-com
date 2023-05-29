@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Button from '@/components/Button';
+import {
+  MicrophoneIcon,
+  StopIcon,
+  ArrowUpIcon,
+  ArrowPathIcon,
+} from '@heroicons/react/24/outline';
 
 type AudioRecorderProps = {
   onRecord: (blob: Blob) => void;
@@ -56,31 +62,73 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
 
   return (
     <div className='pt-4'>
-      {!recording && !isLoading && (
-        <Button onClick={startRecording}>Start Recording</Button>
-      )}
-      {recording && <Button onClick={stopRecording}>Stop Recording</Button>}
-      {isLoading ? (
-        <Button>Decoding Recording</Button>
-      ) : (
-        audioBlob &&
-        !recording && (
-          <>
-            <span
-              style={{
-                display: recording ? 'none' : 'block',
-                paddingTop: '0.5rem',
-                paddingBottom: '0.5rem',
-              }}
-            ></span>
-            <audio ref={audioRef} controls />
-            <span style={{ padding: '0.5rem' }}>
-              <Button onClick={handleSubmit} color='success'>
-                Upload
-              </Button>
-            </span>
-          </>
-        )
+      <div
+        className='controls'
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '10px',
+          paddingBottom: '1rem',
+        }}
+      >
+        {!recording && !isLoading && (
+          <Button
+            onClick={startRecording}
+            className='w-full bg-white hover:bg-gray-100 rounded-md px-6 py-2 border border-gray-700 flex items-center justify-center'
+          >
+            <div className='flex items-center'>
+              <MicrophoneIcon className='h-5 w-5 mr-2 text-gray-600' />
+              Start Recording
+            </div>
+          </Button>
+        )}
+
+        {recording && (
+          <Button
+            onClick={stopRecording}
+            className='w-full bg-white hover:bg-gray-100 rounded-md px-6 py-2 border border-gray-700 flex items-center justify-center'
+          >
+            <div className='flex items-center'>
+              <StopIcon className='h-5 w-5 mr-2 text-gray-600' />
+              Stop Recording
+            </div>
+          </Button>
+        )}
+
+        {isLoading ? (
+          <Button
+            className='w-full bg-white hover:bg-gray-100 rounded-md px-6 py-2 border border-gray-700 flex items-center justify-center'
+            disabled
+          >
+            <div className='flex items-center'>
+              <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600' />
+              Decoding Recording
+            </div>
+          </Button>
+        ) : (
+          audioBlob &&
+          !recording && (
+            <Button
+              onClick={handleSubmit}
+              className='w-full bg-white hover:bg-gray-100 rounded-md px-6 py-2 border border-gray-700 flex items-center justify-center'
+            >
+              <div className='flex items-center'>
+                <ArrowUpIcon className='h-5 w-5 mr-2 text-gray-600' />
+                Stage Recording File
+              </div>
+            </Button>
+          )
+        )}
+      </div>
+      {audioBlob && !recording && (
+        <div
+          style={{
+            display: recording ? 'none' : 'block',
+            paddingBottom: '1rem',
+          }}
+        >
+          <audio ref={audioRef} controls />
+        </div>
       )}
     </div>
   );
