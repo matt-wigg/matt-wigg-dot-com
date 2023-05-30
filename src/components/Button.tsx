@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  className,
+  disabled,
+  ...props
+}) => {
   return (
     <button
       {...props}
+      disabled={disabled}
       className={`
         // Layout
         flex 
@@ -19,8 +26,6 @@ const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
 
         // Colors
         bg-white 
-        hover:text-yellow-400 
-        hover:bg-gray-100 
         focus:ring-yellow-400 
 
         // Border
@@ -34,7 +39,13 @@ const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
 
         // Dark mode
         dark:bg-zinc-950 
-        dark:hover:bg-zinc-900 
+
+        // Disabled
+        ${
+          disabled
+            ? 'opacity-50 cursor-not-allowed'
+            : 'hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900'
+        }
 
         ${className}
       `}
@@ -47,6 +58,7 @@ const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

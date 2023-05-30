@@ -4,6 +4,8 @@ import {
   CloudArrowUpIcon,
   ArrowPathIcon,
   DocumentTextIcon,
+  CheckCircleIcon,
+  XCircleIcon,
 } from '@heroicons/react/24/outline'; // Added DocumentTextIcon for file representation
 import ContentCard from '@/components/ContentCard/ContentCard';
 import Button from '@/components/Button';
@@ -53,7 +55,6 @@ const AudioForm = ({ show }: { show: boolean }) => {
         console.log(error);
       } finally {
         setLoading(false);
-        setAudioFile(null); // Clear the staged file
       }
     }
   };
@@ -67,6 +68,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
 
   const handleClearFile = () => {
     setAudioFile(null);
+    setText(''); // Clear the transcription response
   };
 
   return (
@@ -82,7 +84,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
             </span>
           </p>
           <form onSubmit={handleSubmit}>
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
               <div className='md:col-span-3'>
                 <input
                   type='file'
@@ -129,11 +131,11 @@ const AudioForm = ({ show }: { show: boolean }) => {
                   `}
                 >
                   {loading ? (
-                    <ArrowPathIcon className='h-5 w-5 mr-4 text-gray-600 dark:text-gray-400 animate-spin' />
+                    <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600 animate-spin' />
                   ) : audioFile ? (
-                    <DocumentTextIcon className='h-5 w-5 mr-4 text-gray-600 dark:text-gray-400' />
+                    <DocumentTextIcon className='h-5 w-5 mr-2 text-gray-600' />
                   ) : (
-                    <CloudArrowUpIcon className='h-5 w-5 mr-4 text-gray-600 dark:text-gray-400' />
+                    <CloudArrowUpIcon className='h-5 w-5 mr-2 text-gray-600' />
                   )}
                   {audioFile ? audioFile.name : 'Select an audio file'}
                 </label>
@@ -141,23 +143,46 @@ const AudioForm = ({ show }: { show: boolean }) => {
               <div className='md:col-span-1'>
                 <Button
                   onClick={handleClearFile}
-                  className='w-full bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-6 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
-                  disabled={loading}
+                  className='w-full bg-white dark:bg-zinc-950 rounded-md px-6 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
+                  disabled={!audioFile || loading}
                 >
-                  Clear File
+                  {audioFile && (
+                    <XCircleIcon className='h-5 w-5 mr-2 text-gray-600' />
+                  )}
+                  {!audioFile ? 'No file selected' : 'Clear File'}
                 </Button>
               </div>
               <div className='md:col-span-2'>
                 <Button
                   type='submit'
-                  className='w-full bg-white dark:bg-zinc-950 rounded-md px-6 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
+                  className={`
+    w-full 
+    bg-white 
+    dark:bg-zinc-950 
+    rounded-md 
+    px-6 
+    py-2 
+    border 
+    flex 
+    items-center 
+    justify-center 
+  `}
                   disabled={!audioFile || loading}
+                  title={!audioFile ? 'audio file required' : ''}
                 >
                   <div className='flex items-center justify-center'>
                     {loading ? (
-                      <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />
+                      <>
+                        <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />{' '}
+                        {'Transcribing'}
+                      </>
+                    ) : !audioFile ? (
+                      'No file selected'
                     ) : (
-                      'Transcribe File'
+                      <>
+                        <CheckCircleIcon className='h-5 w-5 mr-2 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
+                        {'Transcribe File'}
+                      </>
                     )}
                   </div>
                 </Button>
@@ -168,7 +193,9 @@ const AudioForm = ({ show }: { show: boolean }) => {
           <span className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
             Transcription:
           </span>
-          <p className='text-sm dark:text-gray-300'>{text}</p>
+          <pre className='whitespace-pre-wrap bg-gray-500 dark:bg-zinc-900 text-slate-200 rounded-md overflow-auto p-4 text-xs'>
+            <code>{text ? text : 'upload a file...'}</code>
+          </pre>
         </>
       }
     />

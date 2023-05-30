@@ -127,7 +127,9 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
             paddingBottom: '1rem',
           }}
         >
-          <audio ref={audioRef} controls />
+          <div className='flex justify-center items-center'>
+            <audio className='w-full' ref={audioRef} controls />
+          </div>
         </div>
       )}
     </div>

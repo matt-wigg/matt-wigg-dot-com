@@ -76,7 +76,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               Vercel&apos;s hobbyist-tier edge functions:
             </span>
           </p>
-          <pre className='bg-gray-500 dark:bg-zinc-900 text-slate-200 rounded-md overflow-auto p-4 text-sm'>
+          <pre className='bg-gray-500 dark:bg-zinc-900 text-slate-200 rounded-md overflow-auto p-4 text-xs'>
             <code>
               {`{ role: 'system', content: 'Limit responses to 100 characters.' }`}
             </code>
@@ -92,7 +92,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               id='model-selection'
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
-              className='w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none'
+              className='w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none'
             >
               <option value='gpt-3'>GPT-3</option>
               <option value='gpt-4'>GPT-4</option>
@@ -131,7 +131,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                     handleSubmit(e);
                   }
                 }}
-                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                   loading && 'opacity-50'
                 }`}
                 disabled={loading}
