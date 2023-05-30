@@ -1,4 +1,5 @@
 import ChatForm from '@/components/ChatForm';
+import AudioForm from '@/components/AudioForm/AudioForm';
 
 export default function Home() {
   return (
@@ -10,7 +11,9 @@ export default function Home() {
         </div>
       </div>
       <div className='md:w-2/5 md:flex md:flex-col'>
-        <div className='pb-4'></div>
+        <div className='pb-4'>
+          <AudioForm show={true} />
+        </div>
       </div>
     </main>
   );

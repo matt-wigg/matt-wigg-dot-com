@@ -22,7 +22,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const trimmedInput = input.trim();
 
     if (trimmedInput !== '') {
@@ -46,12 +45,10 @@ const ChatForm = ({ show }: { show: boolean }) => {
 
         const data = await response.json();
         const assistantMessage = { role: 'assistant', content: data.message };
-
         setMessages((prevMessages) => [...prevMessages, assistantMessage]);
       } catch (error: any) {
         console.error('Error fetching data:', error);
 
-        // Handle specific error messages or status codes here
         if (error.message === 'Some Specific Error' || error.status === 500) {
           const errorMessage = {
             role: 'error',
@@ -72,7 +69,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
       content={
         <>
           <p className='pb-4'>
-            {/* This chat uses the model GPT-4 by OpenAI. */}
             <span className='pb-4'>
               This chatbot may time out if it is too busy or the max_token
               length is exceeded. All requests are prefixed with the following
@@ -80,16 +76,11 @@ const ChatForm = ({ show }: { show: boolean }) => {
               Vercel&apos;s hobbyist-tier edge functions:
             </span>
           </p>
-          <pre className='bg-gray-500 dark:bg-zinc-900 text-white rounded-md overflow-auto pb-4'>
+          <pre className='bg-gray-500 dark:bg-zinc-900 text-slate-200 rounded-md overflow-auto p-4 text-sm'>
             <code>
-              {`
-  {
-    role: 'system',
-    content: 'Make all responses no greater than 100 characters.'
-  }`}
+              {`{ role: 'system', content: 'Limit responses to 100 characters.' }`}
             </code>
           </pre>
-          {/* Add the dropdown for model selection */}
           <div className='my-4'>
             <label
               htmlFor='model-selection'
@@ -101,7 +92,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               id='model-selection'
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
-              className='w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none' // Add paddingRight style to the select element
+              className='w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border-2 shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none'
             >
               <option value='gpt-3'>GPT-3</option>
               <option value='gpt-4'>GPT-4</option>
@@ -123,7 +114,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
             ))}
             <div ref={messagesEndRef} />
           </div>
-
           <form onSubmit={handleSubmit}>
             <div className='flex'>
               <textarea
