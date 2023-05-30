@@ -25,7 +25,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
 
     if (audioFile !== null) {
       // Check file size
-      if (audioFile.size > 100000) {
+      if (audioFile.size > 500000) {
         alert('File size exceeds the limit of 100KB.');
         return;
       }
@@ -78,7 +78,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
           <p className='pb-4'>
             <span className='pb-4'>
               You can upload or record audio files and transcribe them to text.
-              Maximum file size is 100 KB.
+              Maximum file size is 500 KB.
             </span>
           </p>
           <form onSubmit={handleSubmit}>

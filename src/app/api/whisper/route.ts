@@ -12,7 +12,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     // Cast the FormDataEntryValue to File type to access the size property
     const fileObj = file as File;
 
-    if (fileObj.size > 100000) {
+    if (fileObj.size > 500000) {
       return NextResponse.json(
         { error: 'File size exceeds the limit' },
         { status: 400 }
