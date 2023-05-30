@@ -26,7 +26,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
     if (audioFile !== null) {
       // Check file size
       if (audioFile.size > 500000) {
-        alert('File size exceeds the limit of 100KB.');
+        alert('File size exceeds the limit of 500KB.');
         return;
       }
 
