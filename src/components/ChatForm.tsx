@@ -95,7 +95,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
             Chat log:
           </span>
           <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
-            <p className='animate-fadeInOpacity pb-1'>
+            <p className='pb-1'>
               <span className='dark:text-gray-600'>
                 {`system: Limit responses to 100 characters.`}
               </span>
