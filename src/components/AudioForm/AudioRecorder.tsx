@@ -59,7 +59,6 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
   const handleSubmit = async () => {
     setIsLoading(true);
     onRecord(audioBlob!);
-    await new Promise((resolve) => setTimeout(resolve, 5000));
     setIsLoading(false);
   };
 
