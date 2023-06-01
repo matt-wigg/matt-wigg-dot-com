@@ -172,15 +172,19 @@ const AudioForm = ({ show }: { show: boolean }) => {
             </div>
           </form>
           <AudioRecorder onRecord={handleRecord} />
-          <span className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
+          <span className='block mb-4 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
             Transcription:
           </span>
-          <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-400'>
+          <div
+            className={`overflow-y-auto h-52 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 ${
+              !text ? 'dark:text-gray-600' : 'font-bold dark:text-yellow-400'
+            }`}
+          >
             {text
               ? text
               : loading
               ? 'Processing...'
-              : 'No transcription available'}
+              : 'Transcription will appear here.'}
           </div>
         </>
       }

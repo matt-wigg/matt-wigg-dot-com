@@ -70,23 +70,16 @@ const ChatForm = ({ show }: { show: boolean }) => {
         <>
           <p className='pb-4'>
             <span className='pb-4'>
-              This chatbot may time out if it is too busy or the max_token
-              length is exceeded. All requests are prefixed with the following
-              system message in an attempt to prevent timeouts while using
-              Vercel&apos;s hobbyist-tier edge functions:
+              All requests currently carry a system message prefix to deter
+              timeouts in Vercel&apos;s hobby-tier edge functions.
             </span>
           </p>
-          <pre className='bg-gray-500 dark:bg-zinc-900 text-slate-200 rounded-md overflow-auto p-4 text-xs'>
-            <code>
-              {`{ role: 'system', content: 'Limit responses to 100 characters.' }`}
-            </code>
-          </pre>
-          <div className='my-4'>
+          <div className='mb-4'>
             <label
               htmlFor='model-selection'
-              className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'
+              className='block mb-4 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'
             >
-              Select Model
+              Select a chat model:
             </label>
             <select
               id='model-selection'
@@ -98,7 +91,15 @@ const ChatForm = ({ show }: { show: boolean }) => {
               <option value='gpt-4'>gpt-4 (conversational)</option>
             </select>
           </div>
+          <span className='block mb-4 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
+            Chat log:
+          </span>
           <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
+            <p className='animate-fadeInOpacity pb-1'>
+              <span className='dark:text-gray-600'>
+                {`system: Limit responses to 100 characters.`}
+              </span>
+            </p>
             {messages.map((message, index) => (
               <p key={index} className={`animate-fadeInOpacity pb-1`}>
                 <span
@@ -129,7 +130,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                     handleSubmit(e);
                   }
                 }}
-                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                   loading && 'opacity-50'
                 }`}
                 disabled={loading}
