@@ -86,7 +86,8 @@ const AudioForm = ({ show }: { show: boolean }) => {
           <p className='pb-4'>
             <span className='pb-4'>
               You can upload or record audio files and transcribe them to text.
-              Maximum file size is 500KB.
+              Maximum file size is 500KB. The audio recorder is not compatible
+              with Safari.
             </span>
           </p>
           <form onSubmit={handleSubmit}>

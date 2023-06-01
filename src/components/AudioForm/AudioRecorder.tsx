@@ -32,7 +32,8 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
     setAudioBlob(null);
     navigator.mediaDevices.getUserMedia({ audio: true }).then((s) => {
       setStream(s);
-      const mediaRecorder = new MediaRecorder(s);
+      let options = { mimeType: 'audio/webm;codecs=opus' };
+      const mediaRecorder = new MediaRecorder(s, options);
       setMediaRecorder(mediaRecorder);
       mediaRecorder.start();
 
