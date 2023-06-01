@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import TabContent from '@/components/HomeTabs/TabContent';
 import ContentCard from '@/components/ContentCard/ContentCard';
+import Button from '@/components/Button';
 
 type TabName = 'introduction' | 'skills' | 'experience';
 
@@ -76,14 +77,14 @@ const HomeTabs = () => {
               style={indicatorStyle}
             />
             {['introduction', 'skills'].map((tab, index) => (
-              <button
+              <Button
                 key={tab}
                 ref={(el) => {
                   if (el) {
                     tabRefs.current[index] = el;
                   }
                 }}
-                className={`group bg-white dark:bg-zinc-950 hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 flex items-center justify-start focus:outline-none focus:ring-1 focus:ring-yellow-400 dark:focus:ring-yellow-400 mr-4 ${
+                className={`group mr-4 ${
                   activeTab === tab
                     ? ' text-yellow-400'
                     : ' dark:text-gray-100 dark:hover:text-yellow-400'
@@ -97,7 +98,7 @@ const HomeTabs = () => {
                   {index + 1}.
                 </span>
                 <span>{tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
-              </button>
+              </Button>
             ))}
           </div>
 

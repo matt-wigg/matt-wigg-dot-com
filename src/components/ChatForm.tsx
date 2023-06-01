@@ -138,7 +138,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               />
               <Button
                 type='submit'
-                className='ml-4 bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-6 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
+                className='ml-4 px-6 py-2 border flex items-center justify-center'
                 disabled={!input || loading}
               >
                 {loading ? (

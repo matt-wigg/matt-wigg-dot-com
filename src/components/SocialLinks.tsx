@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
+import Button from '@/components/Button';
 
 const socialLinks = [
   {
@@ -28,14 +29,10 @@ const SocialLinks = () => {
   return (
     <div className='flex items-center justify-start space-x-4'>
       {socialLinks.map(({ href, icon: Icon, hover }) => (
-        <Link key={href} href={href} legacyBehavior>
-          <a
-            target='_blank'
-            rel='noopener noreferrer'
-            className={`group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start focus:outline-none focus:ring-1 focus:ring-yellow-400 ${hover} dark:focus:ring-yellow-400`}
-          >
+        <Link key={href} href={href}>
+          <Button className={`group ${hover}`}>
             <Icon className='h-4 w-4' />
-          </a>
+          </Button>
         </Link>
       ))}
     </div>

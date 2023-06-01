@@ -1,64 +1,31 @@
-import React, { ButtonHTMLAttributes } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   disabled?: boolean;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  className,
-  disabled,
-  ...props
-}) => {
-  return (
-    <button
-      {...props}
-      disabled={disabled}
-      className={`
-        // Layout
-        flex 
-        items-center 
-        justify-start 
-        px-4 
-        py-2 
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, className = '', disabled = false, ...props }, ref) => {
+    const baseClasses =
+      'flex items-center justify-start px-4 py-2 bg-white border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-yellow-400 dark:bg-zinc-950';
+    const enabledClasses =
+      'hover:border-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900';
+    const disabledClasses = 'opacity-50 cursor-not-allowed';
 
-        // Colors
-        bg-white 
-        focus:ring-yellow-400 
+    const classes = `${baseClasses} ${
+      disabled ? disabledClasses : enabledClasses
+    } ${className}`;
 
-        // Border
-        border 
-        border-gray-700 
-        rounded-md 
+    return (
+      <button {...props} disabled={disabled} className={classes} ref={ref}>
+        {children}
+      </button>
+    );
+  }
+);
 
-        // Interaction
-        focus:outline-none 
-        focus:ring-1 
-
-        // Dark mode
-        dark:bg-zinc-950 
-
-        // Disabled
-        ${
-          disabled
-            ? 'opacity-50 cursor-not-allowed'
-            : 'hover:text-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900'
-        }
-
-        ${className}
-      `}
-    >
-      {children}
-    </button>
-  );
-};
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-};
+Button.displayName = 'Button';
 
 export default Button;

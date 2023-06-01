@@ -54,8 +54,15 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
     setRecording(false);
   };
 
+  // const handleSubmit = async () => {
+  //   setIsLoading(true);
+  //   onRecord(audioBlob!);
+  //   setIsLoading(false);
+  // };
+
   const handleSubmit = async () => {
     setIsLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // 2 seconds delay
     onRecord(audioBlob!);
     setIsLoading(false);
   };
@@ -101,8 +108,8 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
             disabled
           >
             <div className='flex items-center'>
-              <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600' />
-              Decoding Recording
+              <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600 animate-spin' />
+              Staging Recording
             </div>
           </Button>
         ) : (

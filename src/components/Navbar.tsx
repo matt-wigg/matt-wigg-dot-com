@@ -58,7 +58,7 @@ const Navbar = () => {
           </h1>
           <Link href='/' legacyBehavior>
             <Button
-              className={` dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+              className={`w-full ${
                 pathname === '/' ? 'text-yellow-400' : 'dark:text-gray-100'
               }`}
             >
@@ -77,7 +77,7 @@ const Navbar = () => {
 
           <Link href='/projects' legacyBehavior>
             <Button
-              className={` dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+              className={`w-full ${
                 pathname === '/projects'
                   ? 'text-yellow-400'
                   : 'dark:text-gray-100'
@@ -97,7 +97,7 @@ const Navbar = () => {
           </Link>
           <Link href='/blog' legacyBehavior>
             <Button
-              className={` dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+              className={`w-full ${
                 pathname === '/blog' ? 'text-yellow-400' : 'dark:text-gray-100'
               }`}
             >
@@ -115,7 +115,7 @@ const Navbar = () => {
           </Link>
           <Link href='/contact' legacyBehavior>
             <Button
-              className={` dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full dark:hover:text-yellow-400 ${
+              className={`w-full ${
                 pathname === '/contact'
                   ? 'text-yellow-400'
                   : 'dark:text-gray-100'
@@ -170,7 +170,7 @@ const Navbar = () => {
             <div className='flex flex-col w-full space-y-2'>
               <Link href='/' legacyBehavior>
                 <Button
-                  className={`bg-gray-100 dark:bg-zinc-950 hover:bg-gray-200 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full ${
+                  className={`w-full ${
                     pathname === '/'
                       ? 'text-yellow-400'
                       : 'text-gray-900 dark:text-gray-100'
@@ -183,7 +183,7 @@ const Navbar = () => {
               </Link>
               <Link href='/projects' legacyBehavior>
                 <Button
-                  className={`bg-gray-100 dark:bg-zinc-950 hover:bg-gray-200 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full ${
+                  className={`w-full ${
                     pathname === '/projects'
                       ? 'text-yellow-400'
                       : 'text-gray-900 dark:text-gray-100'
@@ -196,7 +196,7 @@ const Navbar = () => {
               </Link>
               <Link href='/blog' legacyBehavior>
                 <Button
-                  className={`bg-gray-100 dark:bg-zinc-950 hover:bg-gray-200 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full ${
+                  className={`w-full ${
                     pathname === '/blog'
                       ? 'text-yellow-400'
                       : 'text-gray-900 dark:text-gray-100'
@@ -209,7 +209,7 @@ const Navbar = () => {
               </Link>
               <Link href='/contact' legacyBehavior>
                 <Button
-                  className={`bg-gray-100 dark:bg-zinc-950 hover:bg-gray-200 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-start w-full ${
+                  className={`w-full ${
                     pathname === '/contact'
                       ? 'text-yellow-400'
                       : 'text-gray-900 dark:text-gray-100'

@@ -68,7 +68,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
 
   const handleClearFile = () => {
     setAudioFile(null);
-    setText(''); // Clear the transcription response
+    setText('');
   };
 
   return (
@@ -109,6 +109,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
                     hover:text-yellow-400 
                     hover:bg-gray-100 
                     focus:ring-yellow-400 
+                    hover:border-yellow-400 
 
                     // Border
                     border 
@@ -143,13 +144,17 @@ const AudioForm = ({ show }: { show: boolean }) => {
               <div className='md:col-span-1'>
                 <Button
                   onClick={handleClearFile}
-                  className='w-full bg-white dark:bg-zinc-950 rounded-md px-6 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
+                  className='w-full flex items-center justify-center'
                   disabled={!audioFile || loading}
                 >
                   {audioFile && (
                     <XCircleIcon className='h-5 w-5 mr-2 text-gray-600' />
                   )}
-                  {!audioFile ? 'No file selected' : 'Clear File'}
+                  {!audioFile
+                    ? 'No file selected'
+                    : audioFile && text
+                    ? 'Clear File & Text'
+                    : 'Clear File'}
                 </Button>
               </div>
               <div className='md:col-span-2'>
@@ -157,12 +162,6 @@ const AudioForm = ({ show }: { show: boolean }) => {
                   type='submit'
                   className={`
     w-full 
-    bg-white 
-    dark:bg-zinc-950 
-    rounded-md 
-    px-6 
-    py-2 
-    border 
     flex 
     items-center 
     justify-center 
@@ -193,9 +192,13 @@ const AudioForm = ({ show }: { show: boolean }) => {
           <span className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
             Transcription:
           </span>
-          <pre className='whitespace-pre-wrap bg-gray-500 dark:bg-zinc-900 text-slate-200 rounded-md overflow-auto p-4 text-xs'>
-            <code>{text ? text : 'upload a file...'}</code>
-          </pre>
+          <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
+            {text
+              ? text
+              : loading
+              ? 'Processing... Hang tight!'
+              : 'No transcription available'}
+          </div>
         </>
       }
     />
