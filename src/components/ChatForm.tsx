@@ -120,9 +120,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 name='message'
                 id='message'
                 rows={3}
-                placeholder={
-                  loading ? 'Processing... Hang tight!' : 'Send a message...'
-                }
+                placeholder={loading ? 'Processing...' : 'Send a message...'}
                 required
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -144,7 +142,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 {loading ? (
                   <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />
                 ) : (
-                  <PaperAirplaneIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
+                  <PaperAirplaneIcon className='h-6 w-6 text-yellow-400 dark:text-yellow-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
                 )}
               </Button>
             </div>

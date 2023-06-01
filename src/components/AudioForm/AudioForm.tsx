@@ -33,6 +33,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
       }
 
       setLoading(true);
+      setText('');
 
       const formData = new FormData();
       formData.append('file', audioFile);
@@ -68,8 +69,13 @@ const AudioForm = ({ show }: { show: boolean }) => {
 
   const handleClearFile = () => {
     setAudioFile(null);
-    setText('');
   };
+
+  const baseClasses =
+    'flex items-center justify-center px-4 py-2 bg-white border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-yellow-400 dark:bg-zinc-950';
+  const enabledClasses =
+    'hover:border-yellow-400 hover:bg-gray-100 dark:hover:bg-zinc-900';
+  const disabledClasses = 'opacity-50 cursor-not-allowed';
 
   return (
     <ContentCard
@@ -96,33 +102,9 @@ const AudioForm = ({ show }: { show: boolean }) => {
                 />
                 <label
                   htmlFor='fileUpload'
-                  className={`
-                    // Layout
-                    flex 
-                    items-center 
-                    justify-center 
-                    px-4 
-                    py-2
-
-                    // Colors
-                    bg-white 
-                    hover:text-yellow-400 
-                    hover:bg-gray-100 
-                    focus:ring-yellow-400 
-                    hover:border-yellow-400 
-
-                    // Border
-                    border 
-                    border-gray-700 
-                    rounded-md 
-
-                    // Interaction
-                    focus:outline-none 
-                    focus:ring-1 
-
-                    // Dark mode
-                    dark:bg-zinc-950 
-                    dark:hover:bg-zinc-900 
+                  className={`${baseClasses} ${
+                    loading ? disabledClasses : enabledClasses
+                  } 
 
                     ${
                       loading
@@ -131,72 +113,73 @@ const AudioForm = ({ show }: { show: boolean }) => {
                     }
                   `}
                 >
-                  {loading ? (
-                    <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600 animate-spin' />
-                  ) : audioFile ? (
+                  {audioFile ? (
                     <DocumentTextIcon className='h-5 w-5 mr-2 text-gray-600' />
                   ) : (
-                    <CloudArrowUpIcon className='h-5 w-5 mr-2 text-gray-600' />
+                    <CloudArrowUpIcon className='h-5 w-5 mr-2 text-yellow-400' />
                   )}
                   {audioFile ? audioFile.name : 'Select an audio file'}
                 </label>
               </div>
-              <div className='md:col-span-1'>
-                <Button
-                  onClick={handleClearFile}
-                  className='w-full flex items-center justify-center'
-                  disabled={!audioFile || loading}
-                >
-                  {audioFile && (
-                    <XCircleIcon className='h-5 w-5 mr-2 text-gray-600' />
-                  )}
-                  {!audioFile
-                    ? 'No file selected'
-                    : audioFile && text
-                    ? 'Clear File & Text'
-                    : 'Clear File'}
-                </Button>
-              </div>
-              <div className='md:col-span-2'>
-                <Button
-                  type='submit'
-                  className={`
+              {audioFile && (
+                <>
+                  <div className='md:col-span-1'>
+                    <Button
+                      onClick={handleClearFile}
+                      className='w-full flex items-center justify-center'
+                      disabled={!audioFile || loading}
+                    >
+                      <XCircleIcon
+                        className={`h-5 w-5 mr-2  ${
+                          loading ? 'text-gray-600' : 'text-red-600'
+                        }`}
+                      />
+
+                      {!audioFile ? 'No file selected' : 'Clear File'}
+                    </Button>
+                  </div>
+                  <div className='md:col-span-2'>
+                    <Button
+                      type='submit'
+                      className={`
     w-full 
     flex 
     items-center 
     justify-center 
   `}
-                  disabled={!audioFile || loading}
-                  title={!audioFile ? 'audio file required' : ''}
-                >
-                  <div className='flex items-center justify-center'>
-                    {loading ? (
-                      <>
-                        <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />{' '}
-                        {'Transcribing'}
-                      </>
-                    ) : !audioFile ? (
-                      'No file selected '
-                    ) : (
-                      <>
-                        <CheckCircleIcon className='h-5 w-5 mr-2 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
-                        {'Transcribe File'}
-                      </>
-                    )}
+                      disabled={!audioFile || loading}
+                      title={!audioFile ? 'audio file required' : ''}
+                    >
+                      <div className='flex items-center justify-center'>
+                        {loading ? (
+                          <>
+                            <ArrowPathIcon className='h-5 w-5 mr-2 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />
+                            Transcribing...
+                          </>
+                        ) : !audioFile ? (
+                          'No file selected '
+                        ) : (
+                          <>
+                            <CheckCircleIcon className='h-5 w-5 mr-2 text-green-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
+                            {'Transcribe File'}
+                          </>
+                        )}
+                      </div>
+                    </Button>
                   </div>
-                </Button>
-              </div>
+                </>
+              )}
             </div>
           </form>
           <AudioRecorder onRecord={handleRecord} />
           <span className='block mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
             Transcription:
           </span>
-          <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>
+          <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-400'>
             {text
               ? text
               : loading
-              ? 'Processing... Hang tight!'
+              ? 'Processing...'
               : 'No transcription available'}
           </div>
         </>
