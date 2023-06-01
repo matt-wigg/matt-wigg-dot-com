@@ -104,7 +104,7 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
               className='w-full bg-white hover:bg-gray-100 rounded-md px-6 py-2 border border-gray-700 flex items-center justify-center'
             >
               <div className='flex items-center'>
-                <StopIcon className='h-5 w-5 mr-2 text-red-600' />
+                <StopIcon className='h-5 w-5 mr-2 text-red-600 animate-ping' />
                 Stop Recording
               </div>
             </Button>
