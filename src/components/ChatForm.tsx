@@ -31,7 +31,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
       setMessages((prevMessages) => [...prevMessages, userMessage]);
 
       try {
-        const response = await fetch(`/api/${selectedModel}`, {
+        const response = await fetch(`/api/openai/${selectedModel}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -94,8 +94,8 @@ const ChatForm = ({ show }: { show: boolean }) => {
               onChange={(e) => setSelectedModel(e.target.value)}
               className='w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none'
             >
-              <option value='gpt-3'>GPT-3</option>
-              <option value='gpt-4'>GPT-4</option>
+              <option value='gpt-3'>gpt-3.5-turbo (single message)</option>
+              <option value='gpt-4'>gpt-4 (conversational)</option>
             </select>
           </div>
           <div className='overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300'>

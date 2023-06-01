@@ -39,7 +39,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
       formData.append('model', 'whisper-1');
 
       try {
-        const response = await fetch('/api/whisper', {
+        const response = await fetch('/api/openai/whisper', {
           method: 'POST',
           body: formData,
         });
@@ -80,7 +80,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
           <p className='pb-4'>
             <span className='pb-4'>
               You can upload or record audio files and transcribe them to text.
-              Maximum file size is 500 KB.
+              Maximum file size is 500KB.
             </span>
           </p>
           <form onSubmit={handleSubmit}>
@@ -177,7 +177,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
                         {'Transcribing'}
                       </>
                     ) : !audioFile ? (
-                      'No file selected'
+                      'No file selected '
                     ) : (
                       <>
                         <CheckCircleIcon className='h-5 w-5 mr-2 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
