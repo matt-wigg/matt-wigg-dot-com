@@ -137,7 +137,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                   !loading &&
                   'dark:hover:border-yellow-400 hover:border-yellow-400'
-                } ${loading && 'opacity-50'}`}
+                } ${loading && 'opacity-50 cursor-not-allowed'}`}
                 disabled={loading}
               />
               <Button
