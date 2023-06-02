@@ -130,9 +130,10 @@ const ChatForm = ({ show }: { show: boolean }) => {
                     handleSubmit(e);
                   }
                 }}
-                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none hover:border-yellow-400 dark:hover:border-yellow-400 ${
-                  loading && 'opacity-50'
-                }`}
+                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                  !loading &&
+                  'dark:hover:border-yellow-400 hover:border-yellow-400'
+                } ${loading && 'opacity-50'}`}
                 disabled={loading}
               />
               <Button
@@ -141,9 +142,9 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 disabled={!input || loading}
               >
                 {loading ? (
-                  <ArrowPathIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />
+                  <ArrowPathIcon className='h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin' />
                 ) : (
-                  <PaperAirplaneIcon className='h-6 w-6 text-yellow-400 dark:text-yellow-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
+                  <PaperAirplaneIcon className='h-5 w-5 text-yellow-400 dark:text-yellow-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400' />
                 )}
               </Button>
             </div>

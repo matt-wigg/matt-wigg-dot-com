@@ -21,23 +21,26 @@ const ContactForm = ({ show }: { show: boolean }) => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    setLoading(false);
 
-      if (res.status === 200) {
-        setSuccess(true);
-      } else {
-        setError(true);
-      }
-    } catch (error) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
+    // try {
+    //   const res = await fetch('/api/contact', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ name, email, message }),
+    //   });
+
+    //   if (res.status === 200) {
+    //     setSuccess(true);
+    //   } else {
+    //     setError(true);
+    //   }
+    // } catch (error) {
+    //   setError(true);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const reloadForm = () => {
@@ -162,8 +165,9 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm sm:text-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
-                    loading && 'opacity-50'
-                  }`}
+                    !loading &&
+                    'dark:hover:border-yellow-400 hover:border-yellow-400'
+                  } ${loading && 'opacity-50'}`}
                   disabled={loading || success || error}
                 />
 
@@ -176,8 +180,9 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm sm:text-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
-                    loading && 'opacity-50'
-                  }`}
+                    !loading &&
+                    'dark:hover:border-yellow-400 hover:border-yellow-400'
+                  } ${loading && 'opacity-50'}`}
                   disabled={loading || success || error}
                 />
 
@@ -190,8 +195,9 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm sm:text-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
-                    loading && 'opacity-50'
-                  }`}
+                    !loading &&
+                    'dark:hover:border-yellow-400 hover:border-yellow-400'
+                  } ${loading && 'opacity-50'}`}
                   disabled={loading || success || error}
                 />
 
@@ -202,7 +208,11 @@ const ContactForm = ({ show }: { show: boolean }) => {
                     disabled={loading || success || error}
                   >
                     {renderIcon()}
-                    <span className='text-sm text-gray-600 dark:text-gray-400 font-medium group-hover:text-yellow-400'>
+                    <span
+                      className={`text-sm text-gray-600 ${
+                        !loading && 'group-hover:text-yellow-400'
+                      } font-medium`}
+                    >
                       {loading
                         ? 'Sending...'
                         : success
