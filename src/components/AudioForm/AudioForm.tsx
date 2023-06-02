@@ -90,6 +90,20 @@ const AudioForm = ({ show }: { show: boolean }) => {
               with Safari.
             </span>
           </p>
+          <span className='block mb-4 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
+            Transcription:
+          </span>
+          <div
+            className={`overflow-y-auto h-52 border mb-4 border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 ${
+              !text ? 'dark:text-gray-600' : 'font-bold dark:text-yellow-400'
+            }`}
+          >
+            {text
+              ? text
+              : loading
+              ? 'Processing...'
+              : 'Upload an audio file to transcribe it.'}
+          </div>
           <form onSubmit={handleSubmit}>
             <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
               <div className='md:col-span-3'>
@@ -173,20 +187,6 @@ const AudioForm = ({ show }: { show: boolean }) => {
             </div>
           </form>
           <AudioRecorder onRecord={handleRecord} />
-          <span className='block mb-4 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
-            Transcription:
-          </span>
-          <div
-            className={`overflow-y-auto h-52 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 ${
-              !text ? 'dark:text-gray-600' : 'font-bold dark:text-yellow-400'
-            }`}
-          >
-            {text
-              ? text
-              : loading
-              ? 'Processing...'
-              : 'Transcription will appear here.'}
-          </div>
         </>
       }
     />

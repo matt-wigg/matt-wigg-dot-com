@@ -1,12 +1,18 @@
 import Image from 'next/image';
 import ContentCard from '@/components/ContentCard/ContentCard';
 import SocialLinks from '@/components/SocialLinks';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 
-const Profile = () => {
+const Profiles = () => {
   return (
     <ContentCard
       show={true}
-      title='Profile'
+      title={
+        <div className='flex'>
+          <span>Profiles</span>
+          <ArrowTopRightOnSquareIcon className='h-5 w-5 ml-2' />
+        </div>
+      }
       content={
         <>
           <div className='flex flex-col sm:flex-row items-center'>
@@ -50,4 +56,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profiles;

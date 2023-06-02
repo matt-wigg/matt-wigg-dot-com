@@ -74,7 +74,7 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
   };
 
   return (
-    <div className='py-4'>
+    <div className='pt-4'>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
         {!recording && (
           <div className='md:col-span-3'>
@@ -157,9 +157,7 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecord }) => {
       </div>
       {audioBlob && (
         <div className='pt-4 w-full'>
-          <hr className='mb-4 border-t border-gray-700 dark:border-gray-600' />
           <audio className='w-full' ref={audioRef} controls />
-          <hr className='mt-4 border-t border-gray-700 dark:border-gray-600' />
         </div>
       )}
     </div>

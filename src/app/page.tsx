@@ -1,6 +1,6 @@
 import HomeTabs from '@/components/HomeTabs/HomeTabs';
 import ResumeDownload from '@/components/ResumeDownload';
-import Profile from '@/components/Profile';
+import Profiles from '@/components/Profiles';
 import ContactForm from '@/components/ContactForm';
 import Testimonials from '@/components/Testimonials';
 import ProfesionalTimeline from '@/components/ProfesionalTimeline';
@@ -19,7 +19,7 @@ export default function Home() {
             <ContactForm show={false} />
           </div>
           <div className='pb-4'>
-            <Profile />
+            <Profiles />
           </div>
           <div className='pb-4'>
             <ProfesionalTimeline />

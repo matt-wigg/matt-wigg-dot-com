@@ -29,7 +29,7 @@ const SocialLinks = () => {
   return (
     <div className='flex items-center justify-start space-x-4'>
       {socialLinks.map(({ href, icon: Icon, hover }) => (
-        <Link key={href} href={href}>
+        <Link key={href} href={href} target='_blank'>
           <Button className={`group ${hover}`}>
             <Icon className='h-4 w-4' />
           </Button>

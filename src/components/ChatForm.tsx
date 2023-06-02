@@ -130,7 +130,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                     handleSubmit(e);
                   }
                 }}
-                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none hover:border-yellow-400 dark:hover:border-yellow-400 ${
                   loading && 'opacity-50'
                 }`}
                 disabled={loading}

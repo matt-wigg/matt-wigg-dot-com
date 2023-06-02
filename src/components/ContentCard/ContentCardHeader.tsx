@@ -25,7 +25,7 @@ const ContentCardHeader: React.FC<ContentCardHeaderProps> = ({
       <Button
         onClick={toggleContentVisibility}
         className={`
-          ${'group-hover:text-yellow-400 group-hover:bg-gray-100 dark:group-hover:bg-zinc-900'}
+          ${'group-hover:text-yellow-400 group-hover:bg-gray-100 dark:group-hover:bg-zinc-900 group-hover:border-yellow-400'}
         `}
       >
         <ChevronDownIcon
