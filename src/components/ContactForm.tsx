@@ -51,18 +51,18 @@ const ContactForm = ({ show }: { show: boolean }) => {
   const renderIcon = () => {
     if (loading)
       return (
-        <ArrowPathIcon className='h-6 w-6 text-gray-600 mr-2 animate-spin opacity-50' />
+        <ArrowPathIcon className='h-5 w-5 text-gray-600 mr-2 animate-spin opacity-50' />
       );
     if (success)
       return (
-        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
+        <ArrowUturnLeftIcon className='h-5 w-5 text-gray-600 dark:group-hover:text-yellow-400 mr-2' />
       );
     if (error)
       return (
-        <ArrowUturnLeftIcon className='h-6 w-6 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
+        <ArrowUturnLeftIcon className='h-5 w-5 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
       );
     return (
-      <EnvelopeIcon className='h-6 w-6 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
+      <EnvelopeIcon className='h-5 w-5 text-gray-600 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
     );
   };
 
