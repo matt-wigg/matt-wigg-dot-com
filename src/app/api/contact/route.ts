@@ -2,6 +2,7 @@ import { SendEmailCommand } from '@aws-sdk/client-ses';
 import { NextRequest, NextResponse } from 'next/server';
 import { ErrorRes } from '@/types/ErrorTypes';
 import sesClient from '@/lib/awsClient';
+import xss from 'xss';
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,32 +18,78 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Sanitize input
+    const safeName = xss(name);
+    const safeEmail = xss(email);
+    const safeMessage = xss(message);
+
+    const htmlBody = `<div style="background-color: #111827; color: #f3f4f6; padding: 20px;">
+        <h1>You have a new message from your website's contact form.</h1>
+        <p>Here are the details:</p>
+        <ul>
+            <li>Name: ${safeName}</li>
+            <li>Email: ${safeEmail}</li>
+            <li>Message: ${safeMessage}</li>
+        </ul>
+    </div>`;
+
+    const htmlConfirmationBody = `<div style="background-color: #111827; color: #f3f4f6; padding: 20px;">
+        <h1>Hello ${safeName},</h1>
+        <p>Thanks for reaching out to me! I'll get back to you as soon as I can.</p>
+        <p>Here are the details I received:</p>
+        <ul>
+            <li>Name: ${safeName}</li>
+            <li>Email: ${safeEmail}</li>
+            <li>Message: ${safeMessage}</li>
+        </ul>
+        <p>All the best,<br />Matt.</p>
+    </div>`;
+
     const emailParams = {
       Destination: {
         ToAddresses: [process.env.TO_EMAIL || 'invalid-email'],
       },
       Message: {
         Body: {
-          Text: {
+          Html: {
             Charset: 'UTF-8',
-            Data: `You have a new message from your website's contact form.
-            Here are the details:
-            Name: ${name}
-            Email: ${email}
-            Message: ${message}`,
+            Data: htmlBody,
           },
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `MATTWIGG.COM: New Contact Form Submission from ${email}`,
+          Data: `New Contact Form Submission from ${safeEmail}`,
         },
       },
-      Source: `${name} <${process.env.FROM_EMAIL}>`,
+      Source: `${safeName} <${process.env.FROM_EMAIL}>`,
+    };
+
+    // Email parameters for confirmation email
+    const confirmationEmailParams = {
+      Destination: {
+        ToAddresses: [safeEmail], // send to the user's email
+      },
+      Message: {
+        Body: {
+          Html: {
+            Charset: 'UTF-8',
+            Data: htmlConfirmationBody,
+          },
+        },
+        Subject: {
+          Charset: 'UTF-8',
+          Data: `Confirmation of Your Contact Form Submission`,
+        },
+      },
+      Source: `Matthew Wigglesworth <${process.env.FROM_EMAIL}>`,
     };
 
     let result;
     try {
       result = await sesClient.send(new SendEmailCommand(emailParams));
+
+      // Send the confirmation email
+      await sesClient.send(new SendEmailCommand(confirmationEmailParams));
     } catch (error: any) {
       console.error('Failed to send email:', error);
       return NextResponse.json(
