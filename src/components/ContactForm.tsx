@@ -21,26 +21,23 @@ const ContactForm = ({ show }: { show: boolean }) => {
     e.preventDefault();
     setLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-    setLoading(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-    // try {
-    //   const res = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ name, email, message }),
-    //   });
-
-    //   if (res.status === 200) {
-    //     setSuccess(true);
-    //   } else {
-    //     setError(true);
-    //   }
-    // } catch (error) {
-    //   setError(true);
-    // } finally {
-    //   setLoading(false);
-    // }
+      if (res.status === 200) {
+        setSuccess(true);
+      } else {
+        setError(true);
+      }
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const reloadForm = () => {
