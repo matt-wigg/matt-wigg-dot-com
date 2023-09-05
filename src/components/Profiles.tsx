@@ -35,7 +35,7 @@ const Profiles = () => {
                 Software Engineer
               </div>
               <div className="font-extralight text-gray-500 dark:text-gray-400">
-                San Diego, CA
+                California
               </div>
               <div className="pt-3 font-extralight text-gray-500 dark:text-gray-400">
                 <SocialLinks />
@@ -44,10 +44,10 @@ const Profiles = () => {
           </div>
           <div className="pt-4">
             <p className="font-light text-gray-700 dark:text-gray-400">
-              I&apos;m a full-stack software engineer originally from England,
-              now living in San Diego. In my spare time I enjoy surfing, hiking,
-              poker, and soccer (football). I own a goldendoodle dog by the name
-              of Charlie.
+              I&apos;m a software engineer originally from England, now living
+              in California with my Wife. In my spare time I enjoy surfing,
+              hiking, video games, and football ⚽. I own a Goldendoodle dog
+              named Charles.
             </p>
           </div>
         </>
