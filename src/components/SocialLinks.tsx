@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import Button from "@/components/Button";
 
@@ -11,11 +11,6 @@ const socialLinks = [
   {
     href: "https://www.linkedin.com/in/matt-wigg/",
     icon: FaLinkedin,
-    hover: "hover:text-blue-500 dark:hover:text-blue-400",
-  },
-  {
-    href: "https://twitter.com/MrSoftwareGuy",
-    icon: FaTwitter,
     hover: "hover:text-blue-500 dark:hover:text-blue-400",
   },
 ];
