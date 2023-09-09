@@ -44,10 +44,12 @@ const Profiles = () => {
           </div>
           <div className="pt-4">
             <p className="font-light text-gray-700 dark:text-gray-400">
-              I&apos;m a software engineer originally from England, now living
-              in California with my Wife. In my spare time I enjoy surfing,
-              hiking, video games, and football ⚽. I own a Goldendoodle dog
-              named Charles.
+              I&apos;m a software engineer who transitioned a hobby into a
+              career, allowing me to solve real-world problems with code. I
+              thrive on autonomy but believe in the power of teamwork to drive
+              innovation. When I&apos;m not coding, I enjoy camping, surfing,
+              video games, and watching football ⚽️. I own a Goldendoodle dog,
+              Charlie.
             </p>
           </div>
         </>
