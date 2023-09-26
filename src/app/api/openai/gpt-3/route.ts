@@ -5,7 +5,7 @@ import { ErrorRes } from "@/types/ErrorTypes";
 
 // Initialize OpenAI
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
+  apiKey: process.env.OPEN_AI_KEY!,
 });
 
 // Optional, but recommended: run on the edge runtime
