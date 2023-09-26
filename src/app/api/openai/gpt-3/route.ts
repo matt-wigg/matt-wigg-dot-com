@@ -1,69 +1,66 @@
-import { NextRequest, NextResponse } from 'next/server';
-import openai from '@/lib/openaiClient';
-import { ErrorRes } from '@/types/ErrorTypes';
+import OpenAI from "openai";
+import { OpenAIStream, StreamingTextResponse } from "ai";
+import { NextRequest, NextResponse } from "next/server";
+import { ErrorRes } from "@/types/ErrorTypes";
 
-// Constants
-const MAX_TOKENS = 2000;
-const MODEL_NAME = 'gpt-3.5-turbo';
+// Initialize OpenAI
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+});
 
-export async function POST(req: NextRequest) {
+// Optional, but recommended: run on the edge runtime
+export const runtime = "edge";
+
+export async function POST(req: Request) {
   try {
-    const requestBody = await req.json();
-    const { messages } = requestBody;
+    // Extract the `messages` from the body of the request
+    const { messages } = await req.json();
     const lastUserMessage = messages[messages.length - 1];
 
-    let completion;
+    // Extend your existing messages array if needed
+    const extendedMessages = [
+      {
+        role: "system",
+        content: "Limit responses to 200 characters.",
+      },
+      {
+        role: "user",
+        content: lastUserMessage.content,
+      },
+      ...messages,
+    ];
+
+    let response;
     try {
-      // Make request to OpenAI API for chat completion
-      completion = await openai.createChatCompletion({
-        model: MODEL_NAME,
-        messages: [
-          {
-            role: 'system',
-            content: 'Limit responses to 100 characters.',
-          },
-          {
-            role: 'user',
-            content: lastUserMessage.content,
-          },
-        ],
-        max_tokens: MAX_TOKENS,
+      // Request the OpenAI API for the response based on the prompt
+      response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        stream: true,
+        messages: extendedMessages,
       });
     } catch (error: any) {
-      console.error('Failed to fetch from OpenAI API:', error);
+      console.error("Failed to fetch from OpenAI API:", error);
       return NextResponse.json(
         {
           error:
-            'Failed to communicate with the chat service. Please try again later.',
+            "Failed to communicate with the chat service. Please try again later.",
         } as ErrorRes,
         { status: 502 } // Bad Gateway
       );
     }
 
-    const responseText = completion.data.choices[0]?.message?.content;
+    // Convert the response into a friendly text-stream
+    const stream = OpenAIStream(response);
 
-    if (!responseText) {
-      console.error(
-        'OpenAI API returned an error: No response from the model.'
-      );
-      return NextResponse.json(
-        {
-          error: 'Chat service returned an error. Please try again later.',
-        } as ErrorRes,
-        { status: 502 } // Bad Gateway
-      );
-    }
-
-    // Return the response
-    return NextResponse.json({ message: responseText });
+    // Return the streaming response
+    return new StreamingTextResponse(stream);
   } catch (error: any) {
-    // Catch-all error handler
-    console.error('Unexpected server error:', error);
+    console.error("Unexpected server error:", error);
     return NextResponse.json(
       {
-        error: 'An internal error occurred. Please try again later.',
+        error: "An internal error occurred. Please try again later.",
       } as ErrorRes,
-      { status: 500 }
+      { status: 500 } // Internal Server Error
     );
   }
 }

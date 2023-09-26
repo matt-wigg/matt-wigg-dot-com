@@ -15,6 +15,7 @@
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
     "@vercel/analytics": "^1.0.0",
+    "ai": "^2.2.13",
     "autoprefixer": "10.4.14",
     "aws-crt": "^1.15.17",
     "aws-sdk": "^2.1386.0",
@@ -22,9 +23,9 @@
     "cors": "^2.8.5",
     "eslint": "8.39.0",
     "multer": "^1.4.5-lts.1",
-    "next": "^13.4.4",
+    "next": "^13.5.3",
     "next-themes": "^0.2.1",
-    "openai": "^3.2.1",
+    "openai": "^4.10.0",
     "postcss": "8.4.23",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -36,6 +37,6 @@
     "xss": "^1.0.14"
   },
   "devDependencies": {
-    "eslint-config-next": "^13.4.4"
+    "eslint-config-next": "^13.5.3"
   }
 }
