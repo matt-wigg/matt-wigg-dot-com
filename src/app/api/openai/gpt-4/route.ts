@@ -8,8 +8,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPEN_AI_KEY!,
 });
 
-// Constants
-const MODEL_NAME = "gpt-4";
+// Optional, but recommended: run on the edge runtime
+export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
   try {
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     try {
       // Make request to OpenAI API for chat completion with streaming
       response = await openai.chat.completions.create({
-        model: MODEL_NAME,
+        model: "gpt-4",
         stream: true,
         messages: messages,
       });
