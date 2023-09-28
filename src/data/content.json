@@ -11,27 +11,30 @@
     "closing": "Connect for collaborations or a friendly chat. Enjoy your visit!"
   },
   "skillsintroduction": "Here are some of the technologies I've used:",
-  "skills": [{
+  "skills": [
+    {
       "title": "Languages",
       "icon": "CodeBracketIcon",
       "skills": [
-        "JavaScript / TypeScript",
-        "Python",
-        "Java / Apex",
-        "HTML & CSS",
-        "Solidity / Michelson",
-        "SQL",
-        "Bash / Shell",
-        "Markdown / LaTeX"
+        "JavaScript, TypeScript",
+        "Python3",
+        "Java, Salesforce Apex",
+        "HTML5, CSS3",
+        "JSON, XML, YAML",
+        "SQL (MySQL, PostgreSQL), MQL4, SOQL, JQL",
+        "Bash Scripting, Shell Scripting",
+        "Markdown, LaTeX (Document Formatting)"
       ]
     },
     {
       "title": "Frameworks/Libraries",
       "icon": "ServerStackIcon",
       "skills": [
-        "React.js, Next.js, Node.js, Express.js, p5.js",
+        "React.js, Next.js, Node.js, Express.js, p5.js, jQuery",
         "Tailwind, SASS, Bootstrap, Materialize, Less",
         "Flask, Django, Jupyter",
+        "OpenAI, LangChain, Hugging Face",
+        "Web3.js, Ethers.js",
         "Lightning Web Components, Aura, Visualforce, SFDX",
         "Cyprus, Jest, Mocha, Chai, Selenium, Storybook",
         "Salesforce, Shopify, Okta"
@@ -57,7 +60,7 @@
         "Postman, New Relic, Sentry, Artillery",
         "Adobe Creative Suite, Figma, Sketch, Zeplin",
         "Workbench, Data Loader, Sonar, Flosum, AutoRABIT, Provar",
-        "Jira, Confluence, Atlassian Access, ServiceNow"
+        "Atlassian, ServiceNow"
       ]
     },
     {
