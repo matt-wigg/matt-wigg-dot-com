@@ -1,10 +1,10 @@
 import ContentCard from "@/components/ContentCard/ContentCard";
 
-const ProfesionalTimeline = () => {
+const ProfessionalTimeline = () => {
   const timelineData = [
     {
       date: "2022 - Present",
-      title: "Full Stack Engineer - Digital Technology Supervisor AVP",
+      title: "Software Engineer, Digital Technology Supervisor AVP",
       company: "HTLF Bank",
       country: "🇺🇸",
     },
@@ -16,7 +16,7 @@ const ProfesionalTimeline = () => {
     },
     {
       date: "2020 - 2021",
-      title: "Full Stack Engineer",
+      title: "Software Engineer",
       company: "Freelance/Contract",
       country: "🇺🇸",
     },
@@ -34,7 +34,7 @@ const ProfesionalTimeline = () => {
     },
     {
       date: "2008 - 2010",
-      title: "FdA in Graphic Design",
+      title: "FdA in Communication, Graphic Design",
       company: "University of the Arts London",
       country: "🇬🇧",
     },
@@ -72,4 +72,4 @@ const ProfesionalTimeline = () => {
   );
 };
 
-export default ProfesionalTimeline;
+export default ProfessionalTimeline;

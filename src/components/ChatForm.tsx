@@ -38,12 +38,12 @@ const ChatForm = ({ show }: { show: boolean }) => {
       content={
         <>
           {/* System message */}
-          <p className="pb-4">
+          {/* <p className="pb-4">
             <span className="pb-4">
               All requests currently carry a system message prefix to deter
               timeouts in Vercel&apos;s hobby-tier edge functions.
             </span>
-          </p>
+          </p> */}
 
           {/* Model selection */}
           <div className="mb-4">
@@ -74,7 +74,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
           </span>
           <div className="overflow-y-auto h-52 mb-4 border border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 dark:text-gray-300">
             <p className="pb-1">
-              <span className="dark:text-gray-600">{`system: Limit responses to 200 characters.`}</span>
+              <span className="dark:text-gray-600">{`System: limit responses to 200 characters.`}</span>
             </p>
             {messages.map((message, index) => (
               <p key={index} className="pb-1">
