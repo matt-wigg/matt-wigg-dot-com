@@ -13,7 +13,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({
   <div className='flex align-middle text-yellow-400'>
     {React.createElement(icon, { className: 'h-7 w-7 mr-2 mt-1' })}
     <Link href={`#${title.toLowerCase()}`}>
-      <span className='font-medium text-2xl' id={`${title.toLowerCase()}`}>
+      <span className='font-medium text-xl' id={`${title.toLowerCase()}`}>
         {title}
       </span>
     </Link>

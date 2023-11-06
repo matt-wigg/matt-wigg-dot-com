@@ -31,7 +31,7 @@ const TabContent: React.FC<TabContentProps> = ({ activeTab, greeting }) => {
     case 'introduction':
       return (
         <div className='space-y-4 font-light py-4 dark:text-gray-300'>
-          <p className='text-5xl font-medium text-gray-900 dark:text-gray-100'>
+          <p className='text-4xl font-medium text-gray-900 dark:text-gray-100'>
             {greeting}
           </p>
           <p>{content.introduction.welcome}</p>
@@ -46,7 +46,7 @@ const TabContent: React.FC<TabContentProps> = ({ activeTab, greeting }) => {
     case 'skills':
       return (
         <div className='space-y-4 font-light py-4 dark:text-gray-300'>
-          <p className='text-5xl font-medium text-gray-900 dark:text-gray-100'>
+          <p className='text-4xl font-medium text-gray-900 dark:text-gray-100'>
             Skills
           </p>
           <p>{content.skillsintroduction}</p>
