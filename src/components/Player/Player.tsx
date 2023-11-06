@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
+import Button from "@/components/Button";
 import style from "./Player.module.css";
 
 const tracks = [
@@ -26,71 +27,108 @@ const AudioPlayer = () => {
   const { artist, title, source } = tracks[currentTrack];
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const intervalRef = useRef<number>(0);
+
+  useEffect(() => {
+    // This code will run on the client side after the component mounts
+    audioRef.current = new Audio(source);
+
+    return () => {
+      // Cleanup function to pause and dispose of the audio if the component unmounts
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  const pauseAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  };
+
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
+  const setAudioSource = (source: string) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = source;
+      audioRef.current.load();
+    }
+  };
 
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    if (audioRef.current) {
-      if (!isPlaying) {
-        audioRef.current.play();
+    setIsPlaying((prevIsPlaying) => {
+      if (!prevIsPlaying) {
+        playAudio();
       } else {
-        audioRef.current.pause();
+        pauseAudio();
       }
-    }
+      return !prevIsPlaying;
+    });
+  };
+
+  const changeTrack = (trackIndex: number) => {
+    setCurrentTrack(trackIndex);
+    setAudioSource(tracks[trackIndex].source);
+    setIsPlaying(true);
   };
 
   const restartAndPrevious = () => {
-    if (currentTrack - 1 < 0) {
-      setCurrentTrack(tracks.length - 1);
-    } else {
-      setCurrentTrack(currentTrack - 1);
-    }
-    if (!isPlaying) setIsPlaying(true);
+    changeTrack(currentTrack - 1 < 0 ? tracks.length - 1 : currentTrack - 1);
   };
 
-  const nextSong = useCallback(() => {
-    setCurrentTrack((prevTrack) => {
-      if (prevTrack === tracks.length - 1) return 0;
-      else return prevTrack + 1;
-    });
-    if (!isPlaying) setIsPlaying(true);
-  }, [isPlaying]);
+  const nextSong = () => {
+    changeTrack(currentTrack + 1 >= tracks.length ? 0 : currentTrack + 1);
+  };
 
-  const startTimer = useCallback(() => {
-    // Clear any timers already running
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    // Only proceed if audio is not null
+    if (audio) {
+      if (isPlaying) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
     }
 
-    intervalRef.current = window.setInterval(() => {
-      if (audioRef.current && audioRef.current.ended) {
+    const intervalId = setInterval(() => {
+      // Make sure audio is not null inside the interval as well
+      if (audio && audio.ended) {
         nextSong();
       }
     }, 1000);
-  }, [nextSong]);
+
+    // Cleanup function
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [isPlaying]);
 
   useEffect(() => {
-    audioRef.current = new Audio(source);
-  }, [source]);
+    const audio = audioRef.current;
 
-  useEffect(() => {
-    if (isPlaying && audioRef.current) {
-      audioRef.current.play();
-      startTimer();
-    } else if (audioRef.current) {
-      audioRef.current.pause();
-    }
-  }, [isPlaying, startTimer]);
+    if (audio) {
+      setAudioSource(source);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current = new Audio(tracks[currentTrack].source);
       if (isPlaying) {
-        audioRef.current.play();
+        audio.play();
       }
     }
-  }, [currentTrack, isPlaying]);
+
+    // Cleanup function to pause if the component unmounts
+    return () => {
+      if (audio) {
+        audio.pause();
+      }
+    };
+  }, [currentTrack]);
 
   return (
     <div className={style.auioContainer}>
@@ -108,7 +146,10 @@ const AudioPlayer = () => {
           <span className={isPlaying ? style.musicBars : style.paused} />
         </div>
         <div className={style.buttonContainer}>
-          <button className={style.playerButton} onClick={restartAndPrevious}>
+          <Button
+            className={`${style.playerButton} px-0 py-0`}
+            onClick={restartAndPrevious}
+          >
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -120,9 +161,11 @@ const AudioPlayer = () => {
             >
               <path d="m16 7-7 5 7 5zm-7 5V7H7v10h2z"></path>
             </svg>
-          </button>
-          <button
-            className={isPlaying ? style.isPlaying : style.playerButton}
+          </Button>
+          <Button
+            className={`${
+              isPlaying ? style.isPlaying : style.playerButton
+            } px-0 py-0`}
             onClick={togglePlayPause}
           >
             <svg
@@ -138,8 +181,11 @@ const AudioPlayer = () => {
                 d={isPlaying ? "M8 7h3v10H8zm5 0h3v10h-3z" : "M7 6v12l10-6z"}
               ></path>
             </svg>
-          </button>
-          <button className={style.playerButton} onClick={() => nextSong()}>
+          </Button>
+          <Button
+            className={`${style.playerButton} px-0 py-0`}
+            onClick={() => nextSong()}
+          >
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -151,7 +197,7 @@ const AudioPlayer = () => {
             >
               <path d="M7 7v10l7-5zm9 10V7h-2v10z"></path>
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </div>
