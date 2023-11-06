@@ -139,7 +139,7 @@ const AudioPlayer = () => {
               ></path>
             </svg>
           </button>
-          <button className={style.playerButton} onClick={(e) => nextSong(e)}>
+          <button className={style.playerButton} onClick={() => nextSong()}>
             <svg
               stroke="currentColor"
               fill="currentColor"
