@@ -147,7 +147,8 @@ const AudioPlayer = () => {
         </div>
         <div className={style.buttonContainer}>
           <Button
-            className={`${style.playerButton} px-0 py-0`}
+            className={style.playerButton}
+            style={{ padding: 0 }}
             onClick={restartAndPrevious}
           >
             <svg
@@ -163,9 +164,8 @@ const AudioPlayer = () => {
             </svg>
           </Button>
           <Button
-            className={`${
-              isPlaying ? style.isPlaying : style.playerButton
-            } px-0 py-0`}
+            className={isPlaying ? style.isPlaying : style.playerButton}
+            style={{ padding: 0 }}
             onClick={togglePlayPause}
           >
             <svg
@@ -183,7 +183,8 @@ const AudioPlayer = () => {
             </svg>
           </Button>
           <Button
-            className={`${style.playerButton} px-0 py-0`}
+            className={style.playerButton}
+            style={{ padding: 0 }}
             onClick={() => nextSong()}
           >
             <svg
