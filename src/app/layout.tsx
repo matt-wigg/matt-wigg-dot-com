@@ -1,4 +1,5 @@
 import "./globals.css";
+import ThreeBackground from "@/components/ThreeBackground";
 import Navbar from "@/components/Navbar";
 import HeaderNotification from "@/components/HeaderNotification";
 import Player from "@/components/Player/Player";
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <div className="min-h-screen relative">
+            <Player />
             <Navbar />
             <main className="md:pl-52">
               <HeaderNotification />
@@ -29,8 +31,8 @@ export default function RootLayout({
                 <Analytics />
               </div>
             </main>
-            <Player />
           </div>
+          <ThreeBackground />
         </ThemeProvider>
       </body>
     </html>
