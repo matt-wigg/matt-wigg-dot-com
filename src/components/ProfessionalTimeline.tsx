@@ -54,13 +54,13 @@ const ProfessionalTimeline = () => {
                     <p className="text-gray-900 dark:text-gray-300 font-semibold">
                       {item.title}
                     </p>
-                    <p className="text-gray-500 dark:text-gray-400 font-extralight">
+                    <p className="text-gray-500 dark:text-gray-300 font-extralight">
                       {item.company}
                       <span className="ml-2 text-lg">{item.country}</span>
                     </p>
                   </div>
                 </div>
-                <span className="text-gray-600 dark:text-gray-400 font-extralight">
+                <span className="text-gray-600 dark:text-gray-300 font-extralight">
                   {item.date}
                 </span>
               </div>

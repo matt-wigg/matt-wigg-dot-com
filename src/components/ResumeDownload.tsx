@@ -18,7 +18,7 @@ const ResumeDownload = () => {
       title='Resume'
       content={
         <div>
-          <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
+          <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-300 mb-4'>
             Download my resume in .PDF, .DOC, or .MD format.
           </p>
           <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
@@ -31,8 +31,8 @@ const ResumeDownload = () => {
                   onClick={() => downloadFile(format)}
                   className='group bg-white dark:bg-zinc-950 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-md px-4 py-2 border border-gray-700 dark:border-gray-700 flex items-center justify-center'
                 >
-                  <DocumentArrowDownIcon className='h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
-                  <span className='text-sm text-gray-600 dark:text-gray-400 font-medium group-hover:text-yellow-400 dark:group-hover:text-yellow-400'>
+                  <DocumentArrowDownIcon className='h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 mr-2' />
+                  <span className='text-sm text-gray-600 dark:text-gray-300 font-medium group-hover:text-yellow-400 dark:group-hover:text-yellow-400'>
                     {format.toUpperCase()}
                   </span>
                 </Button>

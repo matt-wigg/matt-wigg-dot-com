@@ -81,7 +81,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 <span
                   className={`${
                     message.role === "user"
-                      ? "dark:text-gray-400"
+                      ? "dark:text-gray-300"
                       : "font-bold dark:text-yellow-400"
                   }`}
                 >
@@ -122,7 +122,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 disabled={!input || isLoading}
               >
                 {isLoading ? (
-                  <ArrowPathIcon className="h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin" />
+                  <ArrowPathIcon className="h-5 w-5 text-gray-600 dark:text-gray-300 group-hover:text-yellow-400 dark:group-hover:text-yellow-400 animate-spin" />
                 ) : (
                   <PaperAirplaneIcon className="h-5 w-5 text-yellow-400 dark:text-yellow-400 group-hover:text-yellow-400 dark:group-hover:text-yellow-400" />
                 )}

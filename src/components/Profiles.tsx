@@ -31,25 +31,24 @@ const Profiles = () => {
               <div className="font-semibold text-gray-900 dark:text-gray-300">
                 Matthew Wigglesworth
               </div>
-              <div className="font-extralight text-gray-500 dark:text-gray-400">
+              <div className="font-extralight text-gray-500 dark:text-gray-300">
                 Software Engineer
               </div>
-              <div className="font-extralight text-gray-500 dark:text-gray-400">
+              <div className="font-extralight text-gray-500 dark:text-gray-300">
                 California
               </div>
-              <div className="pt-3 font-extralight text-gray-500 dark:text-gray-400">
+              <div className="pt-3 font-extralight text-gray-500 dark:text-gray-300">
                 <SocialLinks />
               </div>
             </div>
           </div>
           <div className="pt-4">
-            <p className="font-light text-gray-700 dark:text-gray-400">
-              I&apos;m a software engineer who transitioned a hobby into a
-              career, allowing me to solve real-world problems with code. I
-              thrive on autonomy but believe in the power of teamwork to drive
-              innovation. When I&apos;m not coding, I enjoy camping, surfing,
-              video games, and watching football ⚽️. I own a Goldendoodle dog,
-              Charlie.
+            <p className="font-light text-gray-700 dark:text-gray-300 text-base">
+              I&apos;m a software engineer who turned my hobby into a career,
+              enabling me to solve real-world problems using code. When I&apos;m
+              not coding, I enjoy camping, surfing, games, and watching football
+              ⚽️. I own a Goldendoodle dog named Charles{" "}
+              <span className="italic text-sm">- long live the king!</span>
             </p>
           </div>
         </>

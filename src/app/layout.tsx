@@ -21,7 +21,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className='min-h-screen relative'>
             <Navbar />
-            <main className='md:pl-52 '>
+            <main className='md:pl-52'>
               <HeaderNotification />
               <div className='container mx-auto px-4'>
                 {children}

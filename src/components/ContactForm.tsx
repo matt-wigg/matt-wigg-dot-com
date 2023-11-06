@@ -73,7 +73,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
       content={
         <div>
           {!success && !error && (
-            <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-400 mb-4'>
+            <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-300 mb-4'>
               This form will send me an email with your message. I will get back
               to you as soon as possible.
             </p>
@@ -85,7 +85,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
               <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
                 Success!
               </h3>
-              <p className='mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-400 pt-1'>
+              <p className='mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-300 pt-1'>
                 Thank you, your message was sent successfully. I will get back
                 to you as soon as possible.
               </p>
@@ -120,7 +120,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
               <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
                 Oops!
               </h3>
-              <p className='mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-400 pt-1'>
+              <p className='mt-2 max-w-2xl text-sm text-gray-500 dark:text-gray-300 pt-1'>
                 Something went wrong. Please try again later.
               </p>
               <div className='flex items-center justify-center pt-4'>

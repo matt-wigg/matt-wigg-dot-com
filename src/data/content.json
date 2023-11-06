@@ -33,11 +33,11 @@
         "React.js, Next.js, Node.js, Express.js, p5.js, jQuery",
         "Tailwind, SASS, Bootstrap, Materialize, Less",
         "Flask, Django, Jupyter",
-        "OpenAI, LangChain, Hugging Face",
+        "OpenAI, LangChain, Hugging Face, Azure AI Services",
         "Web3.js, Ethers.js",
         "Lightning Web Components, Aura, Visualforce, SFDX",
         "Cyprus, Jest, Mocha, Chai, Selenium, Storybook",
-        "Salesforce, Shopify, Okta"
+        "Salesforce, Shopify, Okta, Q2"
       ]
     },
     {

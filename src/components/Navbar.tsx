@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <div className='flex flex-col md:flex-row md:space-x-4 md:space-y-0'>
       <div className='md:flex  dark:bg-zinc-950 dark:text-gray-100 w-52 min-w-52 h-full flex-col justify-between hidden top-0 left-0 border-r border-gray-800 fixed'>
-        <nav className='px-6 py-4 space-y-4 font-light'>
+        <nav className='px-6 py-4 space-y-4 font-light text-base'>
           <h1 className='font-mono text-2xl py-2 font-medium text-gray-900 dark:text-gray-100'>
             matt-wigg-dot-com
           </h1>
@@ -65,7 +65,7 @@ const Navbar = () => {
               <UserCircleIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 {/* <span
-                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
+                  className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out bg-gray-200 dark:bg-gray-700 
     `}
                 >
                   a.
@@ -86,7 +86,7 @@ const Navbar = () => {
               <CommandLineIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 {/* <span
-                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
+                  className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
     `}
                 >
                   p.
@@ -104,7 +104,7 @@ const Navbar = () => {
               <BookOpenIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 {/* <span
-                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
+                  className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
     `}
                 >
                   b.
@@ -124,7 +124,7 @@ const Navbar = () => {
               <PencilSquareIcon className='h-6 w-6 text-yellow-400' />
               <span className='ml-4'>
                 {/* <span
-                  className={`inline-block text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
+                  className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
     `}
                 >
                   c.

@@ -71,7 +71,7 @@ const HomeTabs = () => {
       title='Overview'
       content={
         <div>
-          <div className='flex relative pb-4 justify-start'>
+          <div className='flex relative pb-4 justify-start text-base'>
             <div
               className='absolute left-0 bottom-0 bg-yellow-400 h-0.5 rounded-full transition-all duration-300 ease-in-out'
               style={indicatorStyle}
@@ -93,7 +93,7 @@ const HomeTabs = () => {
                 onClick={() => setActiveTab(tab as TabName)}
               >
                 <span
-                  className={` text-white dark:text-gray-400 rounded px-2 py-1 text-xs mr-3 transition duration-150 ease-in-out bg-gray-400 dark:bg-gray-700 hidden md:inline`}
+                  className={` text-white dark:text-gray-300 rounded px-2 text-sm mr-3 transition duration-150 ease-in-out bg-gray-400 dark:bg-gray-700 hidden md:inline`}
                 >
                   {index + 1}.
                 </span>
@@ -102,7 +102,7 @@ const HomeTabs = () => {
             ))}
           </div>
 
-          <div className='transition-all duration-300 ease-in-out min-w-full text-gray-500'>
+          <div className='transition-all duration-300 ease-in-out min-w-full text-gray-500 text-base'>
             <TabContent activeTab={activeTab} greeting={greeting} />
           </div>
         </div>

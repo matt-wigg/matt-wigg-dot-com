@@ -53,13 +53,13 @@ const Testimonials = () => {
         >
           {testimonials.map((testimonial, index) => (
             <div key={index}>
-              <p className='font-light italic text-gray-500 dark:text-gray-400 pb-4'>
+              <p className='font-light italic text-gray-500 dark:text-gray-300 pb-4'>
                 &quot;{testimonial.testimonial}&quot;
               </p>
               <p className='text-gray-900 dark:text-gray-300 font-semibold mb-1'>
                 {testimonial.name}
               </p>
-              <p className='text-gray-500 dark:text-gray-400 font-extralight mb-12'>
+              <p className='text-gray-500 dark:text-gray-300 font-extralight mb-12'>
                 {testimonial.position}, {testimonial.company}
               </p>
             </div>
