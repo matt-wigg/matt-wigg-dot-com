@@ -47,7 +47,7 @@ const Profiles = () => {
               I&apos;m a software engineer who turned my hobby into a career,
               enabling me to solve real-world problems using code. When I&apos;m
               not coding, I enjoy camping, surfing, games, and watching football
-              ⚽️. I own a Goldendoodle dog named Charles{" "}
+              ⚽️. I have a Goldendoodle named Charles{" "}
               <span className="italic text-sm">- long live the king!</span>
             </p>
           </div>
