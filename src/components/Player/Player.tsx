@@ -131,7 +131,7 @@ const AudioPlayer = () => {
   }, [currentTrack]);
 
   return (
-    <div className={style.auioContainer}>
+    <div className={`${style.auioContainer} bg-white dark:bg-zinc-950`}>
       <div className={style.audioDetail}>
         <div className={style.trackInfo}>
           <div className={style.audioTitle}>{title}</div>
