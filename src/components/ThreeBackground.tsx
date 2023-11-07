@@ -44,7 +44,7 @@ const ThreeBackground: React.FC = () => {
       void main() {
         vUv = uv;
         vec3 pos = position;
-        float displacement = sin(length(position.xy) * 1.0 + time) * 25.0;
+        float displacement = sin(length(position.xy) * 1.0 + time) * 35.0;
         pos += normal * displacement;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
       }
@@ -71,27 +71,21 @@ const ThreeBackground: React.FC = () => {
 
     const geometry = new THREE.IcosahedronGeometry(
       getRandomInRange(75, 150),
-      Math.floor(getRandomInRange(1, 3))
+      Math.floor(getRandomInRange(1, 4))
     );
     const mesh = new THREE.Mesh(geometry, shaderMaterial);
     scene.add(mesh);
 
-    // Step 2: Function to update mouse position
     const handleMouseMove = (event: MouseEvent) => {
-      // Convert mouse position to a normalized coordinate system where the center of the screen is (0, 0)
       mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
     };
 
     const animate = () => {
-      // Calculate the desired target position based on mouse coordinates
-      targetLookAt.x += (mouse.current.x * 100 - targetLookAt.x) * 0.0002;
-      targetLookAt.y += (mouse.current.y * 100 - targetLookAt.y) * 0.0002;
+      targetLookAt.x += (mouse.current.x * 100 - targetLookAt.x) * 0.0003;
+      targetLookAt.y += (mouse.current.y * 100 - targetLookAt.y) * 0.0003;
       targetLookAt.z = 0;
-
-      // Step 3: Update the camera's look direction smoothly
       camera.lookAt(targetLookAt);
-
       shaderMaterial.uniforms.time.value += getRandomInRange(0.005, 0.009);
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
