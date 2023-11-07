@@ -44,10 +44,10 @@ const Profiles = () => {
           </div>
           <div className="pt-4">
             <p className="font-light text-gray-700 dark:text-gray-300 text-base">
-              I&apos;m a software engineer who turned my hobby into a career,
-              enabling me to solve real-world problems using code. When I&apos;m
-              not coding, I enjoy camping, surfing, games, and watching football
-              ⚽️. I have a Goldendoodle named Charles{" "}
+              I&apos;m a software engineer who turned his hobby into a career,
+              enabling me to solve real-world problems using code. In my spare
+              time I enjoy camping, surfing, watching football ⚽️, and games. I
+              own a Goldendoodle named Charles{" "}
               <span className="italic text-sm">- long live the king!</span>
             </p>
           </div>
