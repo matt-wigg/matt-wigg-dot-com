@@ -73,7 +73,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
       content={
         <div>
           {!success && !error && (
-            <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-300 mb-4'>
+            <p className='py-1 max-w-2xl font-light text-gray-500 dark:text-gray-300 mb-4 text-base'>
               This form will send me an email with your message. I will get back
               to you as soon as possible.
             </p>

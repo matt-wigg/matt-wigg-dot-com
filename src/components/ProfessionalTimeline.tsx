@@ -4,7 +4,7 @@ const ProfessionalTimeline = () => {
   const timelineData = [
     {
       date: "2022 - Present",
-      title: "Software Engineer, Digital Technology Supervisor AVP",
+      title: "Software Engineer, Digital Technology AVP",
       company: "HTLF Bank",
       country: "🇺🇸",
     },
