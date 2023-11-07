@@ -42,7 +42,7 @@ const ThreeBackground: React.FC = () => {
       void main() {
         vUv = uv;
         vec3 pos = position;
-        float displacement = sin(length(position.xy) * 2.0 + time) * 2.0;
+        float displacement = sin(length(position.xy) * 1.0 + time) * 25.0;
         pos += normal * displacement;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
       }
@@ -68,16 +68,14 @@ const ThreeBackground: React.FC = () => {
     });
 
     const geometry = new THREE.IcosahedronGeometry(
-      getRandomInRange(40, 100),
-      1
+      getRandomInRange(75, 150),
+      Math.floor(getRandomInRange(1, 5))
     );
     const mesh = new THREE.Mesh(geometry, shaderMaterial);
     scene.add(mesh);
 
-    camera.position.y = 35;
-
     const animate = () => {
-      shaderMaterial.uniforms.time.value += getRandomInRange(0.005, 0.05);
+      shaderMaterial.uniforms.time.value += getRandomInRange(0.001, 0.005);
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
