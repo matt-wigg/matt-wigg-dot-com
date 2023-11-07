@@ -46,10 +46,9 @@ const Profiles = () => {
             <p className="font-light text-gray-700 dark:text-gray-300 text-base">
               Hi there! I&apos;m a software engineer who turned my hobby into a
               career, enabling me to solve real-world problems using code. When
-              I&apos;m not working, I love spending time outdoors camping and
-              surfing. I also enjoy watching football ⚽️, playing games, and
-              taking my Goldendoodle, Charles, for long walks.{" "}
-              <span className="italic text-sm">- long live the king!</span>
+              I&apos;m not working, I love spending time outdoors camping,
+              surfing, watching football ⚽️, and taking my dog for walks.{" "}
+              <span className="italic text-sm">- long live the King!</span>
             </p>
           </div>
         </>
