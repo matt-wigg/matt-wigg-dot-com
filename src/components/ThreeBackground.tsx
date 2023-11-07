@@ -85,8 +85,8 @@ const ThreeBackground: React.FC = () => {
 
     const animate = () => {
       // Calculate the desired target position based on mouse coordinates
-      targetLookAt.x += (mouse.current.x * 100 - targetLookAt.x) * 0.0005;
-      targetLookAt.y += (mouse.current.y * 100 - targetLookAt.y) * 0.0005;
+      targetLookAt.x += (mouse.current.x * 100 - targetLookAt.x) * 0.0002;
+      targetLookAt.y += (mouse.current.y * 100 - targetLookAt.y) * 0.0002;
       targetLookAt.z = 0;
 
       // Step 3: Update the camera's look direction smoothly
