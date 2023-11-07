@@ -2,6 +2,7 @@ import HomeTabs from "@/components/HomeTabs/HomeTabs";
 import Profiles from "@/components/Profiles";
 import ContactForm from "@/components/ContactForm";
 import Testimonials from "@/components/Testimonials";
+import ResumeDownload from "@/components/ResumeDownload";
 import ProfessionalTimeline from "@/components/ProfessionalTimeline";
 
 export default function Home() {
@@ -12,11 +13,11 @@ export default function Home() {
           <div className="pb-4">
             <HomeTabs />
           </div>
-        </div>
-        <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto">
-          <div className="pb-4 xl:hidden lg:hidden">
+          <div className="pb-4">
             <ContactForm show={false} />
           </div>
+        </div>
+        <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto xl:min-h-[101%]">
           <div className="pb-4">
             <Profiles />
           </div>
@@ -26,15 +27,9 @@ export default function Home() {
           <div className="pb-4">
             <Testimonials />
           </div>
-          <div className="pb-4 hidden lg:block xl:hidden">
-            <ContactForm show={true} />
-          </div>
-          <div className="pb-4 hidden xl:block">
-            <ContactForm show={true} />
-          </div>
-          {/* <div className='pb-4'>
+          <div className="pb-4">
             <ResumeDownload />
-          </div> */}
+          </div>
         </div>
       </main>
     </>
