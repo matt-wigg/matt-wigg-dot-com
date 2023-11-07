@@ -13,13 +13,13 @@ export default function Home() {
           <div className="pb-4">
             <HomeTabs />
           </div>
-          <div className="pb-4">
-            <ContactForm show={false} />
-          </div>
         </div>
-        <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto xl:min-h-[101%]">
+        <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto xl:min-h-[10%]">
           <div className="pb-4">
             <Profiles />
+          </div>
+          <div className="pb-4">
+            <ContactForm show={false} />
           </div>
           <div className="pb-4">
             <ProfessionalTimeline />
