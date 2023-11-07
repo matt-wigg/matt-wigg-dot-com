@@ -27,7 +27,7 @@ const ResumeDownload = () => {
       content={
         <div>
           <p className="py-1 max-w-2xl font-light text-gray-500 dark:text-gray-300 mb-4">
-            Download my resume in .PDF, .DOCX, or .MD format.
+            Download my resume in .MD, .PDF, or .DOCX format.
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-3">
             {["md", "pdf", "docx"].map((format) => (
