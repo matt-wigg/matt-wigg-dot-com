@@ -50,7 +50,7 @@ const AudioPlayer = () => {
         audio.removeEventListener("ended", handleTrackEnd);
       }
     };
-  }, []);
+  }, [currentTrack]);
 
   useEffect(() => {
     const audio = audioRef.current;
