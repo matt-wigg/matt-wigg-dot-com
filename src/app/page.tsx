@@ -14,7 +14,7 @@ export default function Home() {
             <HomeTabs />
           </div>
         </div>
-        <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto xl:min-h-[10%]">
+        <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto xl:min-h-[120%]">
           <div className="pb-4">
             <Profiles />
           </div>
