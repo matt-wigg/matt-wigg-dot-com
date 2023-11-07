@@ -5,6 +5,8 @@ import * as THREE from "three";
 
 const ThreeBackground: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const mouse = useRef(new THREE.Vector2());
+  const targetLookAt = new THREE.Vector3();
 
   const getRandomInRange = (min: number, max: number) =>
     Math.random() * (max - min) + min;
@@ -69,13 +71,28 @@ const ThreeBackground: React.FC = () => {
 
     const geometry = new THREE.IcosahedronGeometry(
       getRandomInRange(75, 150),
-      Math.floor(getRandomInRange(1, 5))
+      Math.floor(getRandomInRange(1, 3))
     );
     const mesh = new THREE.Mesh(geometry, shaderMaterial);
     scene.add(mesh);
 
+    // Step 2: Function to update mouse position
+    const handleMouseMove = (event: MouseEvent) => {
+      // Convert mouse position to a normalized coordinate system where the center of the screen is (0, 0)
+      mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+
     const animate = () => {
-      shaderMaterial.uniforms.time.value += getRandomInRange(0.001, 0.005);
+      // Calculate the desired target position based on mouse coordinates
+      targetLookAt.x += (mouse.current.x * 100 - targetLookAt.x) * 0.0005;
+      targetLookAt.y += (mouse.current.y * 100 - targetLookAt.y) * 0.0005;
+      targetLookAt.z = 0;
+
+      // Step 3: Update the camera's look direction smoothly
+      camera.lookAt(targetLookAt);
+
+      shaderMaterial.uniforms.time.value += getRandomInRange(0.005, 0.009);
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
@@ -87,6 +104,8 @@ const ThreeBackground: React.FC = () => {
       camera.updateProjectionMatrix();
     };
 
+    window.addEventListener("mousemove", handleMouseMove);
+
     window.addEventListener("resize", handleResize);
     animate();
 
@@ -94,6 +113,7 @@ const ThreeBackground: React.FC = () => {
       if (frameId !== null) {
         cancelAnimationFrame(frameId);
       }
+      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
       disposeScene(scene);
       renderer.dispose();
