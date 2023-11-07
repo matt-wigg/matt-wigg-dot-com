@@ -24,7 +24,7 @@ export default function RootLayout({
           <div className="min-h-screen relative">
             <Player />
             <Navbar />
-            <main className="md:pl-52">
+            <main className="md:pl-52 md:min-h-[120%]">
               <HeaderNotification />
               <div className="container mx-auto px-4">
                 {children}
