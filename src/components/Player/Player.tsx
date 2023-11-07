@@ -24,49 +24,54 @@ const tracks = [
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
-  const { artist, title, source } = tracks[currentTrack];
-
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // This code will run on the client side after the component mounts
-    audioRef.current = new Audio(source);
+    // Create a new Audio object and set the source
+    if (audioRef.current === null) {
+      audioRef.current = new Audio(tracks[currentTrack].source);
+    }
+
+    const audio = audioRef.current;
+
+    // Define what to do when the track ends
+    const handleTrackEnd = () => {
+      nextSong();
+    };
+
+    if (audio) {
+      audio.addEventListener("ended", handleTrackEnd);
+    }
 
     return () => {
-      // Cleanup function to pause and dispose of the audio if the component unmounts
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
+      if (audio) {
+        audio.pause();
+        audio.src = "";
+        audio.removeEventListener("ended", handleTrackEnd);
       }
     };
   }, []);
 
-  const pauseAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.src = tracks[currentTrack].source;
+      audio.load();
+      if (isPlaying) {
+        audio.play();
+      }
     }
-  };
-
-  const playAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  };
-
-  const setAudioSource = (source: string) => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.src = source;
-      audioRef.current.load();
-    }
-  };
+  }, [currentTrack, isPlaying]);
 
   const togglePlayPause = () => {
     setIsPlaying((prevIsPlaying) => {
-      if (!prevIsPlaying) {
-        playAudio();
-      } else {
-        pauseAudio();
+      const audio = audioRef.current;
+      if (audio) {
+        if (!prevIsPlaying) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
       }
       return !prevIsPlaying;
     });
@@ -74,64 +79,29 @@ const AudioPlayer = () => {
 
   const changeTrack = (trackIndex: number) => {
     setCurrentTrack(trackIndex);
-    setAudioSource(tracks[trackIndex].source);
     setIsPlaying(true);
   };
 
-  const restartAndPrevious = () => {
-    changeTrack(currentTrack - 1 < 0 ? tracks.length - 1 : currentTrack - 1);
-  };
-
   const nextSong = () => {
-    changeTrack(currentTrack + 1 >= tracks.length ? 0 : currentTrack + 1);
+    changeTrack((currentTrack + 1) % tracks.length);
   };
 
-  useEffect(() => {
+  const restartOrPreviousTrack = () => {
     const audio = audioRef.current;
-
-    // Only proceed if audio is not null
     if (audio) {
-      if (isPlaying) {
+      if (audio.currentTime > 3) {
+        audio.currentTime = 0;
         audio.play();
       } else {
-        audio.pause();
+        changeTrack((currentTrack - 1 + tracks.length) % tracks.length);
       }
     }
+  };
 
-    const intervalId = setInterval(() => {
-      // Make sure audio is not null inside the interval as well
-      if (audio && audio.ended) {
-        nextSong();
-      }
-    }, 1000);
-
-    // Cleanup function
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [isPlaying]);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-
-    if (audio) {
-      setAudioSource(source);
-
-      if (isPlaying) {
-        audio.play();
-      }
-    }
-
-    // Cleanup function to pause if the component unmounts
-    return () => {
-      if (audio) {
-        audio.pause();
-      }
-    };
-  }, [currentTrack]);
+  const { artist, title } = tracks[currentTrack];
 
   return (
-    <div className={`${style.auioContainer} bg-white dark:bg-zinc-950`}>
+    <div className={`${style.audioContainer} bg-white dark:bg-zinc-950`}>
       <div className={style.audioDetail}>
         <div className={style.trackInfo}>
           <div className={style.audioTitle}>{title}</div>
@@ -149,7 +119,7 @@ const AudioPlayer = () => {
           <Button
             className={style.playerButton}
             style={{ padding: 0 }}
-            onClick={restartAndPrevious}
+            onClick={restartOrPreviousTrack}
           >
             <svg
               stroke="currentColor"
@@ -185,7 +155,7 @@ const AudioPlayer = () => {
           <Button
             className={style.playerButton}
             style={{ padding: 0 }}
-            onClick={() => nextSong()}
+            onClick={nextSong}
           >
             <svg
               stroke="currentColor"

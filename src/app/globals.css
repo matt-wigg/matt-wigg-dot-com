@@ -7,6 +7,6 @@
 }
 
 body {
-  @apply bg-gray-200 dark:bg-zinc-950 dark:text-white;
+  @apply bg-gray-200 dark:bg-zinc-950 dark:text-white text-base;
   transition-duration: 0.2s;
 }

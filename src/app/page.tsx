@@ -19,7 +19,7 @@ export default function Home() {
             <Profiles />
           </div>
           <div className="pb-4">
-            <ContactForm show={false} />
+            <ContactForm show={true} />
           </div>
           <div className="pb-4">
             <ProfessionalTimeline />
