@@ -102,7 +102,7 @@ const AudioPlayer = () => {
 
   return (
     <div
-      className={`${style.audioContainer} bg-white dark:bg-zinc-950 hidden md:block`}
+      className={`${style.audioContainer} bg-white dark:bg-zinc-950 `}
     >
       <div className={style.audioDetail}>
         <div className={style.trackInfo}>

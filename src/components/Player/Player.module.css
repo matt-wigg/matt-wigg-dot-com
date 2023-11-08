@@ -2,7 +2,6 @@
 
 .audioContainer {
   position: fixed;
-  display: block;
   bottom: 1.5rem;
   left: 15rem;
   min-width: 375px;
@@ -138,8 +137,43 @@
 }
 
 @media only screen and (max-width: 640px) {
-  .auioContainer {
-    width: fit-content;
+  .audioContainer {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 0%;
+    border: none;
+    border-top: 1px solid rgba(55, 65, 81);
+    z-index: 100;
+  }
+  .audioDetail {
+    justify-content: space-around; /* Spread out the children evenly */
+    width: 100%;
+  }
+
+  .trackInfo {
+    /* Adjust as necessary for mobile layout */
+    min-width: 0; /* Allow this to shrink if needed */
+    padding-top: 0.25rem; /* Adjust padding */
+    padding-left: 0.25rem; /* Adjust padding */
+    flex: 1; /* Allow this item to grow */
+    text-align: center; /* Center the text for small screens */
+  }
+
+  .buttonContainer {
+    /* Adjust as necessary for mobile layout */
+    flex: 1; /* Allow this item to grow */
+    justify-content: center; /* Center the buttons */
+    padding-right: 0; /* Adjust padding */
+  }
+
+  .musicVisual {
+    /* Hide the visualizer on small screens, or adjust as needed */
     display: none;
   }
 }
