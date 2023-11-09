@@ -1,14 +1,14 @@
 {
-  "greeting": "Hello, I'm Matthew Wigglesworth!",
   "introduction": {
-    "welcome": "  Welcome to my site! Explore my:",
+    "welcome": "Welcome to my site! Here you can explore my:",
     "listItems": [
       "Software engineering portfolio.",
       "Tech & tools expertise.",
       "Professional background & education.",
-      "Personal interests & motivations."
+      "Personal interests & motivations.",
+      "Contact information"
     ],
-    "closing": "Connect for collaborations or a friendly chat. Enjoy your visit!"
+    "closing": "Please connect for collaborations or a friendly chat - Enjoy your visit!"
   },
   "skillsintroduction": "Here are some of the technologies I've used:",
   "skills": [
@@ -30,7 +30,7 @@
       "title": "Frameworks/Libraries",
       "icon": "ServerStackIcon",
       "skills": [
-        "React.js, Next.js, Node.js, Express.js, p5.js, jQuery",
+        "React.js, Next.js, Node.js, Express.js, p5.js, Three.js, jQuery",
         "Tailwind, SASS, Bootstrap, Materialize, Less",
         "Flask, Django, Jupyter",
         "OpenAI, LangChain, Hugging Face, Azure AI Services",

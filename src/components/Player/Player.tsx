@@ -19,6 +19,12 @@ const tracks = [
     source:
       "https://matt-wigg-dot-com-music.s3.us-west-1.amazonaws.com/krunk.mp3",
   },
+  {
+    id: 2,
+    artist: "Public Service Broadcasting",
+    title: "Go!",
+    source: "https://matt-wigg-dot-com-music.s3.us-west-1.amazonaws.com/go.mp3",
+  },
 ];
 
 const AudioPlayer = () => {
@@ -101,9 +107,7 @@ const AudioPlayer = () => {
   const { artist, title } = tracks[currentTrack];
 
   return (
-    <div
-      className={`${style.audioContainer} bg-white dark:bg-zinc-950 `}
-    >
+    <div className={`${style.audioContainer} bg-white dark:bg-zinc-950 `}>
       <div className={style.audioDetail}>
         <div className={style.trackInfo}>
           <div className={style.audioTitle}>{title}</div>
