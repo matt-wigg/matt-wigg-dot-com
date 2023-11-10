@@ -93,7 +93,7 @@ const HomeTabs = () => {
                 onClick={() => setActiveTab(tab as TabName)}
               >
                 <span
-                  className={` text-white dark:text-gray-300 rounded px-2 text-sm mr-3 transition duration-150 ease-in-out bg-gray-400 dark:bg-gray-700 hidden md:inline`}
+                  className={`text-white dark:text-gray-300 rounded px-2 text-base mr-3 transition duration-150 ease-in-out bg-gray-400 dark:bg-gray-700 hidden md:inline`}
                 >
                   {index + 1}.
                 </span>

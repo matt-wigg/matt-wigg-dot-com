@@ -79,8 +79,6 @@ const ContactForm = ({ show }: { show: boolean }) => {
             </p>
           )}
           {success ? (
-            // ...
-            // success content
             <div className='text-center'>
               <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
                 Success!
@@ -114,8 +112,6 @@ const ContactForm = ({ show }: { show: boolean }) => {
               </div>
             </div>
           ) : error ? (
-            // ...
-            // error content
             <div className='text-center'>
               <h3 className='text-lg font-medium leading-6 text-gray-900 dark:text-gray-100'>
                 Oops!
@@ -148,11 +144,8 @@ const ContactForm = ({ show }: { show: boolean }) => {
               </div>
             </div>
           ) : (
-            // ...
-            // form content
             <form onSubmit={handleSubmit}>
               <div className='space-y-4'>
-                {/* ... input fields and textarea */}
                 <input
                   type='text'
                   name='name'
@@ -161,7 +154,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm sm:text-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                  className={`text-base placeholder:text-base dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     !loading &&
                     'dark:hover:border-yellow-400 hover:border-yellow-400'
                   } ${loading && 'opacity-50 cursor-not-allowed'}`}
@@ -176,7 +169,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm sm:text-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                  className={`text-base dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     !loading &&
                     'dark:hover:border-yellow-400 hover:border-yellow-400'
                   } ${loading && 'opacity-50 cursor-not-allowed'}`}
@@ -191,7 +184,7 @@ const ContactForm = ({ show }: { show: boolean }) => {
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className={`dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm sm:text-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                  className={`text-base dark:bg-transparent dark:border-gray-700 border-gray-700 border block w-full shadow-sm rounded-md px-4 py-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                     !loading &&
                     'dark:hover:border-yellow-400 hover:border-yellow-400'
                   } ${loading && 'opacity-50 cursor-not-allowed'}`}

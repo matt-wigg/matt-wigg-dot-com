@@ -37,15 +37,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
       title="Matt-GPT v0.9-alpha"
       content={
         <>
-          {/* System message */}
-          {/* <p className="pb-4">
-            <span className="pb-4">
-              All requests currently carry a system message prefix to deter
-              timeouts in Vercel&apos;s hobby-tier edge functions.
-            </span>
-          </p> */}
-
-          {/* Model selection */}
           <div className="mb-4">
             <label
               htmlFor="model-selection"
@@ -57,7 +48,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
               id="model-selection"
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
-              className={`w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+              className={`w-full dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm text-base rounded-md p-2 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                 !isLoading
                   ? "dark:hover:border-yellow-400 hover:border-yellow-400 cursor-pointer"
                   : "cursor-not-allowed"
@@ -67,8 +58,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
               <option value="gpt-4">gpt-4 (conversational)</option>
             </select>
           </div>
-
-          {/* Chat log */}
           <span className="block mb-4 text-lg font-medium leading-6 text-gray-900 dark:text-gray-100">
             Chat log:
           </span>
@@ -82,7 +71,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                   className={`${
                     message.role === "user"
                       ? "dark:text-gray-300"
-                      : "font-bold dark:text-yellow-400"
+                      : "font-bold dark:text-yellow-400 text-base"
                   }`}
                 >
                   {`${message.role}: ${
@@ -96,8 +85,6 @@ const ChatForm = ({ show }: { show: boolean }) => {
             ))}
             <div ref={messagesEndRef} />
           </div>
-
-          {/* Input form */}
           <form onSubmit={handleSubmit}>
             <div className="flex">
               <textarea
@@ -109,7 +96,7 @@ const ChatForm = ({ show }: { show: boolean }) => {
                 value={input}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
-                className={`flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm sm:text-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
+                className={`text-base flex-grow dark:bg-transparent dark:border-gray-700 border-gray-700 border shadow-sm rounded-md p-4 focus:ring-1 focus:ring-yellow-400 focus:outline-none ${
                   !isLoading
                     ? "dark:hover:border-yellow-400 hover:border-yellow-400"
                     : "opacity-50 cursor-not-allowed"

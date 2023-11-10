@@ -6,7 +6,7 @@ import {
   DocumentTextIcon,
   CheckCircleIcon,
   XCircleIcon,
-} from "@heroicons/react/24/outline"; // Added DocumentTextIcon for file representation
+} from "@heroicons/react/24/outline";
 import ContentCard from "@/components/ContentCard/ContentCard";
 import Button from "@/components/Button";
 
@@ -92,7 +92,7 @@ const AudioForm = ({ show }: { show: boolean }) => {
             Transcription:
           </span>
           <div
-            className={`overflow-y-auto h-52 border mb-4 border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 ${
+            className={`text-base overflow-y-auto h-52 border mb-4 border-gray-700 rounded-lg p-4 bg-white dark:bg-zinc-950 ${
               !text ? "dark:text-gray-600" : "font-bold dark:text-yellow-400"
             }`}
           >
