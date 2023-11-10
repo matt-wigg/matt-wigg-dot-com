@@ -7,23 +7,23 @@ import style from "./Player.module.css";
 const tracks = [
   {
     id: 0,
+    artist: "Public Service Broadcasting",
+    title: "Go!",
+    source: "https://matt-wigg-dot-com-music.s3.us-west-1.amazonaws.com/go.mp3",
+  },
+  {
+    id: 1,
     artist: "Hovvdy",
     title: "Ruby",
     source:
       "https://matt-wigg-dot-com-music.s3.us-west-1.amazonaws.com/ruby-hovvdy.mp3",
   },
   {
-    id: 1,
+    id: 2,
     artist: "Sad Night Dynamite",
     title: "Krunk",
     source:
       "https://matt-wigg-dot-com-music.s3.us-west-1.amazonaws.com/krunk.mp3",
-  },
-  {
-    id: 2,
-    artist: "Public Service Broadcasting",
-    title: "Go!",
-    source: "https://matt-wigg-dot-com-music.s3.us-west-1.amazonaws.com/go.mp3",
   },
 ];
 

@@ -25,7 +25,7 @@ export default function RootLayout({
             <Player />
             <Navbar />
             <main className="md:pl-52 md:min-h-[120%] pb-28">
-              <HeaderNotification />
+              {/* <HeaderNotification /> */}
               <div className="container mx-auto px-4">
                 {children}
                 <Analytics />
