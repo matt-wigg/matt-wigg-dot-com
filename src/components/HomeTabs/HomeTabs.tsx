@@ -71,7 +71,7 @@ const HomeTabs = () => {
       title='Overview'
       content={
         <div>
-          <div className='flex relative pb-4 justify-start text-base'>
+          <div className='flex relative justify-start text-base'>
             <div
               className='absolute left-0 bottom-0 bg-yellow-400 h-0.5 rounded-full transition-all duration-300 ease-in-out'
               style={indicatorStyle}
