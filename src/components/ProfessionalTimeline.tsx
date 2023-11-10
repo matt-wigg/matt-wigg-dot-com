@@ -42,7 +42,7 @@ const ProfessionalTimeline = () => {
 
   return (
     <ContentCard
-      show={false}
+      show={true}
       title="Professional Timeline"
       content={
         <ul className="space-y-4">

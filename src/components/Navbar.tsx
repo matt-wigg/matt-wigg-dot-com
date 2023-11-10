@@ -95,24 +95,6 @@ const Navbar = () => {
               </span>
             </Button>
           </Link>
-          <Link href="/blog" legacyBehavior>
-            <Button
-              className={`w-full ${
-                pathname === "/blog" ? "text-yellow-400" : "dark:text-gray-100"
-              }`}
-            >
-              <BookOpenIcon className="h-6 w-6 text-yellow-400" />
-              <span className="ml-4">
-                {/* <span
-                  className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 bg-gray-400 
-    `}
-                >
-                  b.
-                </span> */}
-                Blog
-              </span>
-            </Button>
-          </Link>
           <Link href="/contact" legacyBehavior>
             <Button
               className={`w-full ${
@@ -122,17 +104,19 @@ const Navbar = () => {
               }`}
             >
               <PencilSquareIcon className="h-6 w-6 text-yellow-400" />
-              <span className="ml-4">
-                {/* <span
-                  className={`inline-block text-white dark:text-gray-300 rounded px-2 py-1 text-xs mr-2 transition duration-150 ease-in-out'bg-gray-200 dark:bg-gray-700 'bg-gray-400 bg-gray-300 dark:bg-zinc-900''
-    `}
-                >
-                  c.
-                </span> */}
-                Contact
-              </span>
+              <span className="ml-4">Contact</span>
             </Button>
           </Link>
+          {/* <Link href="/blog" legacyBehavior>
+            <Button
+              className={`w-full ${
+                pathname === "/blog" ? "text-yellow-400" : "dark:text-gray-100"
+              }`}
+            >
+              <BookOpenIcon className="h-6 w-6 text-yellow-400" />
+              <span className="ml-4">Blog (soon)</span>
+            </Button>
+          </Link> */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
             <ToggleTheme />
           </div>
@@ -194,19 +178,6 @@ const Navbar = () => {
                   <span className="ml-4">Projects</span>
                 </Button>
               </Link>
-              <Link href="/blog" legacyBehavior>
-                <Button
-                  className={`w-full ${
-                    pathname === "/blog"
-                      ? "text-yellow-400"
-                      : "text-gray-900 dark:text-gray-100"
-                  }`}
-                  onClick={() => toggleMenu()}
-                >
-                  <BookOpenIcon className="h-6 w-6 text-yellow-400" />
-                  <span className="ml-4">Blog</span>
-                </Button>
-              </Link>
               <Link href="/contact" legacyBehavior>
                 <Button
                   className={`w-full ${
@@ -220,6 +191,19 @@ const Navbar = () => {
                   <span className="ml-4">Contact</span>
                 </Button>
               </Link>
+              {/* <Link href="/blog" legacyBehavior>
+                <Button
+                  className={`w-full ${
+                    pathname === "/blog"
+                      ? "text-yellow-400"
+                      : "text-gray-900 dark:text-gray-100"
+                  }`}
+                  onClick={() => toggleMenu()}
+                >
+                  <BookOpenIcon className="h-6 w-6 text-yellow-400" />
+                  <span className="ml-4">Blog</span>
+                </Button>
+              </Link> */}
             </div>
             <div className="flex justify-end pt-4">
               <ToggleTheme />

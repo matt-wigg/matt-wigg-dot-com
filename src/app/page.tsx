@@ -1,6 +1,5 @@
 import HomeTabs from "@/components/HomeTabs/HomeTabs";
 import Profiles from "@/components/Profiles";
-import ContactForm from "@/components/ContactForm";
 import Testimonials from "@/components/Testimonials";
 import ResumeDownload from "@/components/ResumeDownload";
 import ProfessionalTimeline from "@/components/ProfessionalTimeline";
@@ -17,9 +16,6 @@ export default function Home() {
         <div className="xl:col-span-2 xl:row-start-auto xl:row-end-auto">
           <div className="pb-4">
             <Profiles />
-          </div>
-          <div className="pb-4">
-            <ContactForm show={true} />
           </div>
           <div className="pb-4">
             <ProfessionalTimeline />
