@@ -17,7 +17,7 @@
     "@vercel/analytics": "^1.0.0",
     "ai": "^2.2.13",
     "autoprefixer": "10.4.14",
-    "aws-crt": "^1.15.17",
+    "aws-crt": "^1.19.0",
     "aws-sdk": "^2.1386.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
